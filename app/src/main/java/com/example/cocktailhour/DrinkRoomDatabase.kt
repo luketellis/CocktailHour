@@ -31,12 +31,12 @@ public abstract class DrinkRoomDatabase : RoomDatabase() {
 
         suspend fun populateDatabase(drinkDao: DrinkDao) {
             // Delete all content here.
-            drinkDao.deleteAll()
+            //drinkDao.deleteAll()
 
             // Add sample drinks.
-            var drink = Drink("Tequila")
+            var drink = Drink("Tequila", "Mexican")
             drinkDao.insert(drink)
-            drink = Drink("Coffee")
+            drink = Drink("Coffee", "Morning")
             drinkDao.insert(drink)
 
             // TODO: Add your own drinks!
@@ -60,7 +60,7 @@ public abstract class DrinkRoomDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     DrinkRoomDatabase::class.java,
-                    "cocktials"
+                    "cocktails"
                 ).addCallback(DrinkDatabaseCallback(scope))
                     .build()
                 INSTANCE = instance

@@ -34,39 +34,9 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
-        val adapter = DrinkListAdapter(this)
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
-        drinkViewModel = ViewModelProvider(this).get(DrinkViewModel::class.java)
-        drinkViewModel.allDrinks.observe(this, Observer { drinks ->
-            // Update the cached copy of the drinks in the adapter.
-            drinks?.let { adapter.setDrinks(it) }
-        })
-
-        val fab = findViewById<FloatingActionButton>(R.id.fab)
-        fab.setOnClickListener {
-            val intent = Intent(this@MainActivity, NewDrinkActivity::class.java)
-            startActivityForResult(intent, newDrinkActivityRequestCode)
-        }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == newDrinkActivityRequestCode && resultCode == Activity.RESULT_OK) {
-            data?.getStringExtra(NewDrinkActivity.EXTRA_REPLY)?.let {
-                val drink = Drink(it)
-                drinkViewModel.insert(drink)
-            }
-        } else {
-            Toast.makeText(
-                applicationContext,
-                R.string.empty_not_saved,
-                Toast.LENGTH_LONG).show()
-        }
-    }
 
 /*    private fun initData(): List<Drink> {
         val data = mutableListOf<Drink>()

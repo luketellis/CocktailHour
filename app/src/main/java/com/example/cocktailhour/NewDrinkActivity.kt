@@ -23,7 +23,7 @@ class NewDrinkActivity: AppCompatActivity() {
                 if (TextUtils.isEmpty(editDrinkView.text)) {
                     setResult(Activity.RESULT_CANCELED, replyIntent)
                 } else {
-                    val drink = editDrinkView.text.toString()
+                    val drink = DrinkDTO(editDrinkView.text.toString(),"category")
                     replyIntent.putExtra(EXTRA_REPLY, drink)
                     setResult(Activity.RESULT_OK, replyIntent)
                 }

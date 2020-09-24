@@ -76,4 +76,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
 
+//  View Databases in browser
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.4'
 }
