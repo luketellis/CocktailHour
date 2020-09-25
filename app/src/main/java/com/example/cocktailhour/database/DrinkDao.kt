@@ -1,4 +1,4 @@
-package com.example.cocktailhour
+package com.example.cocktailhour.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -11,6 +11,9 @@ interface DrinkDao {
 
     @Query("SELECT * from Drinks ORDER BY name ASC")
     fun getAlphabetizedDrinks(): LiveData<List<Drink>>
+
+    @Query("SELECT count(*) from Drinks")
+    fun getNumberOfDrinks(): Int
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(drink: Drink)

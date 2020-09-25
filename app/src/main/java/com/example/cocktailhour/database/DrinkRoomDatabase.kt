@@ -1,4 +1,4 @@
-package com.example.cocktailhour
+package com.example.cocktailhour.database
 
 import android.content.Context
 import androidx.room.Database
@@ -29,17 +29,23 @@ public abstract class DrinkRoomDatabase : RoomDatabase() {
             }
         }
 
+        override fun onCreate(db: SupportSQLiteDatabase) {
+            super.onOpen(db)
+            INSTANCE?.let { database ->
+                scope.launch {
+                    //todo populateDatabaseOnInstall(database.drinkDao())
+                }
+            }
+        }
+
         suspend fun populateDatabase(drinkDao: DrinkDao) {
             // Delete all content here.
             //drinkDao.deleteAll()
-
-            // Add sample drinks.
-            var drink = Drink("Tequila", "Mexican")
-            drinkDao.insert(drink)
-            drink = Drink("Coffee", "Morning")
-            drinkDao.insert(drink)
-
-            // TODO: Add your own drinks!
+                // Add sample drinks.
+                var drink = Drink("Tequila", "Mexican", "Mug", "instructions", "thumbnail")
+                drinkDao.insert(drink)
+                drink = Drink("Coffee", "Morning", "Mug", "instructions", "thumbnail")
+                drinkDao.insert(drink)
         }
     }
 

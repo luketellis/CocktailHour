@@ -1,7 +1,6 @@
 package com.example.cocktailhour.ui.recipes
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,6 +15,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailhour.*
+import com.example.cocktailhour.database.Drink
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class RecipesFragment : Fragment() {
@@ -62,15 +62,14 @@ class RecipesFragment : Fragment() {
 /*    */
 
 
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == newDrinkActivityRequestCode && resultCode == Activity.RESULT_OK) {
-            data?.getParcelableExtra<DrinkDTO>(NewDrinkActivity.EXTRA_REPLY)?.let {
+            data?.getParcelableExtra<Drink>(NewDrinkActivity.EXTRA_REPLY)?.let {
                 val drink = it
 
-                drinkViewModel.insert(Drink(it.name, it.category))
+                drinkViewModel.insert(it)
             }
         } else {
             Toast.makeText(activity, R.string.empty_not_saved, Toast.LENGTH_LONG).show()

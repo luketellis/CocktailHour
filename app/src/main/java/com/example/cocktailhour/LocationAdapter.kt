@@ -1,14 +1,6 @@
 package com.example.mytown
 
-import android.content.Context
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
-import androidx.recyclerview.widget.RecyclerView
-import com.example.cocktailhour.Drink
+import com.example.cocktailhour.database.Drink
 
 class LocationAdapter(private val data: List<Drink>,
                       private val listener: (Drink) -> Unit,)/* : RecyclerView.Adapter<LocationAdapter.ViewHolder>()

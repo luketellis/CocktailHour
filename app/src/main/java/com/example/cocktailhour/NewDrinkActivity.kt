@@ -7,6 +7,7 @@ import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.example.cocktailhour.database.Drink
 
 class NewDrinkActivity: AppCompatActivity() {
 
@@ -23,7 +24,8 @@ class NewDrinkActivity: AppCompatActivity() {
                 if (TextUtils.isEmpty(editDrinkView.text)) {
                     setResult(Activity.RESULT_CANCELED, replyIntent)
                 } else {
-                    val drink = DrinkDTO(editDrinkView.text.toString(),"category")
+                    val drink = Drink(editDrinkView.text.toString(),"category",
+                        "Mug", "instructions", "thumbnail")
                     replyIntent.putExtra(EXTRA_REPLY, drink)
                     setResult(Activity.RESULT_OK, replyIntent)
                 }
