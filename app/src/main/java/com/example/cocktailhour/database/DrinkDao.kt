@@ -1,16 +1,19 @@
 package com.example.cocktailhour.database
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface DrinkDao {
 
-    @Query("SELECT * from Drinks ORDER BY name ASC")
+    @Query("SELECT * FROM Drinks ORDER BY name ASC")
     fun getAlphabetizedDrinks(): LiveData<List<Drink>>
+
+    @Query("SELECT * FROM Drinks WHERE category = :category ORDER BY name ASC")
+    fun getDrinkByCategory(category: String): LiveData<List<Drink>>
+
+    @Update
+    fun updateDrink(drink: Drink)
 
     @Query("SELECT count(*) from Drinks")
     fun getNumberOfDrinks(): Int

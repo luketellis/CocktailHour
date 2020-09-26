@@ -33,19 +33,23 @@ public abstract class DrinkRoomDatabase : RoomDatabase() {
             super.onOpen(db)
             INSTANCE?.let { database ->
                 scope.launch {
-                    //todo populateDatabaseOnInstall(database.drinkDao())
+                    populateDatabaseOnInstall(database.drinkDao())
                 }
             }
+        }
+
+        suspend fun populateDatabaseOnInstall(drinkDao: DrinkDao) {
+
         }
 
         suspend fun populateDatabase(drinkDao: DrinkDao) {
             // Delete all content here.
             //drinkDao.deleteAll()
                 // Add sample drinks.
-                var drink = Drink("Tequila", "Mexican", "Mug", "instructions", "thumbnail")
-                drinkDao.insert(drink)
-                drink = Drink("Coffee", "Morning", "Mug", "instructions", "thumbnail")
-                drinkDao.insert(drink)
+                //var drink = Drink("Tequila", "Mexican", "Mug", "instructions", "thumbnail")
+                //drinkDao.insert(drink)
+                //drink = Drink("Coffee", "Morning", "Mug", "instructions", "thumbnail")
+                //drinkDao.insert(drink)
         }
     }
 
@@ -66,8 +70,9 @@ public abstract class DrinkRoomDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     DrinkRoomDatabase::class.java,
-                    "cocktails"
-                ).addCallback(DrinkDatabaseCallback(scope))
+                    "Cocktails"
+                ).createFromAsset("data.db")
+                    .addCallback(DrinkDatabaseCallback(scope))
                     .build()
                 INSTANCE = instance
                 return instance
