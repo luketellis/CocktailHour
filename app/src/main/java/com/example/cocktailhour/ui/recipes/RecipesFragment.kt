@@ -39,7 +39,7 @@ class RecipesFragment : Fragment() {
         })
 
         val recyclerView = root.findViewById<RecyclerView>(R.id.recyclerview)
-        val adapter = DrinkListAdapter(root.context)
+        val adapter = DrinkListAdapter(root.context) { showDetail(it)}
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(root.context)
 
@@ -56,6 +56,12 @@ class RecipesFragment : Fragment() {
         }
 
         return root
+    }
+
+    private fun showDetail(item: Drink) {
+        val intent = Intent(activity, DrinkDetailsActivity::class.java)
+        intent.putExtra("drink", item)
+        startActivity(intent)
     }
 
 

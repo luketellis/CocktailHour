@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailhour.database.Drink
 
 class DrinkListAdapter internal constructor(
-    context: Context
+    context: Context,
+    private val listener: (Drink) -> Unit
 ) : RecyclerView.Adapter<DrinkListAdapter.DrinkViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
@@ -17,6 +19,10 @@ class DrinkListAdapter internal constructor(
 
     inner class DrinkViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val drinkItemView: TextView = itemView.findViewById(R.id.textView)
+
+        fun bind(item: Drink) {
+            itemView.setOnClickListener { listener(item) }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DrinkViewHolder {
@@ -27,6 +33,7 @@ class DrinkListAdapter internal constructor(
     override fun onBindViewHolder(holder: DrinkViewHolder, position: Int) {
         val current = drinks[position]
         holder.drinkItemView.text = current.name
+        holder.bind(current)
     }
 
     internal fun setDrinks(drinks: List<Drink>) {

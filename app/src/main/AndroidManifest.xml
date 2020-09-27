@@ -24,6 +24,10 @@
 
         <activity android:name=".NewDrinkActivity"></activity>
 
+        <activity android:name=".DrinkDetailsActivity"></activity>
+
+        <activity android:name=".DrinkEditActivity"></activity>
+
     </application>
 
 </manifest>
