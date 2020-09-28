@@ -64,7 +64,6 @@ class RecipesFragment : Fragment() {
         startActivity(intent)
     }
 
-
 /*    */
 
 

@@ -2,38 +2,27 @@ package com.example.cocktailhour
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cocktailhour.database.Drink
 
-class DrinkDetailsActivity : AppCompatActivity() {
+class DrinkFilterActivity : AppCompatActivity() {
 
-    private lateinit var nameTextView: TextView
-    private lateinit var tagsTextView: TextView
-    private lateinit var categoryTextView: TextView
-    private lateinit var alcoholicTextView: TextView
-    private lateinit var glassTextView: TextView
-    private lateinit var instructionsTextView: TextView
+    private lateinit var nameEditText: EditText
+    private lateinit var tagsEditText: EditText
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drink_details)
 
-        nameTextView = findViewById(R.id.nameText)
-        tagsTextView = findViewById(R.id.tags)
-        categoryTextView = findViewById(R.id.category)
-        alcoholicTextView = findViewById(R.id.alcoholic)
-        glassTextView = findViewById(R.id.glass)
-        instructionsTextView = findViewById(R.id.instructions)
+        nameEditText = findViewById(R.id.nameText)
+        tagsEditText = findViewById(R.id.tags)
 
         val drink = intent.getParcelableExtra<Drink>("drink")
 
-        nameTextView.text = drink?.name
-        tagsTextView.text = drink?.tags
-        categoryTextView.text = drink?.category
-        alcoholicTextView.text = drink?.alcoholic
-        glassTextView.text = drink?.glass
-        instructionsTextView.text = drink?.instructions
+        nameEditText.setText(drink?.name)
+        tagsEditText.setText(drink?.tags)
 
         val button = findViewById<Button>(R.id.button_save)
         /*           button.setOnClickListener {

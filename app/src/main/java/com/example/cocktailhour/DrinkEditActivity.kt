@@ -17,7 +17,7 @@ class DrinkEditActivity : AppCompatActivity() {
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.drink_details_activity)
+        setContentView(R.layout.activity_drink_details)
 
         nameEditText = findViewById(R.id.nameText)
         tagsEditText = findViewById(R.id.tags)
