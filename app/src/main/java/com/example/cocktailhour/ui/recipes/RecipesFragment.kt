@@ -3,10 +3,7 @@ package com.example.cocktailhour.ui.recipes
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -33,9 +30,7 @@ class RecipesFragment : Fragment() {
         recipesViewModel =
                 ViewModelProviders.of(this).get(RecipesViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_recipes, container, false)
-        val textView: TextView = root.findViewById(R.id.text_recipes)
         recipesViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
         })
 
         val recyclerView = root.findViewById<RecyclerView>(R.id.recyclerview)
@@ -80,6 +75,31 @@ class RecipesFragment : Fragment() {
             Toast.makeText(activity, R.string.empty_not_saved, Toast.LENGTH_LONG).show()
         }
     }
+
+   /* override fun onCreateContextMenu(
+        menu: ContextMenu?, v: View?,
+        menuInfo: ContextMenu.ContextMenuInfo?
+    ) {
+        super.onCreateContextMenu(menu!!, v!!, menuInfo)
+        val inflater: MenuInflater = getMenuInflater()
+        inflater.inflate(android.R.menu.menu_context, menu)
+    }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        return when (item.getItemId()) {
+            android.R.id.context_edit -> {
+                editNote()
+                true
+            }
+            android.R.id.context_share -> {
+                shareNote()
+                true
+            }
+            else -> super.onContextItemSelected(item)
+        }
+    }*/
+
+
 
 
 

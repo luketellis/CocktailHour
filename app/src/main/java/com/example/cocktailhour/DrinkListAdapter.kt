@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -22,6 +23,34 @@ class DrinkListAdapter internal constructor(
 
         fun bind(item: Drink) {
             itemView.setOnClickListener { listener(item) }
+
+            //registerForContextMenu(itemView)
+        }
+
+        init{
+            itemView.setOnLongClickListener {
+                // V is View variable and tv is name of textView
+
+                val pop= PopupMenu(itemView.context,it)
+                pop.inflate(R.menu.contextual_menu)
+
+                pop.setOnMenuItemClickListener {item->
+
+                    when(item.itemId)
+                    {
+                        R.id.action_edit->{
+                            Toast.makeText(itemView.context, "Edit!", Toast.LENGTH_SHORT).show()
+                        }
+
+                        R.id.action_delete -> {
+                            Toast.makeText(itemView.context, "DELETE!", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    true
+                }
+                pop.show()
+                true
+            }
         }
     }
 
