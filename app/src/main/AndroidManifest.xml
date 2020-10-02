@@ -3,6 +3,7 @@
     package="com.example.cocktailhour">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:allowBackup="true"
@@ -27,6 +28,8 @@
         <activity android:name=".DrinkDetailsActivity"></activity>
 
         <activity android:name=".DrinkEditActivity"></activity>
+
+
 
     </application>
 
