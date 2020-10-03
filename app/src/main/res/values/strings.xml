@@ -10,6 +10,8 @@
     <string name="name_hint">Drink Name...</string>
     <string name="tag_hint">Drink Tag...</string>
     <string name="button_save">Save</string>
+    <string name="button_update">Update</string>
+    <string name="button_exitWithoutSaving">Exit Without Saving</string>
     <string name="button_search">Search</string>
     <string name="empty_not_saved">Drink not saved because it is empty.</string>
     <string name="title_activity_new_drink">NewDrinkActivity</string>

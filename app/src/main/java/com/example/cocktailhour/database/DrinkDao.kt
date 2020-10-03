@@ -19,11 +19,11 @@ interface DrinkDao {
     fun getNumberOfDrinks(): Int
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(drink: Drink)
+    suspend fun insertDrink(drink: Drink)
 
     @Query("DELETE FROM Drinks WHERE id = :id")
-    suspend fun deleteAll(id: Int)
+    suspend fun deleteDrinkById(id: Int)
 
     @Query("DELETE FROM Drinks")
-    suspend fun deleteAll()
+    suspend fun deleteAllDrinks()
 }

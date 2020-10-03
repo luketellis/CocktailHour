@@ -17,7 +17,7 @@ class DrinkEditActivity : AppCompatActivity() {
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_drink_details)
+        setContentView(R.layout.activity_drink_edit)
 
         nameEditText = findViewById(R.id.nameText)
         tagsEditText = findViewById(R.id.tags)
@@ -36,23 +36,10 @@ class DrinkEditActivity : AppCompatActivity() {
         glassEditText.setText(drink?.glass)
         instructionsEditText.setText(drink?.instructions)
 
-        val button = findViewById<Button>(R.id.button_save)
-        /*           button.setOnClickListener {
-                       val replyIntent = Intent()
-                       if (TextUtils.isEmpty(editDrinkView.text)) {
-                           setResult(Activity.RESULT_CANCELED, replyIntent)
-                       } else {
-                           val drink = Drink(null, editDrinkView.text.toString(), "German Name", "Tags","category",
-                               "Alcoholic","Mug", "instructions", "German Instructions","thumbnail", "12/05/1991")
-
-                           replyIntent.putExtra(EXTRA_REPLY, drink)
-                           setResult(Activity.RESULT_OK, replyIntent)
-                       }
-                       finish()
-                   }*/
+        val exitWithoutSavingBtn = findViewById<Button>(R.id.exitBtn)
+        exitWithoutSavingBtn.setOnClickListener {
+            onBackPressed()
+        }
     }
 
-    companion object {
-        const val EXTRA_REPLY = "com.example.android.drinklistsql.REPLY"
-    }
 }

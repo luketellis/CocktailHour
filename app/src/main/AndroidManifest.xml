@@ -3,7 +3,7 @@
     package="com.example.cocktailhour">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -23,13 +23,20 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".NewDrinkActivity"></activity>
+        <activity
+            android:name=".NewDrinkActivity"
+            android:label="Add Drink">
+        </activity>
 
-        <activity android:name=".DrinkDetailsActivity"></activity>
+        <activity
+            android:name=".DrinkDetailsActivity"
+            android:label="Drink Details">
+        </activity>
 
-        <activity android:name=".DrinkEditActivity"></activity>
-
-
+        <activity
+            android:name=".DrinkEditActivity"
+            android:label="Edit Drink Details">
+        </activity>
 
     </application>
 

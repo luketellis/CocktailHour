@@ -1,20 +1,22 @@
 package com.example.cocktailhour
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailhour.database.Drink
+
 
 class DrinkListAdapter internal constructor(
     context: Context,
     private val drinkViewModel: DrinkViewModel,
     private val listener: (Drink) -> Unit
-
 
 ) : RecyclerView.Adapter<DrinkListAdapter.DrinkViewHolder>() {
 
@@ -22,45 +24,43 @@ class DrinkListAdapter internal constructor(
     private var drinks = emptyList<Drink>() // Cached copy of drinks
 
 
-    inner class DrinkViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class DrinkViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val drinkItemView: TextView = itemView.findViewById(R.id.textView)
 
         fun bind(item: Drink) {
             itemView.setOnClickListener { listener(item) }
-
-            //registerForContextMenu(itemView)
+            itemView.setOnLongClickListener { onLongClick(itemView, item) }
         }
 
-        init {
+        private fun onLongClick(v: View?, item: Drink): Boolean {
+            // Return true to indicate the click was handled
 
-            itemView.setOnLongClickListener {
-                //listener(item)
-                // V is View variable and tv is name of textView
+            val pop = PopupMenu(itemView.context, v)
+            pop.inflate(R.menu.contextual_menu)
 
-                val pop = PopupMenu(itemView.context, it)
-                pop.inflate(R.menu.contextual_menu)
-
-                pop.setOnMenuItemClickListener { menuItem ->
-
-                    when (menuItem.itemId) {
-                        R.id.action_edit -> {
-                            Toast.makeText(itemView.context, "Edit!", Toast.LENGTH_SHORT).show()
-                        }
-
-                        R.id.action_delete -> {
-                            menuItem?.let {
-
-                                //drinkViewModel.deleteById(item.id!!)
-                                drinkViewModel.delete()
-                            }
-                            Toast.makeText(itemView.context, "DELETE!", Toast.LENGTH_SHORT).show()
+            pop.setOnMenuItemClickListener { menuItem ->
+                when (menuItem.itemId) {
+                    R.id.action_edit -> {
+                        Toast.makeText(itemView.context, "Edit!", Toast.LENGTH_SHORT).show()
+                        val intent = Intent (v?.context, DrinkEditActivity::class.java)
+                        intent.putExtra("drink", item)
+                        if (v != null) {
+                            startActivity(v.context, intent, null)
                         }
                     }
-                    true
+
+                    R.id.action_delete -> {
+                        menuItem?.let {
+                            Toast.makeText(itemView.context, "Drink with name \"${item.name}\" has been deleted", Toast.LENGTH_SHORT).show()
+                            drinkViewModel.deleteById(item.id!!)
+                        }
+                    }
                 }
-                pop.show()
                 true
             }
+            pop.show()
+
+            return true
         }
     }
 
@@ -68,6 +68,7 @@ class DrinkListAdapter internal constructor(
         val itemView = inflater.inflate(R.layout.recyclerview_item, parent, false)
         return DrinkViewHolder(itemView)
     }
+
 
     override fun onBindViewHolder(holder: DrinkViewHolder, position: Int) {
         val current = drinks[position]
