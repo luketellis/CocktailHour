@@ -12,11 +12,15 @@ import com.example.cocktailhour.database.Drink
 
 class DrinkListAdapter internal constructor(
     context: Context,
+    private val drinkViewModel: DrinkViewModel,
     private val listener: (Drink) -> Unit
+
+
 ) : RecyclerView.Adapter<DrinkListAdapter.DrinkViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var drinks = emptyList<Drink>() // Cached copy of drinks
+
 
     inner class DrinkViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val drinkItemView: TextView = itemView.findViewById(R.id.textView)
@@ -27,22 +31,28 @@ class DrinkListAdapter internal constructor(
             //registerForContextMenu(itemView)
         }
 
-        init{
+        init {
+
             itemView.setOnLongClickListener {
+                //listener(item)
                 // V is View variable and tv is name of textView
 
-                val pop= PopupMenu(itemView.context,it)
+                val pop = PopupMenu(itemView.context, it)
                 pop.inflate(R.menu.contextual_menu)
 
-                pop.setOnMenuItemClickListener {item->
+                pop.setOnMenuItemClickListener { menuItem ->
 
-                    when(item.itemId)
-                    {
-                        R.id.action_edit->{
+                    when (menuItem.itemId) {
+                        R.id.action_edit -> {
                             Toast.makeText(itemView.context, "Edit!", Toast.LENGTH_SHORT).show()
                         }
 
                         R.id.action_delete -> {
+                            menuItem?.let {
+
+                                //drinkViewModel.deleteById(item.id!!)
+                                drinkViewModel.delete()
+                            }
                             Toast.makeText(itemView.context, "DELETE!", Toast.LENGTH_SHORT).show()
                         }
                     }

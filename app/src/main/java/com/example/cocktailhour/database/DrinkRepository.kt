@@ -12,4 +12,12 @@ class DrinkRepository(private val drinkDao: DrinkDao) {
     suspend fun insert(drink: Drink) {
         drinkDao.insert(drink)
     }
+
+    suspend fun deleteById(id: Int) {
+        drinkDao.deleteAll()
+    }
+
+    suspend fun delete() {
+        drinkDao.deleteAll()
+    }
 }

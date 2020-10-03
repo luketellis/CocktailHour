@@ -31,4 +31,12 @@ class DrinkViewModel(application: Application) : AndroidViewModel(application) {
     fun insert(drink: Drink) = viewModelScope.launch(Dispatchers.IO) {
         repository.insert(drink)
     }
+
+    fun delete() = viewModelScope.launch(Dispatchers.IO) {
+        repository.delete()
+    }
+
+    fun deleteById(id: Int) = viewModelScope.launch(Dispatchers.IO) {
+        repository.deleteById(id)
+    }
 }

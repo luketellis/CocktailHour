@@ -33,12 +33,14 @@ class RecipesFragment : Fragment() {
         recipesViewModel.text.observe(viewLifecycleOwner, Observer {
         })
 
+        drinkViewModel = ViewModelProvider(this).get(DrinkViewModel::class.java)
+
+
         val recyclerView = root.findViewById<RecyclerView>(R.id.recyclerview)
-        val adapter = DrinkListAdapter(root.context) { showDetail(it)}
+        val adapter = DrinkListAdapter(root.context, drinkViewModel) { showDetail(it)}
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(root.context)
 
-        drinkViewModel = ViewModelProvider(this).get(DrinkViewModel::class.java)
         drinkViewModel.allDrinks.observe(viewLifecycleOwner, Observer { drinks ->
             // Update the cached copy of the drinks in the adapter.
             drinks?.let { adapter.setDrinks(it) }
@@ -58,9 +60,6 @@ class RecipesFragment : Fragment() {
         intent.putExtra("drink", item)
         startActivity(intent)
     }
-
-/*    */
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
