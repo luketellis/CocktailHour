@@ -9,10 +9,6 @@ import kotlinx.android.parcel.Parcelize
 data class DrinkLocation(
     var country: String, var coordinates: LatLng, var drink: String) : Parcelable {
 
-    fun displayAsMapRow(): String {
-        return " " + this.drink + "\n " + this.country
-    }
-
     override fun toString(): String {
         return "DrinkLocation(country='$country', coordinates=$coordinates, drink=$drink)"
     }

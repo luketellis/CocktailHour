@@ -38,26 +38,26 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         // Add a marker in Sydney and move the camera
         //val sydney = LatLng(-34.0, 151.0)
         initData().forEach{
-            mMap.addMarker(MarkerOptions().position(it.coordinates).title(it.country))
+            mMap.addMarker(MarkerOptions().position(it.coordinates).title(it.drink).snippet(it.country))
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(it.coordinates))
         }
     }
 
     private fun initData() : List<DrinkLocation> {
         return listOf(
-            DrinkLocation("Mexico", LatLng(19.4326, 99.1332), "Paloma"),
-            DrinkLocation("Canada", LatLng(45.4215, 75.6972), "Bloody Mary"),
-            DrinkLocation("Brazil", LatLng(22.9068, 43.1729), "Caipirinha"),
+            DrinkLocation("Mexico", LatLng(19.4326, -99.1332), "Paloma"),
+            DrinkLocation("Canada", LatLng(45.4215, -75.6972), "Bloody Mary"),
+            DrinkLocation("Brazil", LatLng(-22.9068, -43.1729), "Caipirinha"),
             DrinkLocation("Spain", LatLng(19.4326, 99.1332), "Sangria"),
-            DrinkLocation("France", LatLng(48.8566, 2.3522), "French 75"),
+            DrinkLocation("France", LatLng(49.8566, 2.3522), "French 75"),
             DrinkLocation("England", LatLng(51.5074, 0.1278), "Vesper"),
-            DrinkLocation("New Zealand", LatLng(41.2769, 174.7731), "Kiwi Lemon"),
+            DrinkLocation("New Zealand", LatLng(-41.2769, 174.7731), "Kiwi Lemon"),
             DrinkLocation("Singapore", LatLng(1.3521, 103.8198), "Singapore Sling"),
             DrinkLocation("Japan", LatLng(35.6762, 139.6503), "Kamikaze"),
-            DrinkLocation("Germany", LatLng(.5200, 13.4050), "Kir Royale"),
-            DrinkLocation("Cuba", LatLng(35.6762, 139.6503), "Mojito"),
-            DrinkLocation("Jamaica", LatLng(18.1096, 77.2975), "Jamaica Kiss"),
-            DrinkLocation("Egypt", LatLng(26.8206, 30.8025), "Jewel Of The Nile"),
-            DrinkLocation("Zimbabwe", LatLng(19.0154, 29.1549), "Negroni"))
+            DrinkLocation("Germany", LatLng(52.5200, 13.4050), "Kir Royale"),
+            DrinkLocation("Cuba", LatLng(23.6762, -82.6503), "Mojito"),
+            DrinkLocation("Jamaica", LatLng(18.1096, -77.2975), "Jamaica Kiss"),
+            DrinkLocation("Egypt", LatLng(24.8206, 27.8025), "Jewel Of The Nile"),
+            DrinkLocation("Zimbabwe", LatLng(-19.0154, 29.1549), "Negroni"))
     }
 }
