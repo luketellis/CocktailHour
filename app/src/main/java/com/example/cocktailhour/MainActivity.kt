@@ -1,12 +1,17 @@
 package com.example.cocktailhour
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
+import android.widget.Button
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.cocktailhour.database.Drink
 
 class MainActivity : AppCompatActivity() {
     private val newDrinkActivityRequestCode = 1
@@ -27,19 +32,4 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
     }
-
-
-
-/*    private fun initData(): List<Drink> {
-        val data = mutableListOf<Drink>()
-        data.add(Drink(1, "Margharitta", "Alochol",
-            "large", "instuctions", "www.google.com",
-            mutableListOf(), mutableListOf()))
-
-        data.add(Drink(2, "Volcano", "Alochol",
-            "large", "instuctions2", "www.yahoo.com",
-            mutableListOf(), mutableListOf()))
-
-        return data
-    }*/
 }

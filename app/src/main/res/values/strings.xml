@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Cocktail Hour</string>
+    <string name="title_map">Drink\'s of the World</string>
+    <string name="title_add_drink">Add Drink</string>
+    <string name="title_edit_drink">Edit Drink Details</string>
+    <string name="title_drink_drink">Drink Details</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_recipes">Recipes</string>
