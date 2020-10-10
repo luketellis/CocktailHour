@@ -29,22 +29,22 @@
         </activity>
 
         <activity
-            android:name=".NewDrinkActivity"
+            android:name=".drink.AddDrinkActivity"
             android:label="Add Drink">
         </activity>
 
         <activity
-            android:name=".DrinkDetailsActivity"
+            android:name=".drink.details.DrinkDetailsActivity"
             android:label="Drink Details">
         </activity>
 
         <activity
-            android:name=".DrinkEditActivity"
+            android:name=".drink.EditDrinkActivity"
             android:label="@string/title_edit_drink">
         </activity>
 
         <activity
-            android:name="MapActivity"
+            android:name=".misc.MapActivity"
             android:label="@string/title_map">
         </activity>
 

@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.example.cocktailhour.MapActivity
+import com.example.cocktailhour.misc.MapActivity
 import com.example.cocktailhour.R
 
 class HomeFragment : Fragment() {

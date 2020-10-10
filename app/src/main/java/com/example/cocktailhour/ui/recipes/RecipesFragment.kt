@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailhour.*
 import com.example.cocktailhour.database.Drink
+import com.example.cocktailhour.drink.AddDrinkActivity
+import com.example.cocktailhour.drink.details.DrinkDetailsActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class RecipesFragment : Fragment() {
@@ -48,7 +50,7 @@ class RecipesFragment : Fragment() {
 
         val fab = root.findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener {
-            val intent = Intent(activity, NewDrinkActivity::class.java)
+            val intent = Intent(activity, AddDrinkActivity::class.java)
             startActivityForResult(intent, newDrinkActivityRequestCode)
         }
 
@@ -65,7 +67,7 @@ class RecipesFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == newDrinkActivityRequestCode && resultCode == Activity.RESULT_OK) {
-            data?.getParcelableExtra<Drink>(NewDrinkActivity.EXTRA_REPLY)?.let {
+            data?.getParcelableExtra<Drink>(AddDrinkActivity.EXTRA_REPLY)?.let {
                 val drink = it
 
                 drinkViewModel.insert(it)

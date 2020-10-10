@@ -1,4 +1,4 @@
-package com.example.cocktailhour
+package com.example.cocktailhour.drink
 
 import android.app.Activity
 import android.content.Intent
@@ -7,9 +7,10 @@ import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.example.cocktailhour.R
 import com.example.cocktailhour.database.Drink
 
-class NewDrinkActivity: AppCompatActivity() {
+class AddDrinkActivity: AppCompatActivity() {
 
         private lateinit var editDrinkView: EditText
 

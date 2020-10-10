@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/nameText"
+        android:id="@+id/nameTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="@dimen/min_height"
@@ -15,7 +15,7 @@
         android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/tags"
+        android:id="@+id/tagsTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/big_padding"
@@ -26,7 +26,7 @@
         android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/category"
+        android:id="@+id/categoryTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/big_padding"
@@ -37,7 +37,7 @@
         android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/alcoholic"
+        android:id="@+id/alcoholicTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/big_padding"
@@ -48,7 +48,7 @@
         android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/glass"
+        android:id="@+id/glassTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/big_padding"
@@ -59,7 +59,7 @@
         android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/instructions"
+        android:id="@+id/instructionsTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/big_padding"

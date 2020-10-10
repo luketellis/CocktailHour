@@ -3,7 +3,6 @@ package com.example.cocktailhour
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cocktailhour.database.Drink
 
@@ -16,8 +15,8 @@ class DrinkFilterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drink_details)
 
-        nameEditText = findViewById(R.id.nameText)
-        tagsEditText = findViewById(R.id.tags)
+        nameEditText = findViewById(R.id.nameTV)
+        tagsEditText = findViewById(R.id.tagsTV)
 
         val drink = intent.getParcelableExtra<Drink>("drink")
 

@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailhour.database.Drink
+import com.example.cocktailhour.drink.EditDrinkActivity
 
 
 class DrinkListAdapter internal constructor(
@@ -42,7 +43,7 @@ class DrinkListAdapter internal constructor(
                 when (menuItem.itemId) {
                     R.id.action_edit -> {
                         Toast.makeText(itemView.context, "Edit!", Toast.LENGTH_SHORT).show()
-                        val intent = Intent (v?.context, DrinkEditActivity::class.java)
+                        val intent = Intent (v?.context, EditDrinkActivity::class.java)
                         intent.putExtra("drink", item)
                         if (v != null) {
                             startActivity(v.context, intent, null)

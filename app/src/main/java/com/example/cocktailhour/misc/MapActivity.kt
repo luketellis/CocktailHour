@@ -1,7 +1,8 @@
-package com.example.cocktailhour
+package com.example.cocktailhour.misc
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.cocktailhour.R
 import com.example.cocktailhour.entitiy.DrinkLocation
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -46,11 +47,14 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun initData() : List<DrinkLocation> {
         return listOf(
             DrinkLocation("Mexico", LatLng(19.4326, -99.1332), "Paloma"),
+            DrinkLocation("Peru", LatLng(-12.0463, -77.0427), "Pisco Sour"),
             DrinkLocation("Canada", LatLng(45.4215, -75.6972), "Bloody Mary"),
+            DrinkLocation("New York", LatLng(40.7306, -73.9452), "New York Sour"),
             DrinkLocation("Brazil", LatLng(-22.9068, -43.1729), "Caipirinha"),
-            DrinkLocation("Spain", LatLng(19.4326, 99.1332), "Sangria"),
+            DrinkLocation("Spain", LatLng(40.73061, -3.7037), "Sangria"),
             DrinkLocation("France", LatLng(49.8566, 2.3522), "French 75"),
             DrinkLocation("England", LatLng(51.5074, 0.1278), "Vesper"),
+            DrinkLocation("Russia", LatLng(55.7512, 37.6184), "Black Russian"),
             DrinkLocation("New Zealand", LatLng(-41.2769, 174.7731), "Kiwi Lemon"),
             DrinkLocation("Singapore", LatLng(1.3521, 103.8198), "Singapore Sling"),
             DrinkLocation("Japan", LatLng(35.6762, 139.6503), "Kamikaze"),

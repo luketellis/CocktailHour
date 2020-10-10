@@ -1,12 +1,13 @@
-package com.example.cocktailhour
+package com.example.cocktailhour.drink
 
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.example.cocktailhour.R
 import com.example.cocktailhour.database.Drink
 
-class DrinkEditActivity : AppCompatActivity() {
+class EditDrinkActivity : AppCompatActivity() {
 
     private lateinit var nameEditText: EditText
     private lateinit var tagsEditText: EditText
@@ -19,12 +20,12 @@ class DrinkEditActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drink_edit)
 
-        nameEditText = findViewById(R.id.nameText)
-        tagsEditText = findViewById(R.id.tags)
-        categoryEditText = findViewById(R.id.category)
-        alcoholicEditText = findViewById(R.id.alcoholic)
-        glassEditText = findViewById(R.id.glass)
-        instructionsEditText = findViewById(R.id.instructions)
+        nameEditText = findViewById(R.id.nameTV)
+        tagsEditText = findViewById(R.id.tagsTV)
+        categoryEditText = findViewById(R.id.categoryTV)
+        alcoholicEditText = findViewById(R.id.alcoholicTV)
+        glassEditText = findViewById(R.id.glassTV)
+        instructionsEditText = findViewById(R.id.instructionsTV)
 
         val drink = intent.getParcelableExtra<Drink>("drink")
 
