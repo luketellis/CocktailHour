@@ -29,7 +29,7 @@ class DetailsFragment : Fragment() {
 
         val root = inflater.inflate(R.layout.fragment_drink_details, container, false)
 
-      nameTextView = root.findViewById(R.id.nameTV)
+        nameTextView = root.findViewById(R.id.nameTV)
         tagsTextView = root.findViewById(R.id.tagsTV)
         categoryTextView = root.findViewById(R.id.categoryTV)
         alcoholicTextView = root.findViewById(R.id.alcoholicTV)

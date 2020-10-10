@@ -5,8 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.example.cocktailhour.R
+import com.example.cocktailhour.database.Drink
+import com.squareup.picasso.Picasso
 
 class GalleryFragment: Fragment() {
 
@@ -14,7 +17,16 @@ class GalleryFragment: Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.gallery_fragment, container, false)
+
+        val root = inflater.inflate(R.layout.gallery_fragment, container, false)
+
+        val imageView = root.findViewById<ImageView>(R.id.thumbnail)
+
+        val activity: DrinkDetailsActivity? = activity as DrinkDetailsActivity?
+        val drink: Drink? = activity?.getMyData()
+
+        Picasso.get().load(drink?.thumbnail).into(imageView);
+        return root
     }
 
     companion object{
