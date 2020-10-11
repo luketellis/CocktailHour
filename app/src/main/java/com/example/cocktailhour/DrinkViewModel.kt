@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.cocktailhour.database.Drink
 import com.example.cocktailhour.database.DrinkRepository
-import com.example.cocktailhour.database.DrinkRoomDatabase
+import com.example.cocktailhour.database.CocktailHourRoomDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -20,7 +20,7 @@ class DrinkViewModel(application: Application) : AndroidViewModel(application) {
     val allDrinks: LiveData<List<Drink>>
 
     init {
-        val drinksDao = DrinkRoomDatabase.getDatabase(application, viewModelScope).drinkDao()
+        val drinksDao = CocktailHourRoomDatabase.getDatabase(application, viewModelScope).drinkDao()
         repository = DrinkRepository(drinksDao)
         allDrinks = repository.allDrinks
     }

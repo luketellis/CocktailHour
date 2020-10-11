@@ -10,10 +10,11 @@ import kotlinx.coroutines.launch
 
 
 // Annotates class to be a Room Database with a table (entity) of the Drink class
-@Database(entities = arrayOf(Drink::class), version = 1, exportSchema = false)
-public abstract class DrinkRoomDatabase : RoomDatabase() {
+@Database(entities = arrayOf(Drink::class, Ingredient::class), version = 1, exportSchema = false)
+public abstract class CocktailHourRoomDatabase : RoomDatabase() {
 
     abstract fun drinkDao(): DrinkDao
+    abstract fun ingredientDao(): IngredientDao
 
 
     private class DrinkDatabaseCallback(
@@ -57,11 +58,11 @@ public abstract class DrinkRoomDatabase : RoomDatabase() {
         // Singleton prevents multiple instances of database opening at the
         // same time.
         @Volatile
-        private var INSTANCE: DrinkRoomDatabase? = null
+        private var INSTANCE: CocktailHourRoomDatabase? = null
 
         fun getDatabase(context: Context,
                         scope: CoroutineScope
-        ): DrinkRoomDatabase {
+        ): CocktailHourRoomDatabase {
             val tempInstance = INSTANCE
             if (tempInstance != null) {
                 return tempInstance
@@ -69,7 +70,7 @@ public abstract class DrinkRoomDatabase : RoomDatabase() {
             synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    DrinkRoomDatabase::class.java,
+                    CocktailHourRoomDatabase::class.java,
                     "Cocktails"
                 ).createFromAsset("data.db")
                     .addCallback(DrinkDatabaseCallback(scope))

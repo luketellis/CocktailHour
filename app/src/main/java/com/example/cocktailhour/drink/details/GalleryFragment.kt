@@ -23,7 +23,7 @@ class GalleryFragment: Fragment() {
         val imageView = root.findViewById<ImageView>(R.id.thumbnail)
 
         val activity: DrinkDetailsActivity? = activity as DrinkDetailsActivity?
-        val drink: Drink? = activity?.getMyData()
+        val drink: Drink? = activity?.getMyDrink()
 
         Picasso.get().load(drink?.thumbnail).into(imageView);
         return root

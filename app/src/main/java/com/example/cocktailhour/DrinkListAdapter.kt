@@ -66,7 +66,7 @@ class DrinkListAdapter internal constructor(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DrinkViewHolder {
-        val itemView = inflater.inflate(R.layout.recyclerview_item, parent, false)
+        val itemView = inflater.inflate(R.layout.drink_row, parent, false)
         return DrinkViewHolder(itemView)
     }
 

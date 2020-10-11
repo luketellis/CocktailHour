@@ -37,7 +37,7 @@ class DetailsFragment : Fragment() {
         instructionsTextView = root.findViewById(R.id.instructionsTV)
 
         val activity: DrinkDetailsActivity? = activity as DrinkDetailsActivity?
-        val drink: Drink? = activity?.getMyData()
+        val drink: Drink? = activity?.getMyDrink()
 
         nameTextView.text = drink?.name
         tagsTextView.text = drink?.tags
