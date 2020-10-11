@@ -13,7 +13,7 @@ import com.example.cocktailhour.entitiy.IngredientMeasure
 
 class IngredientMeasureListAdapter(
     private val context: Context,
-    private val data: List<IngredientMeasure>
+    private val data: ArrayList<IngredientMeasure>
 /*  private val listener: (IngredientMeasure) -> Unit,*/
 ) : RecyclerView.Adapter<IngredientMeasureListAdapter.ViewHolder>() {
 

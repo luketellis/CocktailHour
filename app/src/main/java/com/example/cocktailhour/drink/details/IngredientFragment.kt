@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailhour.R
+import com.example.cocktailhour.database.Drink
 import com.example.cocktailhour.database.Ingredient
 import com.example.cocktailhour.entitiy.IngredientMeasure
 import layout.IngredientMeasureListAdapter
@@ -22,7 +23,11 @@ class IngredientFragment: Fragment() {
         val root = inflater.inflate(R.layout.ingredient_fragment, container, false)
 
         val recyclerView = root.findViewById<RecyclerView>(R.id.recyclerview)
-        val adapter = IngredientMeasureListAdapter(root.context, convertIngredientRecordIntoIngredientMeasureList(null))
+        /*val drink: Drink? = activity?.getMyDrink()*/
+
+        val activity: DrinkDetailsActivity? = activity as DrinkDetailsActivity?
+
+        val adapter = IngredientMeasureListAdapter(root.context, activity!!.getMyIngredients())
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(root.context)
 

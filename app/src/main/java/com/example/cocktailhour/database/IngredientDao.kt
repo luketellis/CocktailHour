@@ -5,12 +5,8 @@ import androidx.room.*
 
 @Dao
 interface IngredientDao {
-
-    @Query("SELECT * FROM ingredient")
-    fun getAllIngredients(): LiveData<List<Ingredient>>
-
     @Query("SELECT * from ingredient WHERE id = :id")
-    fun getIngredientById(id: Int): Ingredient
+    fun getIngredientById(id: Int?): Ingredient
 
     @Update
     fun updateIngredient(ingredient: Ingredient)

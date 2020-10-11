@@ -1,25 +1,22 @@
 package com.example.cocktailhour.drink.details
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.room.Room
 import androidx.viewpager2.widget.ViewPager2
-import com.example.cocktailhour.DrinkViewModel
 import com.example.cocktailhour.IngredientViewModel
 import com.example.cocktailhour.R
 import com.example.cocktailhour.database.*
+import com.example.cocktailhour.entitiy.IngredientMeasure
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.coroutineScope
-import kotlin.coroutines.coroutineContext
 
 class DrinkDetailsActivity : AppCompatActivity() {
     private var  drink: Drink? = null
-    private var  ingredient: Ingredient? = null
+    private val ingredientMeasureList = ArrayList<IngredientMeasure>()
     private lateinit var ingredientViewModel: IngredientViewModel
 
     private lateinit var nameTextView: TextView
@@ -37,9 +34,34 @@ class DrinkDetailsActivity : AppCompatActivity() {
         ingredientViewModel = ViewModelProvider(this).get(IngredientViewModel::class.java)
         drink?.id?.let { ingredientViewModel.getIngredientById(it) }
 
-        //ingredient = ingredientViewModel.ingredient
+
+        var db= Room.databaseBuilder(applicationContext,CocktailHourRoomDatabase::class.java,"Cocktails").build()
+
+        val thread = Thread {
+
+            var ingredient : Ingredient = db.ingredientDao().getIngredientById(drink?.id)
+
+            /*val toast = Toast.makeText(applicationContext, ingredient.toString(), Toast.LENGTH_LONG)
+            toast.show()*/
+            Log.i("TAG", ingredient.toString())
 
 
+            ingredientMeasureList.add(IngredientMeasure(ingredient.ingredient1, ingredient.measure1))
+            ingredientMeasureList.add(IngredientMeasure(ingredient.ingredient2, ingredient.measure2))
+
+            if (ingredient.ingredient3 != null)
+                ingredientMeasureList.add(IngredientMeasure(ingredient.ingredient3!!, ingredient.measure3!!))
+            if (ingredient.ingredient4 != null)
+                ingredientMeasureList.add(IngredientMeasure(ingredient.ingredient4!!, ingredient.measure4!!))
+            if (ingredient.ingredient5 != null)
+                ingredientMeasureList.add(IngredientMeasure(ingredient.ingredient5!!, ingredient.measure5!!))
+            if (ingredient.ingredient6 != null)
+                ingredientMeasureList.add(IngredientMeasure(ingredient.ingredient6!!, ingredient.measure6!!))
+            if (ingredient.ingredient7 != null)
+                ingredientMeasureList.add(IngredientMeasure(ingredient.ingredient7!!, ingredient.measure7!!))
+        }
+
+        thread.start()
 
 
         val viewPager2 = findViewById<ViewPager2>(R.id.pager2_container)
@@ -56,11 +78,16 @@ class DrinkDetailsActivity : AppCompatActivity() {
             tab.text = getTabText(position)
         }.attach()
 
-        val toast = Toast.makeText(applicationContext, ingredient.toString(), Toast.LENGTH_LONG)
-        toast.show()
+
     }
 
-    fun getTabText(position: Int): String {
+    private fun convertIngredientRecordIntoIngredientMeasureList(ingredient: Ingredient?): ArrayList<IngredientMeasure> {
+        val ingredientMeasureList = ArrayList<IngredientMeasure>()
+
+        return ingredientMeasureList
+    }
+
+    private fun getTabText(position: Int): String {
         var tabText: String = "Details"
 
         when (position) {
@@ -75,7 +102,7 @@ class DrinkDetailsActivity : AppCompatActivity() {
         return drink
     }
 
-    fun getMyIngredient(): Ingredient? {
-        return ingredient
+    fun getMyIngredients(): ArrayList<IngredientMeasure> {
+        return ingredientMeasureList
     }
 }
