@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:text="Gallery"
-        android:textSize="20sp"
+        android:textSize="26sp"
+        android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView

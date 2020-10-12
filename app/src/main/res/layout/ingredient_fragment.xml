@@ -3,22 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.timer.TimerFragment">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/text_heading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ingredient"
+        android:text="@string/Ingredients"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="26sp"
+        android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_padding"
         tools:listitem="@layout/ingredient_measure_row"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

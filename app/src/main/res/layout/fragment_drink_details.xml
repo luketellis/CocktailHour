@@ -9,72 +9,193 @@
     <TextView
         android:id="@+id/nameTV"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
-        android:hint="@string/hint_word"
-        android:minHeight="@dimen/min_height"
-        android:textSize="18sp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="8dp"/>
+        android:layout_height="@dimen/min_height"
+        android:layout_margin="@dimen/medium_padding"
+        android:hint="@string/name_hint"
+        android:textAlignment="center"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/categoryTV"
+    <LinearLayout
+        android:id="@+id/categoryAlcoholicLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
-        android:hint="@string/hint_word"
-        android:minHeight="@dimen/min_height"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/nameTV"
-        app:layout_constraintBottom_toTopOf="@+id/tagsTV"
-        android:layout_marginLeft="8dp"/>
+        android:baselineAligned="false"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutTag"
+        app:layout_constraintTop_toBottomOf="@+id/nameTV">
 
-    <TextView
-        android:id="@+id/tagsTV"
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_padding"
+            android:layout_weight="50"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/tagsTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout1">
+
+            <TextView
+                android:id="@+id/categoryLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/category_label"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/categoryTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/category_hint"
+                android:minHeight="@dimen/min_height"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_padding"
+            android:layout_weight="50"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/alcoholicLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/alcoholic_label"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+
+            <TextView
+                android:id="@+id/alcoholicTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/alcoholic_hint"
+                android:minHeight="@dimen/min_height"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutTag"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
-        android:hint="@string/hint_word"
-        android:minHeight="@dimen/min_height"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/categoryTV"
-        app:layout_constraintBottom_toTopOf="@+id/glassTV"
-        android:layout_marginLeft="8dp"/>
+        android:layout_margin="@dimen/medium_padding"
+        android:layout_weight="50"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/categoryAlcoholicLinearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutGlass"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <TextView
-        android:id="@+id/glassTV"
+        <TextView
+            android:id="@+id/tagsLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:fontFamily="sans-serif-light"
+            android:minHeight="@dimen/min_height"
+            android:text="@string/tag_label"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tagsTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/tag_hint"
+            android:minHeight="@dimen/min_height"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutGlass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
-        android:hint="@string/hint_word"
-        android:minHeight="@dimen/min_height"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/alcoholicTV"
-        app:layout_constraintTop_toBottomOf="@+id/tagsTV"
-        android:layout_marginLeft="8dp"/>
+        android:layout_margin="@dimen/medium_padding"
+        android:layout_weight="50"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutTag"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutInstruction"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <TextView
-        android:id="@+id/alcoholicTV"
+        <TextView
+            android:id="@+id/glassLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:fontFamily="sans-serif-light"
+            android:minHeight="@dimen/min_height"
+            android:text="@string/glass_label"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/glassTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/glass_hint"
+            android:minHeight="@dimen/min_height"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayoutInstruction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
-        android:hint="@string/hint_word"
-        android:minHeight="@dimen/min_height"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/glassTV"
-        app:layout_constraintBottom_toTopOf="@+id/instructionsTV"
-        android:layout_marginLeft="8dp"/>
-
-    <TextView
-        android:id="@+id/instructionsTV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
-        android:hint="@string/hint_word"
-        android:minHeight="@dimen/min_height"
-        android:textSize="18sp"
+        android:layout_margin="@dimen/medium_padding"
+        android:layout_weight="50"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutGlass"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/alcoholicTV"
-        android:layout_marginLeft="8dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
+
+        <TextView
+            android:id="@+id/instructionLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:fontFamily="sans-serif-light"
+            android:minHeight="@dimen/min_height"
+            android:text="@string/instruction_label"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/instructionsTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/drink_instructions"
+            android:minHeight="@dimen/min_height_instructions"
+            android:textSize="18sp" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

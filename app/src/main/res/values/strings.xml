@@ -12,7 +12,10 @@
     <string name="add_drink">Add Drink</string>
     <string name="hint_word">Drink...</string>
     <string name="name_hint">Drink Name...</string>
-    <string name="tag_hint">Drink Tag...</string>
+    <string name="category_hint">Drink Category...</string>
+    <string name="tag_hint">Drink Tags...</string>
+    <string name="glass_hint">Drink Glass Type...</string>
+    <string name="alcoholic_hint">Alcoholic...</string>
     <string name="button_save">Save</string>
     <string name="button_update">Update</string>
     <string name="button_exitWithoutSaving">Exit Without Saving</string>
@@ -25,4 +28,11 @@
     -->
     <string name="hello_world">Hello Square World!</string>
     <string name="ingredient_image">Ingredient Image</string>
+    <string name="Ingredients">Ingredients</string>
+    <string name="drink_instructions">Drink Instructions...</string>
+    <string name="alcoholic_label">Alcoholic Content</string>
+    <string name="glass_label">Recommended Glass Type</string>
+    <string name="instruction_label">Instructions</string>
+    <string name="tag_label">Drink Tags</string>
+    <string name="category_label">Drink Category</string>
 </resources>

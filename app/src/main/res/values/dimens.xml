@@ -5,7 +5,8 @@
     <dimen name="big_padding">16dp</dimen>
     <dimen name="medium_padding">8dp</dimen>
     <dimen name="small_padding">4dp</dimen>
-    <dimen name="min_height">48dp</dimen>
+    <dimen name="min_height">40dp</dimen>
+    <dimen name="min_height_instructions">200dp</dimen>
     <!--
     Because the window insets on round devices are larger than 15dp, this padding only applies
     to square screens.
