@@ -1,4 +1,4 @@
-package layout
+package com.example.cocktailhour.drink.details
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -17,7 +17,7 @@ class IngredientMeasureListAdapter(
 /*  private val listener: (IngredientMeasure) -> Unit,*/
 ) : RecyclerView.Adapter<IngredientMeasureListAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientMeasureListAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val view = layoutInflater
             .inflate(R.layout.ingredient_measure_row, parent, false) as View
@@ -26,7 +26,7 @@ class IngredientMeasureListAdapter(
 
     override fun getItemCount() = data.size
 
-    override fun onBindViewHolder(holder: IngredientMeasureListAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = data[position]
         holder.bind(item)
     }

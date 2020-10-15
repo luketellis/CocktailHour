@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.room.Room
 import androidx.viewpager2.widget.ViewPager2
-import com.example.cocktailhour.IngredientViewModel
 import com.example.cocktailhour.R
 import com.example.cocktailhour.database.*
 import com.example.cocktailhour.entitiy.IngredientMeasure

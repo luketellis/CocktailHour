@@ -1,4 +1,4 @@
-package com.example.cocktailhour
+package com.example.cocktailhour.drink
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -19,10 +19,13 @@ class DrinkViewModel(application: Application) : AndroidViewModel(application) {
     // - Repository is completely separated from the UI through the ViewModel.
     val allDrinks: LiveData<List<Drink>>
 
+    val favouriteDrinks: LiveData<List<Drink>>
+
     init {
         val drinksDao = CocktailHourRoomDatabase.getDatabase(application, viewModelScope).drinkDao()
         repository = DrinkRepository(drinksDao)
         allDrinks = repository.allDrinks
+        favouriteDrinks = repository.favouriteDrinks
     }
 
     /**

@@ -10,11 +10,9 @@
         android:id="@+id/text_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_margin="@dimen/medium_padding"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -26,10 +24,26 @@
         android:id="@+id/mapBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
-        android:text="World Map"
+        android:layout_margin="@dimen/small_padding"
+        android:text="@string/cocktail_map"
+        app:layout_constraintTop_toBottomOf="@+id/text_home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/mapImageView"/>
+
+    <ImageView
+        android:id="@+id/mapImageView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/min_height_instructions"
+
+        android:contentDescription="@string/cocktail_map"
+        android:fontFamily="sans-serif-light"
+        android:minHeight="@dimen/min_height"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapBtn"
+        tools:srcCompat="@drawable/cocktails_around_the_world_text"
+        android:src="@drawable/cocktails_around_the_world_text"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

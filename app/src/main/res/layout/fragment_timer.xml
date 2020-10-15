@@ -10,12 +10,10 @@
         android:id="@+id/text_timer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="116dp"
+        android:layout_margin="@dimen/medium_padding"
         android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/view_timer"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="-32dp" />
+        android:textSize="24sp"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Chronometer
         android:id="@+id/view_timer"
@@ -26,7 +24,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:targetApi="24"
+        tools:targetApi="29"
         tools:text="00:15" />
 
     <Button

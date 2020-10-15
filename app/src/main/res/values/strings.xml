@@ -5,7 +5,7 @@
     <string name="title_edit_drink">Edit Drink Details</string>
     <string name="title_drink_drink">Drink Details</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_favourites">Favourites</string>
     <string name="title_recipes">Recipes</string>
     <string name="title_timer">Timer</string>
     <string name="title_create">Create</string>
@@ -35,4 +35,5 @@
     <string name="instruction_label">Instructions</string>
     <string name="tag_label">Drink Tags</string>
     <string name="category_label">Drink Category</string>
+    <string name="cocktail_map">Cocktail Map</string>
 </resources>

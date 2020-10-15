@@ -1,4 +1,4 @@
-package com.example.cocktailhour
+package com.example.cocktailhour.drink
 
 import android.content.Context
 import android.content.Intent
@@ -10,8 +10,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cocktailhour.R
 import com.example.cocktailhour.database.Drink
-import com.example.cocktailhour.drink.EditDrinkActivity
 
 
 class DrinkListAdapter internal constructor(

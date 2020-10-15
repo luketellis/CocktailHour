@@ -9,6 +9,9 @@ interface DrinkDao {
     @Query("SELECT * FROM Drink ORDER BY name ASC")
     fun getAlphabetizedDrink(): LiveData<List<Drink>>
 
+    @Query("SELECT * FROM Drink")
+    fun getFavouritedDrink(): LiveData<List<Drink>>
+
     @Query("SELECT * FROM Drink WHERE category = :category ORDER BY name ASC")
     fun getDrinksByCategory(category: String): LiveData<List<Drink>>
 

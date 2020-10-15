@@ -9,6 +9,8 @@ class DrinkRepository(private val drinkDao: DrinkDao) {
     // Observed LiveData will notify the observer when the data has changed.
     val allDrinks: LiveData<List<Drink>> = drinkDao.getAlphabetizedDrink()
 
+    val favouriteDrinks: LiveData<List<Drink>> = drinkDao.getFavouritedDrink()
+
     suspend fun insert(drink: Drink) {
         drinkDao.insertDrink(drink)
     }

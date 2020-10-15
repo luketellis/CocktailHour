@@ -1,4 +1,4 @@
-package com.example.cocktailhour
+package com.example.cocktailhour.drink.details
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

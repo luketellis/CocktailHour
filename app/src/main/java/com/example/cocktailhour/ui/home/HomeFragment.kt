@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -28,9 +28,9 @@ class HomeFragment : Fragment() {
         val textView: TextView = root.findViewById(R.id.text_home)
 
 
-        val mapBtn: Button = root.findViewById(R.id.mapBtn)
+        val mapImageView: ImageView = root.findViewById(R.id.mapImageView)
 
-        mapBtn.setOnClickListener {
+        mapImageView.setOnClickListener {
             val intent = Intent(this.context, MapActivity::class.java)
             startActivity(intent)
         }
