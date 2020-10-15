@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailhour.*
-import com.example.cocktailhour.database.Drink
+import com.example.cocktailhour.entitiy.Drink
 import com.example.cocktailhour.drink.AddDrinkActivity
 import com.example.cocktailhour.drink.DrinkListAdapter
 import com.example.cocktailhour.drink.DrinkViewModel

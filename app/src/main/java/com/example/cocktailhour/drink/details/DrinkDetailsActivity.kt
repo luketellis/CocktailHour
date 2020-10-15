@@ -9,6 +9,8 @@ import androidx.room.Room
 import androidx.viewpager2.widget.ViewPager2
 import com.example.cocktailhour.R
 import com.example.cocktailhour.database.*
+import com.example.cocktailhour.entitiy.Drink
+import com.example.cocktailhour.entitiy.Ingredient
 import com.example.cocktailhour.entitiy.IngredientMeasure
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator

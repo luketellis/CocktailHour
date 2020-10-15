@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailhour.R
-import com.example.cocktailhour.database.Drink
+import com.example.cocktailhour.entitiy.Drink
 
 
 class DrinkListAdapter internal constructor(

@@ -1,4 +1,4 @@
-package com.example.cocktailhour.database
+package com.example.cocktailhour.entitiy
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo

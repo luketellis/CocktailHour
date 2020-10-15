@@ -2,9 +2,9 @@ package com.example.cocktailhour.drink.details
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.cocktailhour.database.*
+import com.example.cocktailhour.entitiy.Ingredient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

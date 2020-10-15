@@ -2,6 +2,7 @@ package com.example.cocktailhour.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.cocktailhour.entitiy.Drink
 
 @Dao
 interface DrinkDao {
@@ -9,7 +10,7 @@ interface DrinkDao {
     @Query("SELECT * FROM Drink ORDER BY name ASC")
     fun getAlphabetizedDrink(): LiveData<List<Drink>>
 
-    @Query("SELECT * FROM Drink")
+    @Query("SELECT * FROM Drink WHERE favourite > 0")
     fun getFavouritedDrink(): LiveData<List<Drink>>
 
     @Query("SELECT * FROM Drink WHERE category = :category ORDER BY name ASC")

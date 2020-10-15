@@ -1,7 +1,7 @@
 package com.example.cocktailhour.database
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.cocktailhour.entitiy.Ingredient
 
 @Dao
 interface IngredientDao {

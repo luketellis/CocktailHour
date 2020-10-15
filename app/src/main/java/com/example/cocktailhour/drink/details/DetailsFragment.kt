@@ -9,7 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.cocktailhour.R
-import com.example.cocktailhour.database.Drink
+import com.example.cocktailhour.entitiy.Drink
 
 class DetailsFragment : Fragment() {
 

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.example.cocktailhour.R
-import com.example.cocktailhour.database.Drink
+import com.example.cocktailhour.entitiy.Drink
 import com.squareup.picasso.Picasso
 
 class GalleryFragment: Fragment() {

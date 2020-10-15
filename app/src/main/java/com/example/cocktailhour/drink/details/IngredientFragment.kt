@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailhour.R
-import com.example.cocktailhour.database.Ingredient
+import com.example.cocktailhour.entitiy.Ingredient
 import com.example.cocktailhour.entitiy.IngredientMeasure
 
 class IngredientFragment: Fragment() {

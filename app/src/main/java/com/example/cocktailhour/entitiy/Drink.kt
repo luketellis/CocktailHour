@@ -1,4 +1,4 @@
-package com.example.cocktailhour.database
+package com.example.cocktailhour.entitiy
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo
@@ -20,10 +20,13 @@ class Drink(
     @ColumnInfo(name = "instructions") val instructions: String,
     @ColumnInfo(name = "instructionsDE") val instructionsDE: String?,
     @ColumnInfo(name = "thumbnail") val thumbnail: String?,
-    @ColumnInfo(name = "dateModified") val dateModified: String
+    @ColumnInfo(name = "dateModified") val dateModified: String,
+    @ColumnInfo(name = "favourite") val favourite: Int
 ) : Parcelable {
     override fun toString(): String {
-        return "Drink(id=$id, name='$name', nameDE=$nameDE, tags=$tags, category='$category', alcoholic='$alcoholic', glass=$glass, instructions='$instructions', instructionsDE=$instructionsDE, thumbnail=$thumbnail, dateModified='$dateModified')"
+        return "Drink(id=$id, name='$name', nameDE=$nameDE, tags=$tags, category='$category', " +
+                "alcoholic='$alcoholic', glass=$glass, instructions='$instructions', instructionsDE=$instructionsDE, " +
+                "thumbnail=$thumbnail, dateModified='$dateModified, favourite='$favourite')"
     }
 }
 

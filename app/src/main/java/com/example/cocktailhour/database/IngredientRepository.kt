@@ -1,6 +1,6 @@
 package com.example.cocktailhour.database
 
-import androidx.lifecycle.LiveData
+import com.example.cocktailhour.entitiy.Ingredient
 
 
 class IngredientRepository(private val ingredientDao: IngredientDao) {

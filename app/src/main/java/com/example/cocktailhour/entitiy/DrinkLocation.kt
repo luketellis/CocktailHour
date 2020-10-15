@@ -1,7 +1,6 @@
 package com.example.cocktailhour.entitiy
 
 import android.os.Parcelable
-import com.example.cocktailhour.database.Drink
 import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.parcel.Parcelize
 
