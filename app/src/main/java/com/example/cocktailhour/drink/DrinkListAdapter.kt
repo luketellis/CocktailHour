@@ -36,6 +36,11 @@ class DrinkListAdapter internal constructor(
                 imageView.setBackgroundResource(R.drawable.ic_baseline_favorite_24)
             }
 
+            imageView.setOnClickListener()
+            {
+                drinkViewModel.changeFavouriteById(item.id!!)
+            }
+
             itemView.setOnClickListener { listener(item) }
             itemView.setOnLongClickListener { onLongClick(itemView, item) }
         }

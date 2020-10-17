@@ -10,6 +10,12 @@ interface DrinkDao {
     @Query("SELECT * FROM Drink ORDER BY name ASC")
     fun getAlphabetizedDrink(): LiveData<List<Drink>>
 
+    @Query("SELECT * FROM Drink WHERE id = :id")
+    fun getDrinkById(id: Int): Drink
+
+    @Query("SELECT favourite FROM Drink WHERE id = :id")
+    fun getFavouriteFromDrink(id: Int): Int
+
     @Query("SELECT * FROM Drink WHERE favourite > 0")
     fun getFavouritedDrink(): LiveData<List<Drink>>
 
@@ -24,6 +30,9 @@ interface DrinkDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertDrink(drink: Drink)
+
+    @Query("UPDATE Drink SET favourite = :favourite WHERE id = :id")
+    suspend fun changeFavouriteById(id: Int, favourite: Int)
 
     @Query("DELETE FROM Drink WHERE id = :id")
     suspend fun deleteDrinkById(id: Int)

@@ -42,4 +42,8 @@ class DrinkViewModel(application: Application) : AndroidViewModel(application) {
     fun deleteById(id: Int) = viewModelScope.launch(Dispatchers.IO) {
         repository.deleteById(id)
     }
+
+    fun changeFavouriteById(id: Int) = viewModelScope.launch(Dispatchers.IO) {
+        repository.changeFavouriteById(id)
+    }
 }
