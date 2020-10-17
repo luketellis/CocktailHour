@@ -26,7 +26,7 @@ class DrinkListAdapter internal constructor(
 
 
     inner class DrinkViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val drinkItemView: TextView = itemView.findViewById(R.id.textView)
+        val drinkItemView: TextView = itemView.findViewById(R.id.drinkName)
 
         fun bind(item: Drink) {
             itemView.setOnClickListener { listener(item) }
