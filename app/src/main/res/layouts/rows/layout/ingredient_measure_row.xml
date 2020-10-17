@@ -6,10 +6,11 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="80dp"
-        android:layout_height="60dp"
-        android:layout_gravity="start"
-        android:contentDescription="@string/ingredient_image" />
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center_vertical"
+        android:contentDescription="@string/ingredient_image"
+        android:src="@drawable/ic_baseline_fastfood_24"/>
 
     <LinearLayout
         android:layout_width="0dp"
@@ -22,15 +23,15 @@
             android:id="@+id/ingredientTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_padding"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/measurementTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp" />
+            android:textSize="18sp"/>
     </LinearLayout>
-
 
 </LinearLayout>

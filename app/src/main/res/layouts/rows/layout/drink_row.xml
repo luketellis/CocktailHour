@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:background="@android:color/holo_blue_bright"
+    style="@style/drink_title">
 
     <LinearLayout
-        android:layout_weight="70"
+        android:layout_weight="80"
         android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -29,10 +30,10 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="80dp"
+        android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_gravity="end"
-        tools:srcCompat="@drawable/ic_baseline_favorite_border_24"
-        android:contentDescription="heart image" />
+        android:src="@drawable/ic_baseline_favorite_border_24"
+        android:contentDescription="@string/heart_image" />
 
 </LinearLayout>
