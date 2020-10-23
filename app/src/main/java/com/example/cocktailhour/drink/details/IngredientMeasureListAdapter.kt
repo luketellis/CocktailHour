@@ -40,13 +40,6 @@ class IngredientMeasureListAdapter(
             ingredientTV.text = item.ingredient
             measurementTV.text = item.measure
 
-/*            val imageResourceId: Int = if (item.countryCapitalCity == "Australia/Melbourne")
-                v.resources.getIdentifier("blue_heart_filled", "drawable", v.context.packageName)
-            else
-                v.resources.getIdentifier("blue_heart_outline", "drawable", v.context.packageName)
-
-            imageView.setBackgroundResource(imageResourceId)*/
-
             v.setOnClickListener {
                 Toast.makeText(v.context, item.toString(), Toast.LENGTH_SHORT).show()
             }

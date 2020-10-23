@@ -5,25 +5,24 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.PopupMenu
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailhour.R
 import com.example.cocktailhour.entitiy.Drink
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class DrinkListAdapter internal constructor(
     context: Context,
     private val drinkViewModel: DrinkViewModel,
     private val listener: (Drink) -> Unit
-
-) : RecyclerView.Adapter<DrinkListAdapter.DrinkViewHolder>() {
+) : RecyclerView.Adapter<DrinkListAdapter.DrinkViewHolder>(), Filterable {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var drinks = emptyList<Drink>() // Cached copy of drinks
+    private var filteredDrinks = emptyList<Drink>();
 
 
     inner class DrinkViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -34,6 +33,10 @@ class DrinkListAdapter internal constructor(
             if (item.favourite > 0)
             {
                 imageView.setBackgroundResource(R.drawable.ic_baseline_favorite_24)
+            }
+            else
+            {
+                imageView.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24)
             }
 
             imageView.setOnClickListener()
@@ -84,15 +87,45 @@ class DrinkListAdapter internal constructor(
 
 
     override fun onBindViewHolder(holder: DrinkViewHolder, position: Int) {
-        val current = drinks[position]
+        val current = filteredDrinks[position]
         holder.drinkItemView.text = current.name
         holder.bind(current)
     }
 
     internal fun setDrinks(drinks: List<Drink>) {
         this.drinks = drinks
+        this.filteredDrinks = drinks
         notifyDataSetChanged()
     }
 
-    override fun getItemCount() = drinks.size
+    override fun getItemCount() = filteredDrinks.size
+
+    override fun getFilter(): Filter {
+        return object : Filter() {
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val charSearch = constraint.toString()
+                if (charSearch.isEmpty()) {
+                    filteredDrinks = drinks
+                } else {
+                    val resultList = ArrayList<Drink>()
+                    for (row in drinks) {
+                        if (row.name.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(Locale.ROOT))) {
+                            resultList.add(row)
+                        }
+                    }
+                    filteredDrinks = resultList
+                }
+                val filterResults = FilterResults()
+                filterResults.values = filteredDrinks
+                return filterResults
+            }
+
+            @Suppress("UNCHECKED_CAST")
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                filteredDrinks = results?.values as ArrayList<Drink>
+                notifyDataSetChanged()
+            }
+
+        }
+    }
 }

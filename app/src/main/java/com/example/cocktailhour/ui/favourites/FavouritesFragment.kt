@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -44,6 +45,19 @@ class FavouritesFragment : Fragment() {
         drinkViewModel.favouriteDrinks.observe(viewLifecycleOwner, Observer { drinks ->
             // Update the cached copy of the drinks in the adapter.
             drinks?.let { adapter.setDrinks(it) }
+        })
+
+        val searchView: SearchView = root.findViewById(R.id.searchView)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                adapter.filter.filter(newText)
+                return true
+            }
+
+            override fun onQueryTextSubmit(query: String): Boolean {
+                return false
+            }
         })
 
 

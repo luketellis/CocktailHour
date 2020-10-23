@@ -3,7 +3,10 @@ package com.example.cocktailhour.ui.recipes
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -11,12 +14,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cocktailhour.*
-import com.example.cocktailhour.entitiy.Drink
+import com.example.cocktailhour.R
 import com.example.cocktailhour.drink.AddDrinkActivity
 import com.example.cocktailhour.drink.DrinkListAdapter
 import com.example.cocktailhour.drink.DrinkViewModel
 import com.example.cocktailhour.drink.details.DrinkDetailsActivity
+import com.example.cocktailhour.entitiy.Drink
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class RecipesFragment : Fragment() {
@@ -27,9 +30,9 @@ class RecipesFragment : Fragment() {
 
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         recipesViewModel =
                 ViewModelProviders.of(this).get(RecipesViewModel::class.java)
@@ -48,6 +51,19 @@ class RecipesFragment : Fragment() {
         drinkViewModel.allDrinks.observe(viewLifecycleOwner, Observer { drinks ->
             // Update the cached copy of the drinks in the adapter.
             drinks?.let { adapter.setDrinks(it) }
+        })
+
+        val searchView: SearchView = root.findViewById(R.id.searchView)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                adapter.filter.filter(newText)
+                return true
+            }
+
+            override fun onQueryTextSubmit(query: String): Boolean {
+                return false
+            }
         })
 
         val fab = root.findViewById<FloatingActionButton>(R.id.fab)

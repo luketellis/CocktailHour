@@ -7,14 +7,20 @@ import com.example.cocktailhour.entitiy.Drink
 @Dao
 interface DrinkDao {
 
-    @Query("SELECT * FROM Drink ORDER BY name ASC")
-    fun getAlphabetizedDrink(): LiveData<List<Drink>>
+    @Query("SELECT * FROM Drink ORDER BY id ASC")
+    fun getAllDrinksById(): LiveData<List<Drink>>
+
+    @Query("SELECT * FROM Drink ORDER BY id ASC")
+    fun getAllDrinksByName(): LiveData<List<Drink>>
 
     @Query("SELECT * FROM Drink WHERE id = :id")
     fun getDrinkById(id: Int): Drink
 
     @Query("SELECT favourite FROM Drink WHERE id = :id")
     fun getFavouriteFromDrink(id: Int): Int
+
+    @Query("SELECT * FROM Drink WHERE name like :searchTerm")
+    fun getDrinksByName(searchTerm : String): LiveData<List<Drink>>
 
     @Query("SELECT * FROM Drink WHERE favourite > 0")
     fun getFavouritedDrink(): LiveData<List<Drink>>
