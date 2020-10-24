@@ -1,90 +1,236 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <EditText
-        android:id="@+id/nameTV"
+        android:id="@+id/nameEditText"
+        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/min_height"
-        android:fontFamily="sans-serif-light"
-        android:hint="@string/hint_word"
-        android:inputType="textAutoComplete"
-        android:layout_margin="@dimen/big_padding"
-        android:textSize="18sp" />
+        android:layout_margin="@dimen/medium_padding"
+        android:hint="@string/name_hint"
+        android:textAlignment="center"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/tagsTV"
+    <LinearLayout
+        android:id="@+id/categoryAlcoholicLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/big_padding"
-        android:fontFamily="sans-serif-light"
-        android:hint="@string/hint_word"
-        android:inputType="textAutoComplete"
-        android:minHeight="@dimen/min_height"
-        android:textSize="18sp" />
+        android:baselineAligned="false"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutTag"
+        app:layout_constraintTop_toBottomOf="@+id/nameTV">
 
-    <EditText
-        android:id="@+id/categoryTV"
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_padding"
+            android:layout_weight="50"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/tagsTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout1">
+
+            <TextView
+                android:id="@+id/categoryLabel"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/category_label"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/categoryEditText"
+                android:inputType=""
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/category_hint"
+                android:minHeight="@dimen/min_height"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_padding"
+            android:layout_weight="50"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/alcoholicLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/alcoholic_label"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+
+            <EditText
+                android:id="@+id/alcoholicEditText"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/alcoholic_hint"
+                android:minHeight="@dimen/min_height"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutTag"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/big_padding"
-        android:fontFamily="sans-serif-light"
-        android:hint="@string/hint_word"
-        android:inputType="textAutoComplete"
-        android:minHeight="@dimen/min_height"
-        android:textSize="18sp" />
+        android:layout_margin="@dimen/medium_padding"
+        android:layout_weight="50"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/categoryAlcoholicLinearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutGlass"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <EditText
-        android:id="@+id/alcoholicTV"
+        <TextView
+            android:id="@+id/tagsLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:fontFamily="sans-serif-light"
+            android:minHeight="@dimen/min_height"
+            android:text="@string/tag_label"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/tagsEditText"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/tag_hint"
+            android:minHeight="@dimen/min_height"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutGlass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/big_padding"
-        android:fontFamily="sans-serif-light"
-        android:hint="@string/hint_word"
-        android:inputType="textAutoComplete"
-        android:minHeight="@dimen/min_height"
-        android:textSize="18sp" />
+        android:layout_margin="@dimen/medium_padding"
+        android:layout_weight="50"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutTag"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutInstruction"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <EditText
-        android:id="@+id/glassTV"
+        <TextView
+            android:id="@+id/glassLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:fontFamily="sans-serif-light"
+            android:minHeight="@dimen/min_height"
+            android:text="@string/glass_label"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/glassEditText"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/glass_hint"
+            android:minHeight="@dimen/min_height"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayoutInstruction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/big_padding"
-        android:fontFamily="sans-serif-light"
-        android:hint="@string/hint_word"
-        android:inputType="textAutoComplete"
-        android:minHeight="@dimen/min_height"
-        android:textSize="18sp" />
+        android:layout_margin="@dimen/medium_padding"
+        android:layout_weight="50"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutGlass"
+        app:layout_constraintBottom_toTopOf="@id/linearLayoutButtons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
 
-    <EditText
-        android:id="@+id/instructionsTV"
-        android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/instructionLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:fontFamily="sans-serif-light"
+            android:minHeight="@dimen/min_height"
+            android:text="@string/instruction_label"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/instructionsEditText"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/drink_instructions"
+            android:minHeight="100dp"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutButtons"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/big_padding"
-        android:fontFamily="sans-serif-light"
-        android:hint="@string/hint_word"
-        android:inputType="textAutoComplete"
-        android:minHeight="@dimen/min_height"
-        android:textSize="18sp" />
+        android:layout_margin="@dimen/medium_padding"
+        android:layout_weight="50"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutInstruction"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
 
-    <Button
-        android:id="@+id/updateBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/big_padding"
-        android:background="@color/colorPrimary"
-        android:text="@string/button_update"
-        android:textColor="@color/buttonLabel" />
+        <Button
+            android:id="@+id/updateBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/big_padding"
+            android:background="@color/colorPrimary"
+            android:text="@string/button_update"
+            android:textColor="@color/buttonLabel" />
 
-    <Button
-        android:id="@+id/exitBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/big_padding"
-        android:background="@color/colorPrimary"
-        android:text="@string/button_exitWithoutSaving"
-        android:textColor="@color/buttonLabel" />
+        <Button
+            android:id="@+id/exitBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/big_padding"
+            android:background="@color/colorPrimary"
+            android:text="@string/button_exitWithoutSaving"
+            android:textColor="@color/buttonLabel" />
 
+    </LinearLayout>
 </LinearLayout>

@@ -16,6 +16,10 @@ class DrinkRepository(private val drinkDao: DrinkDao) {
         drinkDao.insertDrink(drink)
     }
 
+    fun update(drink: Drink) {
+        drinkDao.updateDrink(drink)
+    }
+
     suspend fun changeFavouriteById(id: Int) {
         drinkDao.changeFavouriteById(id, 1 - drinkDao.getFavouriteFromDrink(id))
     }

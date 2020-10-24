@@ -42,8 +42,6 @@ class DrinkDetailsActivity : AppCompatActivity() {
 
             var ingredient : Ingredient = db.ingredientDao().getIngredientById(drink?.id)
 
-            /*val toast = Toast.makeText(applicationContext, ingredient.toString(), Toast.LENGTH_LONG)
-            toast.show()*/
             Log.i("TAG", ingredient.toString())
 
 

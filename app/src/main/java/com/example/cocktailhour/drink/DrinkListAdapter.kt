@@ -57,7 +57,6 @@ class DrinkListAdapter internal constructor(
             pop.setOnMenuItemClickListener { menuItem ->
                 when (menuItem.itemId) {
                     R.id.action_edit -> {
-                        Toast.makeText(itemView.context, "Edit!", Toast.LENGTH_SHORT).show()
                         val intent = Intent (v?.context, EditDrinkActivity::class.java)
                         intent.putExtra("drink", item)
                         if (v != null) {
