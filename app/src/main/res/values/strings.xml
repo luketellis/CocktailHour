@@ -11,12 +11,15 @@
     <string name="title_create">Create</string>
     <string name="add_drink">Add Drink</string>
     <string name="hint_word">Drink...</string>
-    <string name="name_hint">Drink Name...</string>
+    <string name="name_hint">Specify Drink Name...</string>
     <string name="category_hint">Drink Category...</string>
     <string name="tag_hint">Drink Tags...</string>
+    <string name="ingredient_hint">Specify ingredient...</string>
+    <string name="measure_hint">Specify measure...</string>
     <string name="glass_hint">Drink Glass Type...</string>
     <string name="alcoholic_hint">Alcoholic...</string>
     <string name="button_save">Save</string>
+    <string name="button_add_drink">Add Drink</string>
     <string name="button_update">Update</string>
     <string name="button_exitWithoutSaving">Exit Without Saving</string>
     <string name="button_search">Search</string>
@@ -29,7 +32,7 @@
     <string name="hello_world">Hello Square World!</string>
     <string name="ingredient_image">Ingredient Image</string>
     <string name="Ingredients">Ingredients</string>
-    <string name="drink_instructions">Drink Instructions...</string>
+    <string name="drink_instructions">Specify Drink Instructions...</string>
     <string name="alcoholic_label">Alcoholic Content</string>
     <string name="glass_label">Recommended Glass Type</string>
     <string name="instruction_label">Instructions</string>
@@ -37,4 +40,21 @@
     <string name="category_label">Drink Category</string>
     <string name="cocktail_map">Cocktail Map</string>
     <string name="heart_image">Heart Image</string>
+
+    <string name="ingredient_one">Ingredient 1</string>
+    <string name="ingredient_two">Ingredient 2</string>
+    <string name="ingredient_three">Ingredient 3</string>
+    <string name="ingredient_four">Ingredient 4</string>
+    <string name="ingredient_five">Ingredient 5</string>
+    <string name="ingredient_six">Ingredient 6</string>
+    <string name="ingredient_seven">Ingredient 7</string>
+
+    <string name="measure_one">Measure 1</string>
+    <string name="measure_two">Measure 2</string>
+    <string name="measure_three">Measure 3</string>
+    <string name="measure_four">Measure 4</string>
+    <string name="measure_five">Measure 5</string>
+    <string name="measure_six">Measure 6</string>
+    <string name="measure_seven">Measure 7</string>
+
 </resources>

@@ -1,4 +1,4 @@
-package com.example.cocktailhour.drink.details
+package com.example.cocktailhour.drink.add
 
 
 import android.os.Bundle
@@ -12,32 +12,34 @@ import com.example.cocktailhour.R
 import com.example.cocktailhour.entitiy.Ingredient
 import com.example.cocktailhour.entitiy.IngredientMeasure
 
-class IngredientFragment: Fragment() {
+class AddIngredientFragment: Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.ingredient_fragment, container, false)
+        val root = inflater.inflate(R.layout.add_ingredient_fragment, container, false)
 
         val recyclerView = root.findViewById<RecyclerView>(R.id.recyclerview)
         /*val drink: Drink? = activity?.getMyDrink()*/
 
-        val activity: DrinkDetailsActivity? = activity as DrinkDetailsActivity?
+        val activity: AddDrinkActivity? = activity as AddDrinkActivity?
 
-        val adapter = IngredientMeasureListAdapter(root.context, activity!!.getMyIngredients())
+/*        val adapter = IngredientMeasureListAdapter(root.context, activity!!.getMyIngredients())
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(root.context)
+        recyclerView.layoutManager = LinearLayoutManager(root.context)*/
 
         return root;
     }
 
     companion object{
-        fun newInstance() = IngredientFragment()
+        fun newInstance() = AddIngredientFragment()
     }
 
     private fun convertIngredientRecordIntoIngredientMeasureList(ingredient: Ingredient?): ArrayList<IngredientMeasure> {
         val ingredientMeasureList = ArrayList<IngredientMeasure>()
+
+
 
 
         return ingredientMeasureList

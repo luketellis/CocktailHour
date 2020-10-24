@@ -20,16 +20,9 @@ class DrinkDetailsActivity : AppCompatActivity() {
     private val ingredientMeasureList = ArrayList<IngredientMeasure>()
     private lateinit var ingredientViewModel: IngredientViewModel
 
-    private lateinit var nameTextView: TextView
-    private lateinit var tagsTextView: TextView
-    private lateinit var categoryTextView: TextView
-    private lateinit var alcoholicTextView: TextView
-    private lateinit var glassTextView: TextView
-    private lateinit var instructionsTextView: TextView
-
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_drink_details)
+        setContentView(R.layout.activity_drink_details_tabs)
 
         drink = intent.getParcelableExtra<Drink>("drink")
         ingredientViewModel = ViewModelProvider(this).get(IngredientViewModel::class.java)

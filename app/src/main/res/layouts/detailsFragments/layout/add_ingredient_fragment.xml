@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/add_ingredients_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Ingredients"
+        android:textAlignment="center"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/ingredientMeasureLayoutOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        app:layout_constraintTop_toBottomOf="@+id/text_heading">
+
+    <LinearLayout
+        android:id="@+id/ingredientOneLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/medium_padding"
+        android:layout_weight="50"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" >
+
+        <TextView
+            android:id="@+id/ingredientOneLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:fontFamily="sans-serif-light"
+            android:minHeight="@dimen/min_height"
+            android:text="@string/ingredient_one"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/ingredientOneEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/ingredient_hint"
+            android:minHeight="@dimen/min_height"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/measureOneLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_padding"
+            android:layout_weight="50"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/measureOneLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/measure_one"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/measureOneEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/measure_hint"
+                android:minHeight="@dimen/min_height"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ingredientMeasureLayoutTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        app:layout_constraintTop_toBottomOf="@+id/ingredientMeasureLayoutOne">
+
+        <LinearLayout
+            android:id="@+id/ingredientTwoLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_padding"
+            android:layout_weight="50"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" >
+
+            <TextView
+                android:id="@+id/ingredientTwoLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/ingredient_two"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/ingredientTwoEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/ingredient_hint"
+                android:minHeight="@dimen/min_height"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/measureTwoLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_padding"
+            android:layout_weight="50"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/measureTwoLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/measure_two"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/measureTwoEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/measure_hint"
+                android:minHeight="@dimen/min_height"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ingredientMeasureLayoutThree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        app:layout_constraintTop_toBottomOf="@+id/ingredientMeasureLayoutTwo">
+
+        <LinearLayout
+            android:id="@+id/ingredientThreeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_padding"
+            android:layout_weight="50"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" >
+
+            <TextView
+                android:id="@+id/ingredientThreeLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/ingredient_three"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/ingredientThreeEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/ingredient_hint"
+                android:minHeight="@dimen/min_height"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/measureThreeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_padding"
+            android:layout_weight="50"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/measureThreeLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/measure_three"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/measureThreeEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/measure_hint"
+                android:minHeight="@dimen/min_height"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ingredientMeasureLayoutFour"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        app:layout_constraintTop_toBottomOf="@+id/ingredientMeasureLayoutThree">
+
+        <LinearLayout
+            android:id="@+id/ingredientFourLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_padding"
+            android:layout_weight="50"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" >
+
+            <TextView
+                android:id="@+id/ingredientFourLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/ingredient_four"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/ingredientFourEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/ingredient_hint"
+                android:minHeight="@dimen/min_height"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/measureFourLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_padding"
+            android:layout_weight="50"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/measureFourLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/measure_four"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/measureFourEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/measure_hint"
+                android:minHeight="@dimen/min_height"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ingredientMeasureLayoutFive"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        app:layout_constraintTop_toBottomOf="@+id/ingredientMeasureLayoutFour">
+
+    <LinearLayout
+        android:id="@+id/ingredientFiveLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/medium_padding"
+        android:layout_weight="50"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" >
+
+        <TextView
+            android:id="@+id/ingredientFiveLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:fontFamily="sans-serif-light"
+            android:minHeight="@dimen/min_height"
+            android:text="@string/ingredient_five"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/ingredientFiveEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/ingredient_hint"
+            android:minHeight="@dimen/min_height"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/measureFiveLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/medium_padding"
+        android:layout_weight="50"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/measureFiveLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:fontFamily="sans-serif-light"
+            android:minHeight="@dimen/min_height"
+            android:text="@string/measure_five"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/measureFiveEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/measure_hint"
+            android:minHeight="@dimen/min_height"
+            android:textSize="18sp" />
+    </LinearLayout>
+</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ingredientMeasureLayoutSix"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        app:layout_constraintTop_toBottomOf="@+id/ingredientMeasureLayoutFive">
+
+        <LinearLayout
+            android:id="@+id/ingredientSixLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_padding"
+            android:layout_weight="50"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" >
+
+            <TextView
+                android:id="@+id/ingredientSixLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/ingredient_six"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/ingredientSixEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/ingredient_hint"
+                android:minHeight="@dimen/min_height"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/measureSixLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_padding"
+            android:layout_weight="50"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/measureSixLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/measure_six"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/measureSixEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/measure_hint"
+                android:minHeight="@dimen/min_height"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ingredientMeasureLayoutSeven"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        app:layout_constraintTop_toBottomOf="@+id/ingredientMeasureLayoutSix">
+
+        <LinearLayout
+            android:id="@+id/ingredientSevenLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_padding"
+            android:layout_weight="50"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" >
+
+            <TextView
+                android:id="@+id/ingredientSevenLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/ingredient_seven"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/ingredientSevenEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/ingredient_hint"
+                android:minHeight="@dimen/min_height"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/measureSevenLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_padding"
+            android:layout_weight="50"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/measureSevenLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/measure_seven"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/measureSevenEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/measure_hint"
+                android:minHeight="@dimen/min_height"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_drink_details"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
+    <EditText
         android:id="@+id/nameTV"
+        android:inputType="text"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/min_height"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/medium_padding"
         android:hint="@string/name_hint"
         android:textAlignment="center"
@@ -48,8 +47,9 @@
                 android:textSize="18sp"
                 android:textStyle="bold"/>
 
-            <TextView
+            <EditText
                 android:id="@+id/categoryTV"
+                android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="50"
@@ -79,9 +79,9 @@
                 android:textSize="18sp"
                 android:textStyle="bold"/>
 
-
-            <TextView
+            <EditText
                 android:id="@+id/alcoholicTV"
+                android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="50"
@@ -101,8 +101,8 @@
         android:layout_weight="50"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/categoryAlcoholicLinearLayout"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/linearLayoutGlass"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
@@ -116,8 +116,9 @@
             android:textSize="18sp"
             android:textStyle="bold"/>
 
-        <TextView
+        <EditText
             android:id="@+id/tagsTV"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="50"
@@ -151,8 +152,9 @@
             android:textSize="18sp"
             android:textStyle="bold"/>
 
-        <TextView
+        <EditText
             android:id="@+id/glassTV"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="50"
@@ -171,7 +173,7 @@
         android:layout_weight="50"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/linearLayoutGlass"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/buttonLinearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" >
 
@@ -186,16 +188,48 @@
             android:textSize="18sp"
             android:textStyle="bold"/>
 
-        <TextView
+        <EditText
             android:id="@+id/instructionsTV"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="50"
             android:fontFamily="sans-serif-light"
             android:hint="@string/drink_instructions"
-            android:minHeight="@dimen/min_height_instructions"
+            android:minHeight="100dp"
             android:textSize="18sp" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/buttonLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/medium_padding"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutInstruction"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/updateBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:layout_margin="@dimen/big_padding"
+            android:background="@color/colorPrimary"
+            android:text="@string/button_add_drink"
+            android:textColor="@color/buttonLabel" />
+
+        <Button
+            android:id="@+id/exitBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:layout_margin="@dimen/big_padding"
+            android:background="@color/colorPrimary"
+            android:text="@string/button_exitWithoutSaving"
+            android:textColor="@color/buttonLabel" />
+
+    </LinearLayout>
+</LinearLayout>
