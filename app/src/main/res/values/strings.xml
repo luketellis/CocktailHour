@@ -34,7 +34,7 @@
     <string name="Ingredients">Ingredients</string>
     <string name="drink_instructions">Specify Drink Instructions...</string>
     <string name="alcoholic_label">Alcoholic Content</string>
-    <string name="glass_label">Recommended Glass Type</string>
+    <string name="glass_label">Glass Type</string>
     <string name="instruction_label">Instructions</string>
     <string name="tag_label">Drink Tags</string>
     <string name="category_label">Drink Category</string>

@@ -25,7 +25,7 @@
         app:layout_constraintTop_toBottomOf="@+id/nameTV">
 
         <LinearLayout
-            android:id="@+id/linearLayout2"
+            android:id="@+id/categoryLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/medium_padding"
@@ -94,83 +94,88 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayoutTag"
+        android:id="@+id/tagsGlassLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_padding"
-        android:layout_weight="50"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/categoryAlcoholicLinearLayout"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayoutGlass"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:id="@+id/tagsLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:fontFamily="sans-serif-light"
-            android:minHeight="@dimen/min_height"
-            android:text="@string/tag_label"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
-
-        <EditText
-            android:id="@+id/tagsTV"
-            android:inputType="text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:fontFamily="sans-serif-light"
-            android:hint="@string/tag_hint"
-            android:minHeight="@dimen/min_height"
-            android:textSize="18sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayoutGlass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_padding"
-        android:layout_weight="50"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/linearLayoutTag"
+        android:baselineAligned="false"
         app:layout_constraintBottom_toTopOf="@+id/linearLayoutInstruction"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/nameTV">
 
-        <TextView
-            android:id="@+id/glassLabel"
+        <LinearLayout
+            android:id="@+id/tagsLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_padding"
             android:layout_weight="50"
-            android:fontFamily="sans-serif-light"
-            android:minHeight="@dimen/min_height"
-            android:text="@string/glass_label"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/tagsTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/alcoholicLinearLayout">
 
-        <EditText
-            android:id="@+id/glassTV"
-            android:inputType="text"
+            <TextView
+                android:id="@+id/tagsLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/tag_label"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/tagsTV"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/tag_hint"
+                android:minHeight="@dimen/min_height"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutGlasst"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_padding"
             android:layout_weight="50"
-            android:fontFamily="sans-serif-light"
-            android:hint="@string/glass_hint"
-            android:minHeight="@dimen/min_height"
-            android:textSize="18sp" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/glassLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/glass_label"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/glassTV"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/glass_hint"
+                android:minHeight="@dimen/min_height"
+                android:textSize="18sp" />
+
+        </LinearLayout>
     </LinearLayout>
-
 
     <LinearLayout
         android:id="@+id/linearLayoutInstruction"
         android:layout_width="match_parent"
+        android:minHeight="100dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/medium_padding"
-        android:layout_weight="50"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/linearLayoutGlass"
         app:layout_constraintBottom_toTopOf="@id/buttonLinearLayout"
@@ -181,7 +186,6 @@
             android:id="@+id/instructionLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="50"
             android:fontFamily="sans-serif-light"
             android:minHeight="@dimen/min_height"
             android:text="@string/instruction_label"
@@ -196,7 +200,7 @@
             android:layout_weight="50"
             android:fontFamily="sans-serif-light"
             android:hint="@string/drink_instructions"
-            android:minHeight="100dp"
+            android:minHeight="@dimen/min_height_instructions"
             android:textSize="18sp" />
     </LinearLayout>
 
