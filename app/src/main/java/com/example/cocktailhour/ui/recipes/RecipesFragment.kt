@@ -85,7 +85,7 @@ class RecipesFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == newDrinkActivityRequestCode && resultCode == Activity.RESULT_OK) {
-            data?.getParcelableExtra<Drink>(AddDrinkActivity.EXTRA_REPLY)?.let {
+            data?.getParcelableExtra<Drink>("newDrink")?.let {
                 val drink = it
 
                 drinkViewModel.insert(it)
@@ -94,32 +94,5 @@ class RecipesFragment : Fragment() {
             Toast.makeText(activity, R.string.empty_not_saved, Toast.LENGTH_LONG).show()
         }
     }
-
-   /* override fun onCreateContextMenu(
-        menu: ContextMenu?, v: View?,
-        menuInfo: ContextMenu.ContextMenuInfo?
-    ) {
-        super.onCreateContextMenu(menu!!, v!!, menuInfo)
-        val inflater: MenuInflater = getMenuInflater()
-        inflater.inflate(android.R.menu.menu_context, menu)
-    }
-
-    override fun onContextItemSelected(item: MenuItem): Boolean {
-        return when (item.getItemId()) {
-            android.R.id.context_edit -> {
-                editNote()
-                true
-            }
-            android.R.id.context_share -> {
-                shareNote()
-                true
-            }
-            else -> super.onContextItemSelected(item)
-        }
-    }*/
-
-
-
-
 
 }

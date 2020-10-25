@@ -44,6 +44,7 @@ class EditDrinkActivity : AppCompatActivity() {
 
         val updateBtn = findViewById<Button>(R.id.updateBtn)
         updateBtn.setOnClickListener {
+            validateEmptyFieldsAndUpdateDrink()
             onBackPressed()
         }
 
@@ -53,7 +54,8 @@ class EditDrinkActivity : AppCompatActivity() {
         }
     }
 
-    override fun onBackPressed() {
+
+    fun validateEmptyFieldsAndUpdateDrink() {
         if (nameEditText?.text.toString() == "") {
             Toast.makeText(this, "Name cannot be empty!", Toast.LENGTH_SHORT).show()
             return
@@ -82,8 +84,6 @@ class EditDrinkActivity : AppCompatActivity() {
         drink!!.instructions = instructionsEditText.text.toString();
 
         drinkViewModel.update(drink!!);
-
-        super.onBackPressed()
     }
 
 }

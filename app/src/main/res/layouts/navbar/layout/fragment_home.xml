@@ -20,30 +20,78 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/mapBtn"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/featuredCocktailsHeading"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/small_padding"
-        android:text="@string/cocktail_map"
-        app:layout_constraintTop_toBottomOf="@+id/text_home"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/mapImageView"/>
+        android:layout_margin="@dimen/medium_padding"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:text="Featured Cocktails"
+        app:layout_constraintBottom_toTopOf="@id/featuredCocktails"
+        app:layout_constraintEnd_toEndOf="@id/featuredCocktails"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+    <LinearLayout
+        android:id="@+id/featuredCocktails"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:baselineAligned="false"
+        app:layout_constraintBottom_toTopOf="@+id/mapImageView"
+        app:layout_constraintTop_toBottomOf="@+id/nameTV">
+
+        <LinearLayout
+            android:id="@+id/categoryLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_padding"
+            android:layout_weight="50"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/tagsTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/alcoholicLinearLayout">
+
+            <ImageView
+                android:id="@+id/one"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/tequila_sunrise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/alcoholicLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_padding"
+            android:layout_weight="50"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/three"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/dark_stormy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/mapImageView"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/min_height_instructions"
-
+        android:layout_height="230dp"
         android:contentDescription="@string/cocktail_map"
         android:fontFamily="sans-serif-light"
         android:minHeight="@dimen/min_height"
+        android:src="@drawable/cocktails_around_the_world_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mapBtn"
-        tools:srcCompat="@drawable/cocktails_around_the_world_text"
-        android:src="@drawable/cocktails_around_the_world_text"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

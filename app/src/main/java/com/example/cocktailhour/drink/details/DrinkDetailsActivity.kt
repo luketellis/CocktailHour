@@ -26,31 +26,56 @@ class DrinkDetailsActivity : AppCompatActivity() {
 
         drink = intent.getParcelableExtra<Drink>("drink")
         ingredientViewModel = ViewModelProvider(this).get(IngredientViewModel::class.java)
-        drink?.id?.let { ingredientViewModel.getIngredientById(it) }
 
 
         var db= Room.databaseBuilder(applicationContext,CocktailHourRoomDatabase::class.java,"Cocktails").build()
 
         val thread = Thread {
 
+
+            //drink?.id?.let { ingredientViewModel.getIngredientById(it) }
             var ingredient : Ingredient = db.ingredientDao().getIngredientById(drink?.id)
 
-            Log.i("TAG", ingredient.toString())
+            if (ingredient != null) {
+
+                Log.i("TAG", ingredient.toString())
 
 
-            ingredientMeasureList.add(IngredientMeasure(ingredient.ingredient1, ingredient.measure1))
-            ingredientMeasureList.add(IngredientMeasure(ingredient.ingredient2, ingredient.measure2))
+                ingredientMeasureList.add(
+                    IngredientMeasure(ingredient.ingredient1, ingredient.measure1
+                    )
+                )
+                ingredientMeasureList.add(
+                    IngredientMeasure(ingredient.ingredient2, ingredient.measure2
+                    )
+                )
 
-            if (ingredient.ingredient3 != null)
-                ingredientMeasureList.add(IngredientMeasure(ingredient.ingredient3!!, ingredient.measure3!!))
-            if (ingredient.ingredient4 != null)
-                ingredientMeasureList.add(IngredientMeasure(ingredient.ingredient4!!, ingredient.measure4!!))
-            if (ingredient.ingredient5 != null)
-                ingredientMeasureList.add(IngredientMeasure(ingredient.ingredient5!!, ingredient.measure5!!))
-            if (ingredient.ingredient6 != null)
-                ingredientMeasureList.add(IngredientMeasure(ingredient.ingredient6!!, ingredient.measure6!!))
-            if (ingredient.ingredient7 != null)
-                ingredientMeasureList.add(IngredientMeasure(ingredient.ingredient7!!, ingredient.measure7!!))
+                if (ingredient.ingredient3 != null)
+                    ingredientMeasureList.add(
+                        IngredientMeasure(ingredient.ingredient3!!, ingredient.measure3!!
+                        )
+                    )
+                if (ingredient.ingredient4 != null)
+                    ingredientMeasureList.add(
+                        IngredientMeasure(ingredient.ingredient4!!, ingredient.measure4!!
+                        )
+                    )
+                if (ingredient.ingredient5 != null)
+                    ingredientMeasureList.add(
+                        IngredientMeasure(ingredient.ingredient5!!, ingredient.measure5!!
+                        )
+                    )
+                if (ingredient.ingredient6 != null)
+                    ingredientMeasureList.add(
+                        IngredientMeasure(ingredient.ingredient6!!, ingredient.measure6!!
+                        )
+                    )
+                if (ingredient.ingredient7 != null)
+                    ingredientMeasureList.add(
+                        IngredientMeasure(ingredient.ingredient7!!, ingredient.measure7!!
+                        )
+                    )
+            }
         }
 
         thread.start()
@@ -69,7 +94,6 @@ class DrinkDetailsActivity : AppCompatActivity() {
         TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
             tab.text = getTabText(position)
         }.attach()
-
 
     }
 

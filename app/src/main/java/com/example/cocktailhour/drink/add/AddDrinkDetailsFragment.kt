@@ -6,19 +6,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.cocktailhour.R
+import com.example.cocktailhour.drink.details.DrinkDetailsActivity
+import com.example.cocktailhour.drink.details.IngredientMeasureListAdapter
 import com.example.cocktailhour.entitiy.Drink
 
 class AddDrinkDetailsFragment : Fragment() {
 
-    private lateinit var nameTextView: TextView
-    private lateinit var tagsTextView: TextView
-    private lateinit var categoryTextView: TextView
-    private lateinit var alcoholicTextView: TextView
-    private lateinit var glassTextView: TextView
-    private lateinit var instructionsTextView: TextView
+    private lateinit var nameEditText: EditText
+    private lateinit var tagsEditText: EditText
+    private lateinit var categoryEditText: EditText
+    private lateinit var alcoholicEditText: EditText
+    private lateinit var glassEditText: EditText
+    private lateinit var instructionsEditText: EditText
 
 
     override fun onCreateView(
@@ -29,27 +33,61 @@ class AddDrinkDetailsFragment : Fragment() {
 
         val root = inflater.inflate(R.layout.add_details_fragment, container, false)
 
-        nameTextView = root.findViewById(R.id.nameTV)
-        tagsTextView = root.findViewById(R.id.tagsTV)
-        categoryTextView = root.findViewById(R.id.categoryTV)
-        alcoholicTextView = root.findViewById(R.id.alcoholicTV)
-        glassTextView = root.findViewById(R.id.glassTV)
-        instructionsTextView = root.findViewById(R.id.instructionsTV)
-
         val activity: AddDrinkActivity? = activity as AddDrinkActivity?
-/*        val drink: Drink? = activity?.getMyDrink()
+        //val drink: Drink? = activity?.getMyDrink()
 
-        nameTextView.text = drink?.name
-        tagsTextView.text = drink?.tags
-        categoryTextView.text = drink?.category
-        alcoholicTextView.text = drink?.alcoholic
-        glassTextView.text = drink?.glass
-        instructionsTextView.text = drink?.instructions*/
+        nameEditText = root.findViewById(R.id.nameTV)
+        tagsEditText = root.findViewById(R.id.tagsTV)
+        categoryEditText = root.findViewById(R.id.categoryTV)
+        alcoholicEditText = root.findViewById(R.id.alcoholicTV)
+        glassEditText = root.findViewById(R.id.glassTV)
+        instructionsEditText = root.findViewById(R.id.instructionsTV)
 
-        val button = root.findViewById<Button>(R.id.button_save)
+        val addBtn = root.findViewById<Button>(R.id.addBtn)
+        addBtn.setOnClickListener {
+
+            var name: String = nameEditText.text.toString()
+
+            validateFieldsAndAddDrink(nameEditText.text.toString(), tagsEditText.text.toString(), tagsEditText.text.toString(),
+                instructionsEditText.text.toString(), alcoholicEditText.text.toString(), glassEditText.text.toString(), activity)
+
+        }
+
+        val exitWithoutSavingBtn = root.findViewById<Button>(R.id.exitBtn)
+        exitWithoutSavingBtn.setOnClickListener {
+            activity!!.onBackPressed()
+        }
 
         return root
     }
+
+    private fun validateFieldsAndAddDrink(name: String, category: String, tags: String, instructions: String, alcoholic: String, glass: String, activity: AddDrinkActivity?) {
+        if (name == "") {
+            //parentActivity?.displayToastValidation("Name cannot be empty!");
+            Toast.makeText(context, "Name cannot be empty!", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (category == "") {
+            Toast.makeText(context, "Category cannot be empty!", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (tags == "") {
+            Toast.makeText(context, "Tags cannot be empty!", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (instructions == "") {
+            Toast.makeText(context, "Instructions cannot be empty!", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        activity?.addDrink(name, category, tags, instructions, alcoholic, glass)
+    }
+
+
+
 
     companion object{
         fun newInstance() = AddDrinkDetailsFragment()
