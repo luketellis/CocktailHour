@@ -13,10 +13,10 @@ import com.example.cocktailhour.database.CocktailHourRoomDatabase
 import com.example.cocktailhour.drink.DrinkViewModel
 import com.example.cocktailhour.drink.details.*
 import com.example.cocktailhour.entitiy.Drink
+import com.example.cocktailhour.entitiy.Ingredient
 import com.example.cocktailhour.entitiy.IngredientMeasure
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import java.time.LocalDateTime
 
 class AddDrinkActivity: AppCompatActivity() {
     private val ingredientMeasureList = ArrayList<IngredientMeasure>()
@@ -30,12 +30,14 @@ class AddDrinkActivity: AppCompatActivity() {
     private lateinit var alcoholicEditText: EditText
     private lateinit var glassEditText: EditText
     private lateinit var instructionsEditText: EditText
+    private var potentialIngredient: MutableList<IngredientMeasure> = ArrayList()
 
-        private lateinit var editDrinkView: EditText
 
         public override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.add_activity_drink_tabs)
+
+
 
             ingredientViewModel = ViewModelProvider(this).get(IngredientViewModel::class.java)
             drinkViewModel = ViewModelProvider(this).get(DrinkViewModel::class.java)
@@ -52,26 +54,31 @@ class AddDrinkActivity: AppCompatActivity() {
             )
             viewPager2.adapter = ViewPagerAdapter(this, fragmentList)
 
+
             val tabLayout = findViewById<TabLayout>(R.id.tab_layout)
             TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
                 tab.text = getTabText(position)
             }.attach()
 
-/*            val button = findViewById<Button>(R.id.button_save)
-            button.setOnClickListener {
-                val replyIntent = Intent()
-                if (TextUtils.isEmpty(editDrinkView.text)) {
-                    setResult(Activity.RESULT_CANCELED, replyIntent)
-                } else {
-                    val drink = Drink(null, editDrinkView.text.toString(), "German Name", "Tags","category",
-                        "Alcoholic","Mug", "instructions", "German Instructions","thumbnail", "12/05/1991", 0)
-
-                    replyIntent.putExtra(EXTRA_REPLY, drink)
-                    setResult(Activity.RESULT_OK, replyIntent)
+            tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+                override fun onTabSelected(tab: TabLayout.Tab) {
                 }
-                finish()
-            }*/
+                override fun onTabUnselected(tab: TabLayout.Tab) {
+                    //Toast.makeText(this@AddDrinkActivity,viewPager2.get, Toast.LENGTH_LONG).show()
+
+                }
+                override fun onTabReselected(tab: TabLayout.Tab) {}
+            })
+
+
         }
+
+/*    fun updatePotentialIngredient(ingredientOrMeasure: String, number: Int, type: String) {
+        if (ingredient != null && measure != null)
+            throw Exception("This method should only ")
+
+        potential
+    }*/
 
     fun displayToastValidation(text: String) {
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
@@ -92,6 +99,21 @@ class AddDrinkActivity: AppCompatActivity() {
 
         super.onBackPressed()
     }
+
+    /*            val button = findViewById<Button>(R.id.button_save)
+            button.setOnClickListener {
+                val replyIntent = Intent()
+                if (TextUtils.isEmpty(editDrinkView.text)) {
+                    setResult(Activity.RESULT_CANCELED, replyIntent)
+                } else {
+                    val drink = Drink(null, editDrinkView.text.toString(), "German Name", "Tags","category",
+                        "Alcoholic","Mug", "instructions", "German Instructions","thumbnail", "12/05/1991", 0)
+
+                    replyIntent.putExtra(EXTRA_REPLY, drink)
+                    setResult(Activity.RESULT_OK, replyIntent)
+                }
+                finish()
+            }*/
 
 
     private fun getTabText(position: Int): String {

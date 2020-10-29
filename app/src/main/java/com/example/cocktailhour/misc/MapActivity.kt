@@ -1,6 +1,7 @@
 package com.example.cocktailhour.misc
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cocktailhour.R
 import com.example.cocktailhour.entitiy.DrinkLocation
@@ -9,10 +10,11 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 
 
-class MapActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
     private lateinit var mMap: GoogleMap
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,12 +38,23 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // Add a marker in Sydney and move the camera
-        //val sydney = LatLng(-34.0, 151.0)
+        //Add a marker at the provided and move the camera
         initData().forEach{
-            mMap.addMarker(MarkerOptions().position(it.coordinates).title(it.drink).snippet(it.country))
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(it.coordinates))
+            mMap.addMarker(
+                MarkerOptions()
+                    .position(it.coordinates)
+                    .title(it.drink)
+                    .snippet(it.country)
+            )
+
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(it.coordinates))
+            mMap.setOnInfoWindowClickListener(this)
         }
+
+    }
+
+    override fun onInfoWindowClick(marker: Marker?) {
+        Toast.makeText(this, marker?.title, Toast.LENGTH_SHORT).show()
     }
 
     private fun initData() : List<DrinkLocation> {
@@ -62,6 +75,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             DrinkLocation("Cuba", LatLng(23.6762, -82.6503), "Mojito"),
             DrinkLocation("Jamaica", LatLng(18.1096, -77.2975), "Jamaica Kiss"),
             DrinkLocation("Egypt", LatLng(24.8206, 27.8025), "Jewel Of The Nile"),
-            DrinkLocation("Zimbabwe", LatLng(-19.0154, 29.1549), "Negroni"))
+            DrinkLocation("Zimbabwe", LatLng(-19.0154, 29.1549), "Negroni")
+        )
     }
 }
