@@ -34,7 +34,7 @@ class IngredientMeasureListAdapter(
     inner class ViewHolder(private val v: View) : RecyclerView.ViewHolder(v) {
         private val ingredientTV: TextView = v.findViewById(R.id.ingredientTV)
         private val measurementTV: TextView = v.findViewById(R.id.measurementTV)
-        private val imageView = v.findViewById<ImageView>(R.id.imageView)
+/*        private val imageView = v.findViewById<ImageView>(R.id.imageView)*/
 
         fun bind(item: IngredientMeasure) {
             ingredientTV.text = item.ingredient

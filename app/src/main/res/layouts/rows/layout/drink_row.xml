@@ -6,6 +6,13 @@
     android:background="@android:color/holo_blue_bright"
     style="@style/drink_title">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="end"
+        android:contentDescription="@string/heart_image" />
+
     <LinearLayout
         android:layout_weight="80"
         android:orientation="vertical"
@@ -27,13 +34,5 @@
             android:textSize="18sp" />
 
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_gravity="end"
-        android:src="@drawable/ic_baseline_favorite_border_24"
-        android:contentDescription="@string/heart_image" />
 
 </LinearLayout>
