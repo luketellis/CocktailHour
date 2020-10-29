@@ -1,6 +1,8 @@
 package com.example.cocktailhour.drink
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -57,7 +59,7 @@ class DrinkListAdapter internal constructor(
             pop.setOnMenuItemClickListener { menuItem ->
                 when (menuItem.itemId) {
                     R.id.action_edit -> {
-                        val intent = Intent (v?.context, EditDrinkActivity::class.java)
+                        val intent = Intent(v?.context, EditDrinkActivity::class.java)
                         intent.putExtra("drink", item)
                         if (v != null) {
                             startActivity(v.context, intent, null)
@@ -66,8 +68,28 @@ class DrinkListAdapter internal constructor(
 
                     R.id.action_delete -> {
                         menuItem?.let {
-                            Toast.makeText(itemView.context, "Drink with name \"${item.name}\" has been deleted", Toast.LENGTH_SHORT).show()
-                            drinkViewModel.deleteById(item.id!!)
+
+                            val alert: AlertDialog.Builder = AlertDialog.Builder(itemView.context)
+                            alert.setTitle("Delete")
+                            alert.setMessage("Are you sure you want to delete this drink?")
+                            alert.setPositiveButton("Yes",
+                                DialogInterface.OnClickListener { dialog, which ->
+                                    Toast.makeText(itemView.context,
+                                        "Drink with name \"${item.name}\" has been deleted",
+                                        Toast.LENGTH_SHORT).show()
+
+                                    drinkViewModel.deleteById(item.id!!)
+
+                                    dialog.dismiss()
+                                })
+
+                            alert.setNegativeButton("No",
+                                DialogInterface.OnClickListener { dialog, which -> dialog.dismiss() })
+
+                            alert.show()
+
+
+
                         }
                     }
                 }
