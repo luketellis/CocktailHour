@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cocktailhour.R
-import com.example.cocktailhour.entitiy.DrinkLocation
+import com.example.cocktailhour.entitiy.DrinkLocationDTO
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -57,25 +57,25 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnInfoWin
         Toast.makeText(this, marker?.title, Toast.LENGTH_SHORT).show()
     }
 
-    private fun initData() : List<DrinkLocation> {
+    private fun initData() : List<DrinkLocationDTO> {
         return listOf(
-            DrinkLocation("Mexico", LatLng(19.4326, -99.1332), "Paloma"),
-            DrinkLocation("Peru", LatLng(-12.0463, -77.0427), "Pisco Sour"),
-            DrinkLocation("Canada", LatLng(45.4215, -75.6972), "Bloody Mary"),
-            DrinkLocation("New York", LatLng(40.7306, -73.9452), "New York Sour"),
-            DrinkLocation("Brazil", LatLng(-22.9068, -43.1729), "Caipirinha"),
-            DrinkLocation("Spain", LatLng(40.73061, -3.7037), "Sangria"),
-            DrinkLocation("France", LatLng(49.8566, 2.3522), "French 75"),
-            DrinkLocation("England", LatLng(51.5074, 0.1278), "Vesper"),
-            DrinkLocation("Russia", LatLng(55.7512, 37.6184), "Black Russian"),
-            DrinkLocation("New Zealand", LatLng(-41.2769, 174.7731), "Kiwi Lemon"),
-            DrinkLocation("Singapore", LatLng(1.3521, 103.8198), "Singapore Sling"),
-            DrinkLocation("Japan", LatLng(35.6762, 139.6503), "Kamikaze"),
-            DrinkLocation("Germany", LatLng(52.5200, 13.4050), "Kir Royale"),
-            DrinkLocation("Cuba", LatLng(23.6762, -82.6503), "Mojito"),
-            DrinkLocation("Jamaica", LatLng(18.1096, -77.2975), "Jamaica Kiss"),
-            DrinkLocation("Egypt", LatLng(24.8206, 27.8025), "Jewel Of The Nile"),
-            DrinkLocation("Zimbabwe", LatLng(-19.0154, 29.1549), "Negroni")
+            DrinkLocationDTO("Mexico", LatLng(19.4326, -99.1332), "Paloma"),
+            DrinkLocationDTO("Peru", LatLng(-12.0463, -77.0427), "Pisco Sour"),
+            DrinkLocationDTO("Canada", LatLng(45.4215, -75.6972), "Bloody Mary"),
+            DrinkLocationDTO("New York", LatLng(40.7306, -73.9452), "New York Sour"),
+            DrinkLocationDTO("Brazil", LatLng(-22.9068, -43.1729), "Caipirinha"),
+            DrinkLocationDTO("Spain", LatLng(40.73061, -3.7037), "Sangria"),
+            DrinkLocationDTO("France", LatLng(49.8566, 2.3522), "French 75"),
+            DrinkLocationDTO("England", LatLng(51.5074, 0.1278), "Vesper"),
+            DrinkLocationDTO("Russia", LatLng(55.7512, 37.6184), "Black Russian"),
+            DrinkLocationDTO("New Zealand", LatLng(-41.2769, 174.7731), "Kiwi Lemon"),
+            DrinkLocationDTO("Singapore", LatLng(1.3521, 103.8198), "Singapore Sling"),
+            DrinkLocationDTO("Japan", LatLng(35.6762, 139.6503), "Kamikaze"),
+            DrinkLocationDTO("Germany", LatLng(52.5200, 13.4050), "Kir Royale"),
+            DrinkLocationDTO("Cuba", LatLng(23.6762, -82.6503), "Mojito"),
+            DrinkLocationDTO("Jamaica", LatLng(18.1096, -77.2975), "Jamaica Kiss"),
+            DrinkLocationDTO("Egypt", LatLng(24.8206, 27.8025), "Jewel Of The Nile"),
+            DrinkLocationDTO("Zimbabwe", LatLng(-19.0154, 29.1549), "Negroni")
         )
     }
 }

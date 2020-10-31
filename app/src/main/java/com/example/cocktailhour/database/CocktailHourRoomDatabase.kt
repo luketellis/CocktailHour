@@ -6,17 +6,19 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.cocktailhour.entitiy.Drink
+import com.example.cocktailhour.entitiy.DrinkLocation
 import com.example.cocktailhour.entitiy.Ingredient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 
 // Annotates class to be a Room Database with a table (entity) of the Drink class
-@Database(entities = arrayOf(Drink::class, Ingredient::class), version = 1, exportSchema = false)
+@Database(entities = arrayOf(Drink::class, Ingredient::class, DrinkLocation::class), version = 1, exportSchema = false)
 public abstract class CocktailHourRoomDatabase : RoomDatabase() {
 
     abstract fun drinkDao(): DrinkDao
     abstract fun ingredientDao(): IngredientDao
+    abstract fun drinkLocationDao(): DrinkLocationDao
 
 
     private class DrinkDatabaseCallback(

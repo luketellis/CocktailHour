@@ -10,7 +10,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 @Entity(tableName = "ingredient")
 class Ingredient(
-    @PrimaryKey @ColumnInfo(name = "id") var id: Int,
+    @PrimaryKey @ColumnInfo(name = "id") var id: Int?,
     @ColumnInfo(name = "ingredient1") var ingredient1: String,
     @ColumnInfo(name = "ingredient2") var ingredient2: String,
     @ColumnInfo(name = "ingredient3") var ingredient3: String?,
