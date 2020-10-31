@@ -39,7 +39,7 @@
         </activity>
 
         <activity
-            android:name=".drink.EditDrinkActivity"
+            android:name=".drink.edit.EditDrinkActivity"
             android:label="@string/title_edit_drink">
         </activity>
 

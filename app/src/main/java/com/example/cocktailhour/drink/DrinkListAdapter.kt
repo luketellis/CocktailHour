@@ -2,7 +2,6 @@ package com.example.cocktailhour.drink
 
 import android.app.AlertDialog
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +10,7 @@ import android.widget.*
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailhour.R
+import com.example.cocktailhour.drink.edit.EditDrinkActivity
 import com.example.cocktailhour.entitiy.Drink
 import java.util.*
 import kotlin.collections.ArrayList
@@ -70,25 +70,23 @@ class DrinkListAdapter internal constructor(
                         menuItem?.let {
 
                             val alert: AlertDialog.Builder = AlertDialog.Builder(itemView.context)
-                            alert.setTitle("Delete")
+                            alert.setTitle("Delete ${item.name}")
                             alert.setMessage("Are you sure you want to delete this drink?")
-                            alert.setPositiveButton("Yes",
-                                DialogInterface.OnClickListener { dialog, which ->
-                                    Toast.makeText(itemView.context,
-                                        "Drink with name \"${item.name}\" has been deleted",
-                                        Toast.LENGTH_SHORT).show()
+                            alert.setPositiveButton("Yes") { dialog, _ ->
+                                Toast.makeText(
+                                    itemView.context,
+                                    "Drink with name \"${item.name}\" has been deleted",
+                                    Toast.LENGTH_SHORT
+                                ).show()
 
-                                    drinkViewModel.deleteById(item.id!!)
+                                drinkViewModel.deleteById(item.id!!)
 
-                                    dialog.dismiss()
-                                })
+                                dialog.dismiss()
+                            }
 
-                            alert.setNegativeButton("No",
-                                DialogInterface.OnClickListener { dialog, which -> dialog.dismiss() })
+                            alert.setNegativeButton("No") { dialog, _ -> dialog.dismiss() }
 
                             alert.show()
-
-
 
                         }
                     }

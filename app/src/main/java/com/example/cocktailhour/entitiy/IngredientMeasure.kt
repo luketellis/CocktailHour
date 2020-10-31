@@ -4,4 +4,4 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class IngredientMeasure(var ingredient: String, var measure: String) : Parcelable
+data class IngredientMeasure(var ingredient: String?, var measure: String?) : Parcelable

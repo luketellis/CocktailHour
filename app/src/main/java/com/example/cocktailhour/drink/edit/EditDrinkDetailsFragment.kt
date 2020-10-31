@@ -1,4 +1,4 @@
-package com.example.cocktailhour.drink.add
+package com.example.cocktailhour.drink.edit
 
 
 import android.os.Bundle
@@ -7,15 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.cocktailhour.R
-import com.example.cocktailhour.drink.details.DrinkDetailsActivity
-import com.example.cocktailhour.drink.details.IngredientMeasureListAdapter
-import com.example.cocktailhour.entitiy.Drink
 
-class AddDrinkDetailsFragment : Fragment() {
+class EditDrinkDetailsFragment : Fragment() {
 
     private lateinit var nameEditText: EditText
     private lateinit var tagsEditText: EditText
@@ -33,7 +29,7 @@ class AddDrinkDetailsFragment : Fragment() {
 
         val root = inflater.inflate(R.layout.add_details_fragment, container, false)
 
-        val activity: AddDrinkActivity? = activity as AddDrinkActivity?
+        val activity: EditDrinkActivity? = activity as EditDrinkActivity?
         //val drink: Drink? = activity?.getMyDrink()
 
         nameEditText = root.findViewById(R.id.nameTV)
@@ -61,8 +57,9 @@ class AddDrinkDetailsFragment : Fragment() {
         return root
     }
 
-    private fun validateFieldsAndAddDrink(name: String, category: String, tags: String, instructions: String, alcoholic: String, glass: String, activity: AddDrinkActivity?) {
+    private fun validateFieldsAndAddDrink(name: String, category: String, tags: String, instructions: String, alcoholic: String, glass: String, activity: EditDrinkActivity?) {
         if (name == "") {
+            //parentActivity?.displayToastValidation("Name cannot be empty!");
             Toast.makeText(context, "Name cannot be empty!", Toast.LENGTH_SHORT).show()
             return
         }
@@ -82,14 +79,27 @@ class AddDrinkDetailsFragment : Fragment() {
             return
         }
 
-        activity?.addDrinkAndReturnToMainMenu(name, category, tags, instructions, alcoholic, glass)
+        //activity?.addDrink(name, category, tags, instructions, alcoholic, glass)
     }
 
 
 
 
     companion object{
-        fun newInstance() = AddDrinkDetailsFragment()
+        fun newInstance() = EditDrinkDetailsFragment()
     }
 }
 
+/*           button.setOnClickListener {
+               val replyIntent = Intent()
+               if (TextUtils.isEmpty(editDrinkView.text)) {
+                   setResult(Activity.RESULT_CANCELED, replyIntent)
+               } else {
+                   val drink = Drink(null, editDrinkView.text.toString(), "German Name", "Tags","category",
+                       "Alcoholic","Mug", "instructions", "German Instructions","thumbnail", "12/05/1991")
+
+                   replyIntent.putExtra(EXTRA_REPLY, drink)
+                   setResult(Activity.RESULT_OK, replyIntent)
+               }
+               finish()
+           }*/
