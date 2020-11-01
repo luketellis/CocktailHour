@@ -25,7 +25,7 @@ class GalleryFragment: Fragment() {
         val activity: DrinkDetailsActivity? = activity as DrinkDetailsActivity?
         val drink: Drink? = activity?.getMyDrink()
 
-        Picasso.get().load(drink?.thumbnail).into(imageView);
+        Picasso.get().load(drink?.thumbnail).into(imageView)
         return root
     }
 

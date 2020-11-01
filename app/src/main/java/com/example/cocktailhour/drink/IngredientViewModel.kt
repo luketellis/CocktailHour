@@ -1,4 +1,4 @@
-package com.example.cocktailhour.drink.details
+package com.example.cocktailhour.drink
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -21,7 +21,7 @@ class IngredientViewModel(application: Application) : AndroidViewModel(applicati
     /**
      * Launching a new coroutine to insert the data in a non-blocking way
      */
-    fun getIngredientById(id: Int) = viewModelScope.launch(Dispatchers.IO) {
+    suspend fun getIngredientById(id: Int) = viewModelScope.launch(Dispatchers.IO) {
         ingredient = repository.getIngredientById(id)
     }
 

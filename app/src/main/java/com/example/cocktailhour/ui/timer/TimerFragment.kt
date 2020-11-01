@@ -31,24 +31,24 @@ class TimerFragment : Fragment() {
         })
 
         val timerBtn = root.findViewById<Button>(R.id.timerBtn)
-        val view_timer = root.findViewById<Chronometer>(R.id.view_timer)
-        view_timer.text = "00:15"
+        val viewTimer: Chronometer = root.findViewById<Chronometer>(R.id.view_timer)
+        viewTimer.text = "00:15"
 
         timerBtn.setOnClickListener {
-            view_timer.isCountDown = true
-            view_timer.base = SystemClock.elapsedRealtime() + 15000
-            view_timer.start()
+            viewTimer.isCountDown = true
+            viewTimer.base = SystemClock.elapsedRealtime() + 15000
+            viewTimer.start()
         }
 
-        view_timer.setOnChronometerTickListener {
-            if (it.text.toString().equals("00:00")) {
+        viewTimer.setOnChronometerTickListener {
+            if (it.text.toString() == "00:00") {
 
                 Handler(Looper.getMainLooper()).postDelayed({
                     // Reset Chronometer
                     it.onChronometerTickListener = null
                     it.stop()
 
-                    view_timer.base = SystemClock.elapsedRealtime() + 15000
+                    viewTimer.base = SystemClock.elapsedRealtime() + 15000
                     val vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
                     vibrator.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE))
                 }, 1000)

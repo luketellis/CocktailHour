@@ -29,17 +29,10 @@ class IngredientFragment: Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(root.context)
 
-        return root;
+        return root
     }
 
     companion object{
         fun newInstance() = IngredientFragment()
-    }
-
-    private fun convertIngredientRecordIntoIngredientMeasureList(ingredient: Ingredient?): ArrayList<IngredientMeasure> {
-        val ingredientMeasureList = ArrayList<IngredientMeasure>()
-
-
-        return ingredientMeasureList
     }
 }

@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.cocktailhour.R
+import com.example.cocktailhour.entitiy.Drink
 
 class EditDrinkDetailsFragment : Fragment() {
 
@@ -27,25 +28,38 @@ class EditDrinkDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val root = inflater.inflate(R.layout.add_details_fragment, container, false)
+        val root = inflater.inflate(R.layout.activity_drink_edit, container, false)
 
         val activity: EditDrinkActivity? = activity as EditDrinkActivity?
-        //val drink: Drink? = activity?.getMyDrink()
+        val drink: Drink? = activity?.getMyDrink()
 
-        nameEditText = root.findViewById(R.id.nameTV)
-        tagsEditText = root.findViewById(R.id.tagsTV)
-        categoryEditText = root.findViewById(R.id.categoryTV)
-        alcoholicEditText = root.findViewById(R.id.alcoholicTV)
-        glassEditText = root.findViewById(R.id.glassTV)
-        instructionsEditText = root.findViewById(R.id.instructionsTV)
+        nameEditText = root.findViewById(R.id.nameEditText)
+        tagsEditText = root.findViewById(R.id.tagsEditText)
+        categoryEditText = root.findViewById(R.id.categoryEditText)
+        alcoholicEditText = root.findViewById(R.id.alcoholicEditText)
+        glassEditText = root.findViewById(R.id.glassEditText)
+        instructionsEditText = root.findViewById(R.id.instructionsEditText)
 
-        val addBtn = root.findViewById<Button>(R.id.addBtn)
-        addBtn.setOnClickListener {
 
+        nameEditText.setText(drink?.name)
+        tagsEditText.setText(drink?.tags)
+        categoryEditText.setText(drink?.category)
+        alcoholicEditText.setText(drink?.alcoholic)
+        glassEditText.setText(drink?.glass)
+        instructionsEditText.setText(drink?.instructions)
+
+
+        val updateBtn = root.findViewById<Button>(R.id.updateBtn)
+        updateBtn.setOnClickListener {
+            //validateEmptyFieldsAndUpdateDrink()
+            //super.onBackPressed()
+
+/*
             var name: String = nameEditText.text.toString()
 
             validateFieldsAndAddDrink(nameEditText.text.toString(), tagsEditText.text.toString(), tagsEditText.text.toString(),
                 instructionsEditText.text.toString(), alcoholicEditText.text.toString(), glassEditText.text.toString(), activity)
+*/
 
         }
 
@@ -83,23 +97,7 @@ class EditDrinkDetailsFragment : Fragment() {
     }
 
 
-
-
     companion object{
         fun newInstance() = EditDrinkDetailsFragment()
     }
 }
-
-/*           button.setOnClickListener {
-               val replyIntent = Intent()
-               if (TextUtils.isEmpty(editDrinkView.text)) {
-                   setResult(Activity.RESULT_CANCELED, replyIntent)
-               } else {
-                   val drink = Drink(null, editDrinkView.text.toString(), "German Name", "Tags","category",
-                       "Alcoholic","Mug", "instructions", "German Instructions","thumbnail", "12/05/1991")
-
-                   replyIntent.putExtra(EXTRA_REPLY, drink)
-                   setResult(Activity.RESULT_OK, replyIntent)
-               }
-               finish()
-           }*/

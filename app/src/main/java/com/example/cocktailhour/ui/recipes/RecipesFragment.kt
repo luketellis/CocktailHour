@@ -28,8 +28,6 @@ class RecipesFragment : Fragment() {
     private lateinit var drinkViewModel: DrinkViewModel
     private lateinit var recipesViewModel: RecipesViewModel
 
-    private var twoIngredientsSet: Boolean = false;
-
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -34,7 +34,6 @@ class AddDrinkDetailsFragment : Fragment() {
         val root = inflater.inflate(R.layout.add_details_fragment, container, false)
 
         val activity: AddDrinkActivity? = activity as AddDrinkActivity?
-        //val drink: Drink? = activity?.getMyDrink()
 
         nameEditText = root.findViewById(R.id.nameTV)
         tagsEditText = root.findViewById(R.id.tagsTV)

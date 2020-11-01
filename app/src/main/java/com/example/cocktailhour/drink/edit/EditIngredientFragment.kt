@@ -11,8 +11,11 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.cocktailhour.R
+import com.example.cocktailhour.drink.add.AddDrinkActivity
+import com.example.cocktailhour.drink.add.AddIngredientFragment
+import com.example.cocktailhour.drink.details.DrinkDetailsActivity
 import com.example.cocktailhour.entitiy.Ingredient
-import com.example.cocktailhour.entitiy.IngredientMeasure
+import com.example.cocktailhour.entitiy.IngredientDTO
 
 
 class EditIngredientFragment: Fragment(), TextWatcher {
@@ -30,15 +33,9 @@ class EditIngredientFragment: Fragment(), TextWatcher {
     private lateinit var measureFiveEditText: EditText
     private lateinit var measureSixEditText: EditText
 
-    var ingredientMeasureOne : IngredientMeasure? = null
-    var ingredientMeasureTwo : IngredientMeasure? = null
-    var ingredientMeasureThree : IngredientMeasure? = null
-    var ingredientMeasureFour : IngredientMeasure? = null
-    var ingredientMeasureFive : IngredientMeasure? = null
-    var ingredientMeasureSix : IngredientMeasure? = null
+    private var newIngredient : IngredientDTO = IngredientDTO()
 
-    val list: MutableList<IngredientMeasure> = ArrayList()
-
+    private var parentActivity: EditDrinkActivity? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,171 +43,91 @@ class EditIngredientFragment: Fragment(), TextWatcher {
     ): View? {
         val root = inflater.inflate(R.layout.add_ingredient_fragment, container, false)
 
-/*        val recyclerView = root.findViewById<RecyclerView>(R.id.recyclerview)*/
-        /*val drink: Drink? = activity?.getMyDrink()*/
-
-        ingredientOneEditText = root.findViewById(R.id.ingredientOneEditText)
-        ingredientOneEditText.addTextChangedListener(this)
-        ingredientTwoEditText = root.findViewById(R.id.ingredientTwoEditText)
-        ingredientTwoEditText.addTextChangedListener(this)
-        ingredientThreeEditText = root.findViewById(R.id.ingredientThreeEditText)
-        ingredientFourEditText = root.findViewById(R.id.ingredientFourEditText)
-        ingredientFiveEditText = root.findViewById(R.id.ingredientFiveEditText)
-        ingredientSixEditText = root.findViewById(R.id.ingredientSixEditText)
-
-        measureOneEditText = root.findViewById(R.id.measureOneEditText)
-        measureTwoEditText = root.findViewById(R.id.measureTwoEditText)
-        measureThreeEditText = root.findViewById(R.id.measureThreeEditText)
-        measureFourEditText = root.findViewById(R.id.measureFourEditText)
-        measureFiveEditText = root.findViewById(R.id.measureFiveEditText)
-        measureSixEditText = root.findViewById(R.id.measureSixEditText)
-
-
-        ingredientOneEditText.addTextChangedListener(object : TextWatcher {
-
-            override fun afterTextChanged(s: Editable) {
-                setupIngredientMeasureArray()
-            }
-
-            override fun beforeTextChanged(
-                s: CharSequence, start: Int,
-                count: Int, after: Int
-            ) {
-            }
-
-            override fun onTextChanged(
-                s: CharSequence, start: Int,
-                before: Int, count: Int
-            ) {
-            }
-        })
-
-
 
 
         val activity: EditDrinkActivity? = activity as EditDrinkActivity?
 
-/*        val adapter = IngredientMeasureListAdapter(root.context, activity!!.getMyIngredients())
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(root.context)*/
+        val originalIngredient: Ingredient? = activity!!.getMyIngredient()
 
-        return root;
+        ingredientOneEditText = root.findViewById(R.id.ingredientOneEditText)
+        ingredientOneEditText.addTextChangedListener(this)
+        ingredientOneEditText.setText(originalIngredient?.ingredient1)
+
+        ingredientTwoEditText = root.findViewById(R.id.ingredientTwoEditText)
+        ingredientTwoEditText.addTextChangedListener(this)
+        ingredientTwoEditText.setText(originalIngredient?.ingredient2)
+
+        ingredientThreeEditText = root.findViewById(R.id.ingredientThreeEditText)
+        ingredientThreeEditText.addTextChangedListener(this)
+        ingredientThreeEditText.setText(originalIngredient?.ingredient3)
+
+        ingredientFourEditText = root.findViewById(R.id.ingredientFourEditText)
+        ingredientFourEditText.addTextChangedListener(this)
+        ingredientFourEditText.setText(originalIngredient?.ingredient4)
+
+        ingredientFiveEditText = root.findViewById(R.id.ingredientFiveEditText)
+        ingredientFiveEditText.addTextChangedListener(this)
+        ingredientFiveEditText.setText(originalIngredient?.ingredient5)
+
+        ingredientSixEditText = root.findViewById(R.id.ingredientSixEditText)
+        ingredientSixEditText.addTextChangedListener(this)
+        ingredientSixEditText.setText(originalIngredient?.ingredient6)
+
+        measureOneEditText = root.findViewById(R.id.measureOneEditText)
+        measureOneEditText.addTextChangedListener(this)
+        measureOneEditText.setText(originalIngredient?.measure1)
+
+        measureTwoEditText = root.findViewById(R.id.measureTwoEditText)
+        measureTwoEditText.addTextChangedListener(this)
+        measureTwoEditText.setText(originalIngredient?.measure2)
+
+        measureThreeEditText = root.findViewById(R.id.measureThreeEditText)
+        measureThreeEditText.addTextChangedListener(this)
+        measureThreeEditText.setText(originalIngredient?.measure3)
+
+        measureFourEditText = root.findViewById(R.id.measureFourEditText)
+        measureFourEditText.addTextChangedListener(this)
+        measureFourEditText.setText(originalIngredient?.measure4)
+
+        measureFiveEditText = root.findViewById(R.id.measureFiveEditText)
+        measureFiveEditText.addTextChangedListener(this)
+        measureFiveEditText.setText(originalIngredient?.measure5)
+
+        measureSixEditText = root.findViewById(R.id.measureSixEditText)
+        measureSixEditText.addTextChangedListener(this)
+        measureSixEditText.setText(originalIngredient?.measure6)
+
+        return root
     }
-
-
-    fun setupIngredientMeasureArray() {
-
-        var ingredientMeasureList = IngredientMeasure(
-            ingredientOneEditText.text.toString(),
-            measureOneEditText.text.toString()
-        )
-
-        list.add(
-            IngredientMeasure(
-                ingredientOneEditText.text.toString(),
-                measureOneEditText.text.toString()
-            )
-        )
-        list.add(
-            IngredientMeasure(
-                ingredientTwoEditText.text.toString(),
-                measureTwoEditText.text.toString()
-            )
-        )
-        list.add(
-            IngredientMeasure(
-                ingredientThreeEditText.text.toString(),
-                measureThreeEditText.text.toString()
-            )
-        )
-        list.add(
-            IngredientMeasure(
-                ingredientFourEditText.text.toString(),
-                measureFourEditText.text.toString()
-            )
-        )
-        list.add(
-            IngredientMeasure(
-                ingredientFiveEditText.text.toString(),
-                measureFiveEditText.text.toString()
-            )
-        )
-        list.add(
-            IngredientMeasure(
-                ingredientSixEditText.text.toString(),
-                measureSixEditText.text.toString()
-            )
-        )
-
-
-    }
-/*    editTextSample.addTextChangedListener(object : TextWatcher {
-
-        override fun afterTextChanged(s: Editable) {}
-
-        override fun beforeTextChanged(s: CharSequence, start: Int,
-                                       count: Int, after: Int) {
-        }
-
-        override fun onTextChanged(s: CharSequence, start: Int,
-                                   before: Int, count: Int) {
-        }
-    })*/
 
     companion object{
         fun newInstance() = EditIngredientFragment()
     }
 
-    private fun convertIngredientRecordIntoIngredientMeasureList(ingredient: Ingredient?): ArrayList<IngredientMeasure> {
-        val ingredientMeasureList = ArrayList<IngredientMeasure>()
-
-
-
-
-        return ingredientMeasureList
+    override fun beforeTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
     }
 
-    override fun beforeTextChanged(editable: CharSequence?, p1: Int, p2: Int, p3: Int) {
-        Toast.makeText(context, editable, Toast.LENGTH_LONG).show()
+    override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
+        when (s.hashCode()) {
+            ingredientOneEditText.text.hashCode() -> newIngredient.ingredient1 = s.toString()
+            ingredientTwoEditText.text.hashCode() ->  newIngredient.ingredient2 = s.toString()
+            ingredientThreeEditText.text.hashCode() -> newIngredient.ingredient3 = s.toString()
+            ingredientFourEditText.text.hashCode() ->  newIngredient.ingredient4 = s.toString()
+            ingredientFiveEditText.text.hashCode() -> newIngredient.ingredient5 = s.toString()
+            ingredientSixEditText.text.hashCode() ->  newIngredient.ingredient6 = s.toString()
 
-        TODO("Not yet implemented")
-    }
-
-    override fun onTextChanged(editable: CharSequence?, p1: Int, p2: Int, p3: Int) {
-        Toast.makeText(context, editable, Toast.LENGTH_LONG).show()
-        TODO("Not yet implemented")
-    }
-
-    override fun afterTextChanged(editable: Editable?) {
-        Toast.makeText(context, editable, Toast.LENGTH_LONG).show()
-/*        when (v.getId()) {
-            R.id.oneButton -> {
-            }
-            R.id.twoButton -> {
-            }
-            R.id.threeButton -> {
-            }
-            else -> {
-            }
-        }*/
-    }
-
-/*    ingredientOneEditText.addTextChangedListener(object : TextWatcher {
-
-        override fun afterTextChanged(s: Editable) {
-            setupIngredientMeasureArray()
+            measureOneEditText.text.hashCode() -> newIngredient.measure1 = s.toString()
+            measureTwoEditText.text.hashCode() -> newIngredient.measure2 = s.toString()
+            measureThreeEditText.text.hashCode() -> newIngredient.measure3 = s.toString()
+            measureFourEditText.text.hashCode() -> newIngredient.measure4 = s.toString()
+            measureFiveEditText.text.hashCode() -> newIngredient.measure5 = s.toString()
+            measureSixEditText.text.hashCode() -> newIngredient.measure6 = s.toString()
         }
 
-        override fun beforeTextChanged(
-            s: CharSequence, start: Int,
-            count: Int, after: Int
-        ) {
-        }
+        //parentActivity?.updateIngredientInActivity(newIngredient)
+    }
 
-        override fun onTextChanged(
-            s: CharSequence, start: Int,
-            before: Int, count: Int
-        ) {
-        }
-    })*/
+    override fun afterTextChanged(s: Editable?) {
+    }
 }
+

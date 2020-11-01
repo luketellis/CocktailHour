@@ -24,7 +24,7 @@ class DrinkListAdapter internal constructor(
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var drinks = emptyList<Drink>() // Cached copy of drinks
-    private var filteredDrinks = emptyList<Drink>();
+    private var filteredDrinks = emptyList<Drink>()
 
 
     inner class DrinkViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){

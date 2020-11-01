@@ -11,9 +11,9 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.cocktailhour.R
-import com.example.cocktailhour.entitiy.Ingredient
+import com.example.cocktailhour.drink.edit.EditDrinkActivity
+import com.example.cocktailhour.drink.edit.EditIngredientFragment
 import com.example.cocktailhour.entitiy.IngredientDTO
-import com.example.cocktailhour.entitiy.IngredientMeasure
 
 class AddIngredientFragment: Fragment(), TextWatcher {
     private lateinit var ingredientOneEditText: EditText
@@ -30,18 +30,9 @@ class AddIngredientFragment: Fragment(), TextWatcher {
     private lateinit var measureFiveEditText: EditText
     private lateinit var measureSixEditText: EditText
 
-    var ingredientMeasureOne : IngredientMeasure? = null
-    var ingredientMeasureTwo : IngredientMeasure? = null
-    var ingredientMeasureThree : IngredientMeasure? = null
-    var ingredientMeasureFour : IngredientMeasure? = null
-    var ingredientMeasureFive : IngredientMeasure? = null
-    var ingredientMeasureSix : IngredientMeasure? = null
+    private var newIngredient : IngredientDTO = IngredientDTO()
 
-    val list: MutableList<IngredientMeasure> = ArrayList()
-
-    var newIngredient : IngredientDTO = IngredientDTO()
-
-    var parentActivity: AddDrinkActivity? = null
+    private var parentActivity: AddDrinkActivity? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -88,7 +79,7 @@ class AddIngredientFragment: Fragment(), TextWatcher {
 
         parentActivity = activity as AddDrinkActivity?
 
-        return root;
+        return root
     }
 
     companion object{
