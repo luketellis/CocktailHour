@@ -8,12 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.cocktailhour.R
-import com.example.cocktailhour.drink.add.AddDrinkActivity
-import com.example.cocktailhour.drink.add.AddIngredientFragment
-import com.example.cocktailhour.drink.details.DrinkDetailsActivity
 import com.example.cocktailhour.entitiy.Ingredient
 import com.example.cocktailhour.entitiy.IngredientDTO
 
@@ -43,10 +39,7 @@ class EditIngredientFragment: Fragment(), TextWatcher {
     ): View? {
         val root = inflater.inflate(R.layout.add_ingredient_fragment, container, false)
 
-
-
         val activity: EditDrinkActivity? = activity as EditDrinkActivity?
-
         val originalIngredient: Ingredient? = activity!!.getMyIngredient()
 
         ingredientOneEditText = root.findViewById(R.id.ingredientOneEditText)
@@ -124,7 +117,7 @@ class EditIngredientFragment: Fragment(), TextWatcher {
             measureSixEditText.text.hashCode() -> newIngredient.measure6 = s.toString()
         }
 
-        //parentActivity?.updateIngredientInActivity(newIngredient)
+        parentActivity?.updateIngredientInActivity(newIngredient)
     }
 
     override fun afterTextChanged(s: Editable?) {

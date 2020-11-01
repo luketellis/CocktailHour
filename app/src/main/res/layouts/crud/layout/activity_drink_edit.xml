@@ -94,74 +94,76 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayoutTag"
+        android:id="@+id/tagsGlassLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_padding"
-        android:layout_weight="50"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/categoryAlcoholicLinearLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayoutGlass"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:id="@+id/tagsLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:fontFamily="sans-serif-light"
-            android:minHeight="@dimen/min_height"
-            android:text="@string/tag_label"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
-
-        <EditText
-            android:id="@+id/tagsEditText"
-            android:inputType="text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:fontFamily="sans-serif-light"
-            android:hint="@string/tag_hint"
-            android:minHeight="@dimen/min_height"
-            android:textSize="18sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayoutGlass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_padding"
-        android:layout_weight="50"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/linearLayoutTag"
+        android:baselineAligned="false"
         app:layout_constraintBottom_toTopOf="@+id/linearLayoutInstruction"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/categoryAlcoholicLinearLayout">
 
-        <TextView
-            android:id="@+id/glassLabel"
+        <LinearLayout
+            android:id="@+id/tagsLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_padding"
             android:layout_weight="50"
-            android:fontFamily="sans-serif-light"
-            android:minHeight="@dimen/min_height"
-            android:text="@string/glass_label"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/glassEditText"
-            android:inputType="text"
+            <TextView
+                android:id="@+id/tagsLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/tag_label"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/tagsEditText"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/tag_hint"
+                android:minHeight="@dimen/min_height"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutGlass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_padding"
             android:layout_weight="50"
-            android:fontFamily="sans-serif-light"
-            android:hint="@string/glass_hint"
-            android:minHeight="@dimen/min_height"
-            android:textSize="18sp" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/glassLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:minHeight="@dimen/min_height"
+                android:text="@string/glass_label"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/glassEditText"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/glass_hint"
+                android:minHeight="@dimen/min_height"
+                android:textSize="18sp" />
+
+        </LinearLayout>
     </LinearLayout>
 
 
@@ -196,7 +198,7 @@
             android:layout_weight="50"
             android:fontFamily="sans-serif-light"
             android:hint="@string/drink_instructions"
-            android:minHeight="100dp"
+            android:minHeight="@dimen/min_height_instructions"
             android:textSize="18sp" />
     </LinearLayout>
 

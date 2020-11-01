@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/nameTV"
+        android:id="@+id/nameEditText"
         android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:baselineAligned="false"
         app:layout_constraintBottom_toTopOf="@+id/linearLayoutTag"
-        app:layout_constraintTop_toBottomOf="@+id/nameTV">
+        app:layout_constraintTop_toBottomOf="@+id/nameEditText">
 
         <LinearLayout
             android:id="@+id/categoryLinearLayout"
@@ -31,7 +31,7 @@
             android:layout_margin="@dimen/medium_padding"
             android:layout_weight="50"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/tagsTV"
+            app:layout_constraintBottom_toTopOf="@+id/tagsGlassLinearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/alcoholicLinearLayout">
@@ -48,7 +48,7 @@
                 android:textStyle="bold"/>
 
             <EditText
-                android:id="@+id/categoryTV"
+                android:id="@+id/categoryEditText"
                 android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
                 android:textStyle="bold"/>
 
             <EditText
-                android:id="@+id/alcoholicTV"
+                android:id="@+id/alcoholicEditText"
                 android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -99,7 +99,7 @@
         android:layout_height="wrap_content"
         android:baselineAligned="false"
         app:layout_constraintBottom_toTopOf="@+id/linearLayoutInstruction"
-        app:layout_constraintTop_toBottomOf="@+id/nameTV">
+        app:layout_constraintTop_toBottomOf="@+id/categoryAlcoholicLinearLayout">
 
         <LinearLayout
             android:id="@+id/tagsLinearLayout"
@@ -107,11 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/medium_padding"
             android:layout_weight="50"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/tagsTV"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/alcoholicLinearLayout">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tagsLabel"
@@ -125,7 +121,7 @@
                 android:textStyle="bold"/>
 
             <EditText
-                android:id="@+id/tagsTV"
+                android:id="@+id/tagsEditText"
                 android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -157,7 +153,7 @@
                 android:textStyle="bold"/>
 
             <EditText
-                android:id="@+id/glassTV"
+                android:id="@+id/glassEditText"
                 android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -177,7 +173,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/medium_padding"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/linearLayoutGlass"
+        app:layout_constraintTop_toBottomOf="@id/tagsGlassLinearLayout"
         app:layout_constraintBottom_toTopOf="@id/buttonLinearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" >
@@ -193,7 +189,7 @@
             android:textStyle="bold"/>
 
         <EditText
-            android:id="@+id/instructionsTV"
+            android:id="@+id/instructionsEditText"
             android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

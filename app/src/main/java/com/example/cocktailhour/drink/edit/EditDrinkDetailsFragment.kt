@@ -51,15 +51,8 @@ class EditDrinkDetailsFragment : Fragment() {
 
         val updateBtn = root.findViewById<Button>(R.id.updateBtn)
         updateBtn.setOnClickListener {
-            //validateEmptyFieldsAndUpdateDrink()
-            //super.onBackPressed()
-
-/*
-            var name: String = nameEditText.text.toString()
-
-            validateFieldsAndAddDrink(nameEditText.text.toString(), tagsEditText.text.toString(), tagsEditText.text.toString(),
+            validateEmptyFieldsAndUpdateDrink(nameEditText.text.toString(), tagsEditText.text.toString(), tagsEditText.text.toString(),
                 instructionsEditText.text.toString(), alcoholicEditText.text.toString(), glassEditText.text.toString(), activity)
-*/
 
         }
 
@@ -71,7 +64,7 @@ class EditDrinkDetailsFragment : Fragment() {
         return root
     }
 
-    private fun validateFieldsAndAddDrink(name: String, category: String, tags: String, instructions: String, alcoholic: String, glass: String, activity: EditDrinkActivity?) {
+    private fun validateEmptyFieldsAndUpdateDrink(name: String, category: String, tags: String, instructions: String, alcoholic: String, glass: String, activity: EditDrinkActivity?) {
         if (name == "") {
             //parentActivity?.displayToastValidation("Name cannot be empty!");
             Toast.makeText(context, "Name cannot be empty!", Toast.LENGTH_SHORT).show()
@@ -93,7 +86,7 @@ class EditDrinkDetailsFragment : Fragment() {
             return
         }
 
-        //activity?.addDrink(name, category, tags, instructions, alcoholic, glass)
+        activity?.updateDrinkAndReturnToMainMenu(name, category, tags, instructions, alcoholic, glass)
     }
 
 

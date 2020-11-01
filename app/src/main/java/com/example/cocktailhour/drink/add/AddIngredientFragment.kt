@@ -8,11 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.cocktailhour.R
-import com.example.cocktailhour.drink.edit.EditDrinkActivity
-import com.example.cocktailhour.drink.edit.EditIngredientFragment
+import com.example.cocktailhour.entitiy.Ingredient
 import com.example.cocktailhour.entitiy.IngredientDTO
 
 class AddIngredientFragment: Fragment(), TextWatcher {
@@ -39,6 +37,8 @@ class AddIngredientFragment: Fragment(), TextWatcher {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.add_ingredient_fragment, container, false)
+
+        parentActivity = activity as AddDrinkActivity?
 
         ingredientOneEditText = root.findViewById(R.id.ingredientOneEditText)
         ingredientOneEditText.addTextChangedListener(this)
@@ -75,9 +75,6 @@ class AddIngredientFragment: Fragment(), TextWatcher {
 
         measureSixEditText = root.findViewById(R.id.measureSixEditText)
         measureSixEditText.addTextChangedListener(this)
-
-
-        parentActivity = activity as AddDrinkActivity?
 
         return root
     }

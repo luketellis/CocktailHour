@@ -99,7 +99,7 @@ class EditDrinkActivity : AppCompatActivity() {
         }
 
         var drink : Drink = Drink(null, name, null, tags, category, alcoholic, glass, instructions, null, null, java.util.Calendar.getInstance().toString(), 0)
-        drinkViewModel.insert(drink!!)
+        drinkViewModel.update(drink!!)
 
         val intent = Intent(this, AddDrinkActivity::class.java).apply {
             putExtra("newDrink", drink)

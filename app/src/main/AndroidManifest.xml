@@ -30,7 +30,9 @@
 
         <activity
             android:name=".drink.add.AddDrinkActivity"
-            android:label="Add Drink">
+            android:label="Add Drink"
+            android:windowSoftInputMode="adjustPan">
+
         </activity>
 
         <activity
@@ -40,7 +42,8 @@
 
         <activity
             android:name=".drink.edit.EditDrinkActivity"
-            android:label="@string/title_edit_drink">
+            android:label="@string/title_edit_drink"
+            android:windowSoftInputMode="adjustPan">
         </activity>
 
         <activity
