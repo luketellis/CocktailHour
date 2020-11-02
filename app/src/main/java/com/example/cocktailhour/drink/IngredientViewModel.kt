@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cocktailhour.database.*
+import com.example.cocktailhour.entitiy.Drink
 import com.example.cocktailhour.entitiy.Ingredient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,6 +24,14 @@ class IngredientViewModel(application: Application) : AndroidViewModel(applicati
      */
     suspend fun getIngredientById(id: Int) = viewModelScope.launch(Dispatchers.IO) {
         ingredient = repository.getIngredientById(id)
+    }
+
+    fun update(ingredient: Ingredient) = viewModelScope.launch(Dispatchers.IO) {
+        repository.update(ingredient)
+    }
+
+    fun delete() = viewModelScope.launch(Dispatchers.IO) {
+        repository.delete()
     }
 
     fun deleteById(id: Int) = viewModelScope.launch(Dispatchers.IO) {

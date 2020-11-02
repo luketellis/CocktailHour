@@ -71,7 +71,7 @@ class AddDrinkDetailsFragment : Fragment() {
             var name: String = nameEditText.text.toString()
 
             validateFieldsAndAddDrink(nameEditText.text.toString(),
-                tagsEditText.text.toString(),
+                categoryEditText.text.toString(),
                 tagsEditText.text.toString(),
                 instructionsEditText.text.toString(),
                 staticSpinner.selectedItem.toString(),
@@ -103,11 +103,6 @@ class AddDrinkDetailsFragment : Fragment() {
 
         if (category == "") {
             Toast.makeText(context, "Category cannot be empty!", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        if (tags == "") {
-            Toast.makeText(context, "Tags cannot be empty!", Toast.LENGTH_SHORT).show()
             return
         }
 

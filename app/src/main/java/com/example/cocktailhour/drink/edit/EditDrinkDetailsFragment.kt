@@ -59,7 +59,7 @@ class EditDrinkDetailsFragment : Fragment() {
         val updateBtn = root.findViewById<Button>(R.id.updateBtn)
         updateBtn.setOnClickListener {
             validateEmptyFieldsAndUpdateDrink(nameEditText.text.toString(),
-                tagsEditText.text.toString(),
+                categoryEditText.text.toString(),
                 tagsEditText.text.toString(),
                 instructionsEditText.text.toString(),
                 staticSpinner.selectedItem.toString(),
@@ -104,11 +104,6 @@ class EditDrinkDetailsFragment : Fragment() {
 
         if (category == "") {
             Toast.makeText(context, "Category cannot be empty!", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        if (tags == "") {
-            Toast.makeText(context, "Tags cannot be empty!", Toast.LENGTH_SHORT).show()
             return
         }
 

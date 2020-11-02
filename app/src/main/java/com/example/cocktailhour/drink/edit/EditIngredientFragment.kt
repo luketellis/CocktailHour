@@ -30,7 +30,6 @@ class EditIngredientFragment: Fragment(), TextWatcher {
     private lateinit var measureSixEditText: EditText
 
     private var newIngredient : IngredientDTO = IngredientDTO()
-
     private var parentActivity: EditDrinkActivity? = null
 
     override fun onCreateView(
@@ -39,8 +38,8 @@ class EditIngredientFragment: Fragment(), TextWatcher {
     ): View? {
         val root = inflater.inflate(R.layout.add_ingredient_fragment, container, false)
 
-        val activity: EditDrinkActivity? = activity as EditDrinkActivity?
-        val originalIngredient: Ingredient? = activity!!.getMyIngredient()
+        parentActivity = activity as EditDrinkActivity?
+        val originalIngredient: Ingredient? = parentActivity?.getMyIngredient()
 
         ingredientOneEditText = root.findViewById(R.id.ingredientOneEditText)
         ingredientOneEditText.addTextChangedListener(this)

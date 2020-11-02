@@ -50,8 +50,10 @@ class EditDrinkActivity : AppCompatActivity() {
 
         val thread = Thread {
             //drink?.id?.let { ingredientViewModel.getIngredientById(it) }
-            var ingredient : Ingredient = db.ingredientDao().getIngredientById(drink?.id)
-            setIngredientPlz(ingredient)
+            ingredient  = db.ingredientDao().getIngredientById(drink?.id)
+
+            potentialIngredient = IngredientDTO(ingredient!!.id, ingredient!!.ingredient1, ingredient!!.ingredient2, ingredient!!.ingredient3, ingredient!!.ingredient4, ingredient!!.ingredient5, ingredient!!.ingredient6, ingredient!!.ingredient7,
+                ingredient!!.measure1, ingredient!!.measure2, ingredient!!.measure3, ingredient!!.measure4, ingredient!!.measure5, ingredient!!.measure6, ingredient!!.measure7)
          }
 
         thread.start()
@@ -70,10 +72,6 @@ class EditDrinkActivity : AppCompatActivity() {
             tab.text = getTabText(position)
         }.attach()
 
-    }
-
-    private fun setIngredientPlz(retrievedIngredient: Ingredient) {
-        ingredient = retrievedIngredient
     }
 
     private fun displayShortToastValidation(text: String) {
@@ -98,14 +96,29 @@ class EditDrinkActivity : AppCompatActivity() {
             return
         }
 
-        var drink : Drink = Drink(null, name, null, tags, category, alcoholic, glass, instructions, null, null, java.util.Calendar.getInstance().toString(), 0)
-        drinkViewModel.update(drink!!)
+        drink?.name  = name
+        drink?.tags = tags
+        drink?.category = category
+        drink?.alcoholic = alcoholic
+        drink?.glass = glass
+        drink?.glass = glass
+        drink?.glass = glass
+        drink?.glass = glass
+        drink?.dateModified = java.util.Calendar.getInstance().toString()
+
+        drink?.let { drinkViewModel.update(it) }
+
+        val ingredient: Ingredient  = Ingredient(potentialIngredient.id, potentialIngredient.ingredient1, potentialIngredient.ingredient2, potentialIngredient.ingredient3, potentialIngredient.ingredient4, potentialIngredient.ingredient5, potentialIngredient.ingredient6, potentialIngredient.ingredient7,
+            potentialIngredient.measure1, potentialIngredient.measure2, potentialIngredient.measure3, potentialIngredient.measure4, potentialIngredient.measure5, potentialIngredient.measure6, potentialIngredient.measure7)
+
+        ingredient.let { ingredientViewModel.update(it) }
 
         val intent = Intent(this, AddDrinkActivity::class.java).apply {
             putExtra("newDrink", drink)
-            setResult(RESULT_OK, this)
+            setResult(5, this)
         }
 
+        Toast.makeText(applicationContext, "Drink has been successfully updated!", Toast.LENGTH_SHORT).show()
         super.onBackPressed()
     }
 
