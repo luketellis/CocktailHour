@@ -86,8 +86,6 @@ class RecipesFragment : Fragment() {
 
         if (requestCode == newDrinkActivityRequestCode && resultCode == Activity.RESULT_OK) {
             data?.getParcelableExtra<Drink>("newDrink")?.let {
-                val drink = it
-
                 drinkViewModel.insert(it)
             }
         } else {

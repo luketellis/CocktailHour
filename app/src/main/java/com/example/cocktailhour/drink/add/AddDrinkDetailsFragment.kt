@@ -7,9 +7,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import com.example.cocktailhour.R
 
@@ -19,9 +17,9 @@ class AddDrinkDetailsFragment : Fragment() {
     private lateinit var nameEditText: EditText
     private lateinit var tagsEditText: EditText
     private lateinit var categoryEditText: EditText
-    private lateinit var alcoholicEditText: EditText
     private lateinit var glassEditText: EditText
     private lateinit var instructionsEditText: EditText
+    private lateinit var staticSpinner: Spinner
 
 
     override fun onCreateView(
@@ -37,7 +35,7 @@ class AddDrinkDetailsFragment : Fragment() {
         nameEditText = root.findViewById(R.id.nameEditText)
         tagsEditText = root.findViewById(R.id.tagsEditText)
         categoryEditText = root.findViewById(R.id.categoryEditText)
-        alcoholicEditText = root.findViewById(R.id.alcoholicEditText)
+
         glassEditText = root.findViewById(R.id.glassEditText)
         instructionsEditText = root.findViewById(R.id.instructionsEditText)
 
@@ -56,6 +54,16 @@ class AddDrinkDetailsFragment : Fragment() {
             }
         })
 
+        staticSpinner = root.findViewById(R.id.alcoholicSpinner) as Spinner
+
+        // Create an ArrayAdapter using the alcoholic string array
+        val staticAdapter = ArrayAdapter
+            .createFromResource(requireContext(), R.array.alcoholic_options,
+                android.R.layout.simple_spinner_item)
+
+        staticSpinner.setSelection(0)
+        staticAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        staticSpinner.adapter = staticAdapter
 
         val addBtn = root.findViewById<Button>(R.id.addBtn)
         addBtn.setOnClickListener {
@@ -66,10 +74,9 @@ class AddDrinkDetailsFragment : Fragment() {
                 tagsEditText.text.toString(),
                 tagsEditText.text.toString(),
                 instructionsEditText.text.toString(),
-                alcoholicEditText.text.toString(),
+                staticSpinner.selectedItem.toString(),
                 glassEditText.text.toString(),
                 activity)
-
         }
 
         val exitWithoutSavingBtn = root.findViewById<Button>(R.id.exitBtn)

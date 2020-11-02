@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import com.example.cocktailhour.R
 import com.example.cocktailhour.entitiy.Drink
@@ -25,7 +23,7 @@ class EditDrinkDetailsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
 
         val root = inflater.inflate(R.layout.activity_drink_edit, container, false)
@@ -36,7 +34,6 @@ class EditDrinkDetailsFragment : Fragment() {
         nameEditText = root.findViewById(R.id.nameEditText)
         tagsEditText = root.findViewById(R.id.tagsEditText)
         categoryEditText = root.findViewById(R.id.categoryEditText)
-        alcoholicEditText = root.findViewById(R.id.alcoholicEditText)
         glassEditText = root.findViewById(R.id.glassEditText)
         instructionsEditText = root.findViewById(R.id.instructionsEditText)
 
@@ -44,15 +41,30 @@ class EditDrinkDetailsFragment : Fragment() {
         nameEditText.setText(drink?.name)
         tagsEditText.setText(drink?.tags)
         categoryEditText.setText(drink?.category)
-        alcoholicEditText.setText(drink?.alcoholic)
         glassEditText.setText(drink?.glass)
         instructionsEditText.setText(drink?.instructions)
 
+        val staticSpinner = root.findViewById(R.id.alcoholicSpinner) as Spinner
+
+        // Create an ArrayAdapter using the alcoholic string array
+        val staticAdapter = ArrayAdapter
+            .createFromResource(requireContext(), R.array.alcoholic_options,
+                android.R.layout.simple_spinner_item)
+
+        staticSpinner.setSelection(returnSpinnerIndexBasedOnValue(drink?.alcoholic.toString()))
+        staticAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        staticSpinner.adapter = staticAdapter
 
         val updateBtn = root.findViewById<Button>(R.id.updateBtn)
         updateBtn.setOnClickListener {
-            validateEmptyFieldsAndUpdateDrink(nameEditText.text.toString(), tagsEditText.text.toString(), tagsEditText.text.toString(),
-                instructionsEditText.text.toString(), alcoholicEditText.text.toString(), glassEditText.text.toString(), activity)
+            validateEmptyFieldsAndUpdateDrink(nameEditText.text.toString(),
+                tagsEditText.text.toString(),
+                tagsEditText.text.toString(),
+                instructionsEditText.text.toString(),
+                staticSpinner.selectedItem.toString(),
+                glassEditText.text.toString(),
+                activity)
 
         }
 
@@ -64,7 +76,26 @@ class EditDrinkDetailsFragment : Fragment() {
         return root
     }
 
-    private fun validateEmptyFieldsAndUpdateDrink(name: String, category: String, tags: String, instructions: String, alcoholic: String, glass: String, activity: EditDrinkActivity?) {
+    private fun returnSpinnerIndexBasedOnValue(alcoholic: String): Int {
+        return when (alcoholic) {
+            "Non alcoholic" -> 1
+            "Optional alcohol" -> 2
+
+            else -> {
+                0
+            }
+        }
+    }
+
+    private fun validateEmptyFieldsAndUpdateDrink(
+        name: String,
+        category: String,
+        tags: String,
+        instructions: String,
+        alcoholic: String,
+        glass: String,
+        activity: EditDrinkActivity?
+    ) {
         if (name == "") {
             //parentActivity?.displayToastValidation("Name cannot be empty!");
             Toast.makeText(context, "Name cannot be empty!", Toast.LENGTH_SHORT).show()
@@ -86,7 +117,12 @@ class EditDrinkDetailsFragment : Fragment() {
             return
         }
 
-        activity?.updateDrinkAndReturnToMainMenu(name, category, tags, instructions, alcoholic, glass)
+        activity?.updateDrinkAndReturnToMainMenu(name,
+            category,
+            tags,
+            instructions,
+            alcoholic,
+            glass)
     }
 
 

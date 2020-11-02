@@ -57,4 +57,10 @@
     <string name="measure_six">Measure 6</string>
     <string name="measure_seven">Measure 7</string>
 
+    <string-array name="alcoholic_options">
+        <item>Alcoholic</item>
+        <item>Non-Alcoholic</item>
+        <item>Optional</item>
+    </string-array>
+
 </resources>

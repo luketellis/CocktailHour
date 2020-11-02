@@ -78,8 +78,14 @@
                 android:textSize="18sp"
                 android:textStyle="bold"/>
 
+            <Spinner
+                android:id="@+id/alcoholicSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown"/>
 
-            <EditText
+<!--            <EditText
                 android:id="@+id/alcoholicEditText"
                 android:inputType="text"
                 android:layout_width="match_parent"
@@ -88,7 +94,7 @@
                 android:fontFamily="sans-serif-light"
                 android:hint="@string/alcoholic_hint"
                 android:minHeight="@dimen/min_height"
-                android:textSize="18sp" />
+                android:textSize="18sp" />-->
 
         </LinearLayout>
     </LinearLayout>
