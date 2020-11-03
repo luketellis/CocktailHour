@@ -5,19 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/fragment_drink_details"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/nameTV"
         android:layout_width="match_parent"
         android:layout_height="@dimen/min_height"
         android:layout_margin="@dimen/medium_padding"
-        android:hint="@string/name_hint"
+        android:hint="@string/generic_hint"
         android:textAlignment="center"
         android:textSize="26sp"
         android:textStyle="bold"
@@ -47,7 +45,6 @@
                 android:id="@+id/categoryLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="50"
                 android:fontFamily="sans-serif-light"
                 android:minHeight="@dimen/min_height"
                 android:text="@string/category_label"
@@ -58,9 +55,8 @@
                 android:id="@+id/categoryTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="50"
                 android:fontFamily="sans-serif-light"
-                android:hint="@string/category_hint"
+                android:hint="@string/generic_hint"
                 android:minHeight="@dimen/min_height"
                 android:textSize="18sp" />
 
@@ -92,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="50"
                 android:fontFamily="sans-serif-light"
-                android:hint="@string/alcoholic_hint"
+                android:hint="@string/generic_hint"
                 android:minHeight="@dimen/min_height"
                 android:textSize="18sp" />
 
@@ -128,7 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="50"
             android:fontFamily="sans-serif-light"
-            android:hint="@string/tag_hint"
+            android:hint="@string/generic_hint"
             android:minHeight="@dimen/min_height"
             android:textSize="18sp" />
 
@@ -163,7 +159,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="50"
             android:fontFamily="sans-serif-light"
-            android:hint="@string/glass_hint"
+            android:hint="@string/generic_hint"
             android:minHeight="@dimen/min_height"
             android:textSize="18sp" />
     </LinearLayout>
@@ -198,7 +194,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="50"
             android:fontFamily="sans-serif-light"
-            android:hint="@string/drink_instructions"
+            android:hint="@string/generic_hint"
             android:minHeight="@dimen/min_height_instructions"
             android:textSize="18sp" />
     </LinearLayout>

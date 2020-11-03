@@ -22,6 +22,10 @@ class IngredientViewModel(application: Application) : AndroidViewModel(applicati
     /**
      * Launching a new coroutine to insert the data in a non-blocking way
      */
+    fun insert(ingredient: Ingredient) = viewModelScope.launch(Dispatchers.IO) {
+        repository.insert(ingredient)
+    }
+
     suspend fun getIngredientById(id: Int) = viewModelScope.launch(Dispatchers.IO) {
         ingredient = repository.getIngredientById(id)
     }

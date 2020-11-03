@@ -18,14 +18,17 @@ import com.example.cocktailhour.R
 import com.example.cocktailhour.drink.add.AddDrinkActivity
 import com.example.cocktailhour.drink.DrinkListAdapter
 import com.example.cocktailhour.drink.DrinkViewModel
+import com.example.cocktailhour.drink.IngredientViewModel
 import com.example.cocktailhour.drink.details.DrinkDetailsActivity
 import com.example.cocktailhour.entitiy.Drink
+import com.example.cocktailhour.entitiy.Ingredient
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class RecipesFragment : Fragment() {
 
     private val newDrinkActivityRequestCode = 1
     private lateinit var drinkViewModel: DrinkViewModel
+    private lateinit var ingredientViewModel: IngredientViewModel
     private lateinit var recipesViewModel: RecipesViewModel
 
 
@@ -41,10 +44,10 @@ class RecipesFragment : Fragment() {
         })
 
         drinkViewModel = ViewModelProvider(this).get(DrinkViewModel::class.java)
-
+        ingredientViewModel = ViewModelProvider(this).get(IngredientViewModel::class.java)
 
         val recyclerView = root.findViewById<RecyclerView>(R.id.recyclerview)
-        val adapter = DrinkListAdapter(root.context, drinkViewModel) { showDetail(it)}
+        val adapter = DrinkListAdapter(root.context, drinkViewModel, ingredientViewModel) { showDetail(it)}
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(root.context)
 
@@ -87,6 +90,10 @@ class RecipesFragment : Fragment() {
         if (requestCode == newDrinkActivityRequestCode && resultCode == Activity.RESULT_OK) {
             data?.getParcelableExtra<Drink>("newDrink")?.let {
                 drinkViewModel.insert(it)
+                Toast.makeText(activity, "Drink with name ${it.name} has been created!", Toast.LENGTH_LONG).show()
+            }
+            data?.getParcelableExtra<Ingredient>("newIngredient")?.let {
+                //ingredientViewModel.insert(it)
             }
         } else {
             Toast.makeText(activity, R.string.empty_not_saved, Toast.LENGTH_LONG).show()

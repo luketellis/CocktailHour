@@ -83,15 +83,12 @@ class EditDrinkActivity : AppCompatActivity() {
     }
 
     fun updateDrinkAndReturnToMainMenu(name: String, category: String, tags: String, instructions: String, alcoholic: String, glass: String) {
-
         if (!Validations.isPotentialIngredientValid(potentialIngredient)) {
-
             displayShortToastValidation("Drinks need at least two ingredients and measures")
             return
         }
 
         if (!Validations.isOptionalIngredientMeasureComplete(potentialIngredient)) {
-
             displayShortToastValidation("Please check that for every Ingredient row you have specified an ingredient and measure")
             return
         }
@@ -104,18 +101,19 @@ class EditDrinkActivity : AppCompatActivity() {
         drink?.glass = glass
         drink?.glass = glass
         drink?.glass = glass
-        drink?.dateModified = java.util.Calendar.getInstance().toString()
+        drink?.dateModified = java.util.Calendar.getInstance().time.toString()
 
         drink?.let { drinkViewModel.update(it) }
 
-        val ingredient: Ingredient  = Ingredient(potentialIngredient.id, potentialIngredient.ingredient1, potentialIngredient.ingredient2, potentialIngredient.ingredient3, potentialIngredient.ingredient4, potentialIngredient.ingredient5, potentialIngredient.ingredient6, potentialIngredient.ingredient7,
+        val ingredient: Ingredient  = Ingredient(drink?.id, potentialIngredient.ingredient1, potentialIngredient.ingredient2, potentialIngredient.ingredient3, potentialIngredient.ingredient4, potentialIngredient.ingredient5, potentialIngredient.ingredient6, potentialIngredient.ingredient7,
             potentialIngredient.measure1, potentialIngredient.measure2, potentialIngredient.measure3, potentialIngredient.measure4, potentialIngredient.measure5, potentialIngredient.measure6, potentialIngredient.measure7)
+
 
         ingredient.let { ingredientViewModel.update(it) }
 
-        val intent = Intent(this, AddDrinkActivity::class.java).apply {
+        val intent = Intent(this, EditDrinkActivity::class.java).apply {
             putExtra("newDrink", drink)
-            setResult(5, this)
+            setResult(RESULT_OK, this)
         }
 
         Toast.makeText(applicationContext, "Drink has been successfully updated!", Toast.LENGTH_SHORT).show()

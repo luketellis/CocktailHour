@@ -19,6 +19,7 @@ import kotlin.collections.ArrayList
 class DrinkListAdapter internal constructor(
     context: Context,
     private val drinkViewModel: DrinkViewModel,
+    private val ingredientViewModel: IngredientViewModel,
     private val listener: (Drink) -> Unit
 ) : RecyclerView.Adapter<DrinkListAdapter.DrinkViewHolder>(), Filterable {
 
@@ -80,6 +81,7 @@ class DrinkListAdapter internal constructor(
                                 ).show()
 
                                 drinkViewModel.deleteById(item.id!!)
+                                ingredientViewModel.deleteById(item.id!!)
 
                                 dialog.dismiss()
                             }

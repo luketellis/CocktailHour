@@ -27,10 +27,14 @@ class IngredientDTO(
     @ColumnInfo(name = "measure7") var measure7: String?
 ) : Parcelable {
 
-    constructor() : this(1, "", "", "" , "",
+    constructor() : this(null, "", "", "" , "",
         "", "", "", "", "", "",
         "", "", "", "")
 
+    fun convertToIngredient() : Ingredient {
+        return Ingredient(id, ingredient1, ingredient2, ingredient3, ingredient4, ingredient5, ingredient6,
+            ingredient7, measure1, measure2, measure3, measure4, measure5, measure6, measure7)
+    }
 
     override fun toString(): String {
         return "Ingredient(id=$id, ingredient1='$ingredient1', ingredient2='$ingredient2', ingredient3=$ingredient3, ingredient4=$ingredient4, ingredient5=$ingredient5, ingredient6=$ingredient6, ingredient7=$ingredient7, measure1='$measure1', measure2='$measure2', measure3=$measure3, measure4=$measure4, measure5=$measure5, measure6=$measure6, measure7=$measure7)"

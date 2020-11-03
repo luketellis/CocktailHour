@@ -11,40 +11,41 @@ import com.example.cocktailhour.drink.DrinkViewModel
 import com.example.cocktailhour.drink.IngredientViewModel
 import com.example.cocktailhour.drink.details.*
 import com.example.cocktailhour.entitiy.Drink
+import com.example.cocktailhour.entitiy.Ingredient
 import com.example.cocktailhour.entitiy.IngredientDTO
 import com.example.cocktailhour.misc.Validations
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
-class AddDrinkActivity: AppCompatActivity() {
+class AddDrinkActivity : AppCompatActivity() {
     private lateinit var drinkViewModel: DrinkViewModel
     private lateinit var ingredientViewModel: IngredientViewModel
 
-    private var potentialIngredient : IngredientDTO = IngredientDTO()
+    private var potentialIngredient: IngredientDTO = IngredientDTO()
 
 
-        public override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            setContentView(R.layout.add_activity_drink_tabs)
+    public override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.add_activity_drink_tabs)
 
-            drinkViewModel = ViewModelProvider(this).get(DrinkViewModel::class.java)
-            ingredientViewModel = ViewModelProvider(this).get(IngredientViewModel::class.java)
+        drinkViewModel = ViewModelProvider(this).get(DrinkViewModel::class.java)
+        ingredientViewModel = ViewModelProvider(this).get(IngredientViewModel::class.java)
 
-            val viewPager2 = findViewById<ViewPager2>(R.id.pager2_container)
+        val viewPager2 = findViewById<ViewPager2>(R.id.pager2_container)
 
-            val fragmentList = arrayListOf(
-                AddDrinkDetailsFragment.newInstance(),
-                AddIngredientFragment.newInstance()
-            )
-            viewPager2.adapter = ViewPagerAdapter(this, fragmentList)
+        val fragmentList = arrayListOf(
+            AddDrinkDetailsFragment.newInstance(),
+            AddIngredientFragment.newInstance()
+        )
+        viewPager2.adapter = ViewPagerAdapter(this, fragmentList)
 
 
-            val tabLayout = findViewById<TabLayout>(R.id.tab_layout)
-            TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
-                tab.text = getTabText(position)
-            }.attach()
+        val tabLayout = findViewById<TabLayout>(R.id.tab_layout)
+        TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
+            tab.text = getTabText(position)
+        }.attach()
 
-        }
+    }
 
     private fun displayShortToastValidation(text: String) {
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
@@ -54,25 +55,36 @@ class AddDrinkActivity: AppCompatActivity() {
         potentialIngredient = updatedIngredient
     }
 
-    fun addDrinkAndReturnToMainMenu(name: String, category: String, tags: String, instructions: String, alcoholic: String, glass: String) {
+    fun addDrinkAndReturnToMainMenu(
+        name: String,
+        category: String,
+        tags: String,
+        instructions: String,
+        alcoholic: String,
+        glass: String,
+    ) {
 
         if (!Validations.isPotentialIngredientValid(potentialIngredient)) {
-
             displayShortToastValidation("Drinks need at least two ingredients and measures")
             return
         }
 
         if (!Validations.isOptionalIngredientMeasureComplete(potentialIngredient)) {
-
             displayShortToastValidation("Please check that for every Ingredient row you have specified an ingredient and measure")
             return
         }
 
-        var drink : Drink = Drink(null, name, null, tags, category, alcoholic, glass, instructions, null, null, java.util.Calendar.getInstance().toString(), 0)
-        drinkViewModel.insert(drink!!)
+        var drink: Drink = Drink(null, name, null, tags, category, alcoholic, glass,
+            instructions, null, null, java.util.Calendar.getInstance().toString(), 0)
+
+        //drinkViewModel.insert(drink!!)
+        ingredientViewModel.insert(potentialIngredient.convertToIngredient())
+
+
 
         val intent = Intent(this, AddDrinkActivity::class.java).apply {
             putExtra("newDrink", drink)
+            putExtra("newIngredient", potentialIngredient.convertToIngredient())
             setResult(RESULT_OK, this)
         }
 
@@ -106,7 +118,7 @@ class AddDrinkActivity: AppCompatActivity() {
         return tabText
     }
 
-        companion object {
-            const val EXTRA_REPLY = "com.example.android.drinklistsql.REPLY"
-        }
+    companion object {
+        const val EXTRA_REPLY = "com.example.android.drinklistsql.REPLY"
     }
+}

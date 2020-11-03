@@ -14,7 +14,7 @@ interface IngredientDao {
     @Query("SELECT count(*) from ingredient")
     fun getNumberOfIngredients(): Int
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert
     suspend fun insertIngredient(ingredient: Ingredient)
 
     @Query("DELETE FROM ingredient WHERE id = :id")

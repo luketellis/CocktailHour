@@ -34,8 +34,8 @@ class ValidIngredientTest {
 
     @Test
     fun dateValidator_AllNullVariables_ReturnsFalse() {
-        val potentialIngredientDTO = IngredientDTO(null, null, null, null,
-            null, null, null, null, null, null,
+        val potentialIngredientDTO = IngredientDTO(null, "", "", null,
+            null, null, null, null, "", "",
             null, null, null, null, null)
         assertFalse(Validations.isPotentialIngredientValid(potentialIngredientDTO))    }
 
@@ -48,8 +48,8 @@ class ValidIngredientTest {
 
     @Test
     fun dateValidator_FirstTwoIngredientsAndMeasuresNull_ReturnsFalse() {
-        val potentialIngredientDTO = IngredientDTO(1, null, null, "Ingredient3",
-            "Ingredient4", "Ingredient5", "Ingredient6", "Ingredient7", null, null,
+        val potentialIngredientDTO = IngredientDTO(1, "", "", "Ingredient3",
+            "Ingredient4", "Ingredient5", "Ingredient6", "Ingredient7", "", "",
             "measure3", "measure4", "measure5", "measure6", "measure7")
         assertFalse(Validations.isPotentialIngredientValid(potentialIngredientDTO))
     }

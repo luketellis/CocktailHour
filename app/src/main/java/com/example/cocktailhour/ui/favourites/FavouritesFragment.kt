@@ -16,12 +16,14 @@ import com.example.cocktailhour.R
 import com.example.cocktailhour.entitiy.Drink
 import com.example.cocktailhour.drink.DrinkListAdapter
 import com.example.cocktailhour.drink.DrinkViewModel
+import com.example.cocktailhour.drink.IngredientViewModel
 import com.example.cocktailhour.drink.details.DrinkDetailsActivity
 
 class FavouritesFragment : Fragment() {
 
     private val newDrinkActivityRequestCode = 1
     private lateinit var drinkViewModel: DrinkViewModel
+    private lateinit var ingredientViewModel: IngredientViewModel
     private lateinit var favouritesViewModel: FavouritesViewModel
 
     override fun onCreateView(
@@ -36,9 +38,10 @@ class FavouritesFragment : Fragment() {
         })
 
         drinkViewModel = ViewModelProvider(this).get(DrinkViewModel::class.java)
+        ingredientViewModel = ViewModelProvider(this).get(IngredientViewModel::class.java)
 
         val recyclerView = root.findViewById<RecyclerView>(R.id.recyclerview)
-        val adapter = DrinkListAdapter(root.context, drinkViewModel) { showDetail(it)}
+        val adapter = DrinkListAdapter(root.context, drinkViewModel, ingredientViewModel) { showDetail(it)}
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(root.context)
 

@@ -10,6 +10,7 @@
     <string name="title_timer">Timer</string>
     <string name="title_create">Create</string>
     <string name="add_drink">Add Drink</string>
+    <string name="generic_hint"><i>None</i></string>
     <string name="hint_word">Drink...</string>
     <string name="name_hint">Specify Drink Name...</string>
     <string name="category_hint">Drink Category...</string>
