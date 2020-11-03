@@ -17,7 +17,7 @@
         android:title="@string/title_recipes" />
 
     <item
-        android:id="@+id/navigation_timer"
-        android:icon="@drawable/ic_baseline_timer_24dp"
-        android:title="@string/title_timer" />
+        android:id="@+id/navigation_shoppingList"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"
+        android:title="@string/title_shopping" />
 </menu>

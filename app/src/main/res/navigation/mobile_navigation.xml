@@ -24,8 +24,8 @@
         tools:layout="@layout/fragment_recipes" />
 
     <fragment
-        android:id="@+id/navigation_timer"
-        android:name="com.example.cocktailhour.ui.timer.TimerFragment"
-        android:label="@string/title_timer"
+        android:id="@+id/navigation_shoppingList"
+        android:name="com.example.cocktailhour.ui.shoppinglist.ShoppingListFragment"
+        android:label="@string/title_shopping"
         tools:layout="@layout/fragment_timer" />
 </navigation>

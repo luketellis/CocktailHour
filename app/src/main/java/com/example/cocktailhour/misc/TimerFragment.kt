@@ -1,4 +1,4 @@
-package com.example.cocktailhour.ui.timer
+package com.example.cocktailhour.misc
 
 import android.content.Context
 import android.os.*
@@ -12,21 +12,22 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.cocktailhour.R
+import com.example.cocktailhour.ui.shoppinglist.ShoppingListViewModel
 
 class TimerFragment : Fragment() {
 
-    private lateinit var timerViewModel: TimerViewModel
+    private lateinit var shoppingListViewModel: ShoppingListViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        timerViewModel =
-                ViewModelProviders.of(this).get(TimerViewModel::class.java)
+        shoppingListViewModel =
+                ViewModelProviders.of(this).get(ShoppingListViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_timer, container, false)
         val textView: TextView = root.findViewById(R.id.text_timer)
-        timerViewModel.text.observe(viewLifecycleOwner, Observer {
+        shoppingListViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
 
