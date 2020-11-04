@@ -81,15 +81,13 @@ class DrinkListAdapter internal constructor(
                                 ).show()
 
                                 drinkViewModel.deleteById(item.id!!)
-                                ingredientViewModel.deleteById(item.id!!)
+                                ingredientViewModel.deleteById(item.id)
 
                                 dialog.dismiss()
                             }
 
                             alert.setNegativeButton("No") { dialog, _ -> dialog.dismiss() }
-
                             alert.show()
-
                         }
                     }
                 }

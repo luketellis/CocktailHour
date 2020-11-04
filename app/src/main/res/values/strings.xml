@@ -11,14 +11,14 @@
     <string name="title_create">Create</string>
     <string name="add_drink">Add Drink</string>
     <string name="generic_hint"><i>None</i></string>
-    <string name="hint_word">Drink...</string>
-    <string name="name_hint">Specify Drink Name...</string>
-    <string name="category_hint">Drink Category...</string>
-    <string name="tag_hint">Drink Tags...</string>
-    <string name="ingredient_hint">Specify ingredient...</string>
-    <string name="measure_hint">Specify measure...</string>
-    <string name="glass_hint">Drink Glass Type...</string>
-    <string name="alcoholic_hint">Alcoholic...</string>
+    <string name="hint_word">Drink…</string>
+    <string name="name_hint">Specify Drink Name…</string>
+    <string name="category_hint">Drink Category…</string>
+    <string name="tag_hint">Drink Tags…</string>
+    <string name="ingredient_hint">Specify ingredient…</string>
+    <string name="measure_hint">Specify measure…</string>
+    <string name="glass_hint">Drink Glass Type…</string>
+    <string name="alcoholic_hint">Alcoholic…</string>
     <string name="button_save">Save</string>
     <string name="button_add_drink">Add Drink</string>
     <string name="button_update">Update</string>
@@ -57,6 +57,7 @@
     <string name="measure_five">Measure 5</string>
     <string name="measure_six">Measure 6</string>
     <string name="measure_seven">Measure 7</string>
+    <string name="drink_image">Drink Image</string>
 
     <string-array name="alcoholic_options">
         <item>Alcoholic</item>

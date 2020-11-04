@@ -46,7 +46,7 @@ class EditDrinkActivity : AppCompatActivity() {
         }*/
 
 
-        var db= Room.databaseBuilder(applicationContext,CocktailHourRoomDatabase::class.java,"Cocktails").build()
+        val db= Room.databaseBuilder(applicationContext,CocktailHourRoomDatabase::class.java,"Cocktails").build()
 
         val thread = Thread {
             //drink?.id?.let { ingredientViewModel.getIngredientById(it) }

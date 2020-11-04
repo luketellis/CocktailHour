@@ -10,8 +10,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.cocktailhour.drink.DrinkViewModel
 
 class MainActivity : AppCompatActivity() {
-    private val newDrinkActivityRequestCode = 1
-    private lateinit var drinkViewModel: DrinkViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

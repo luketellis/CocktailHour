@@ -46,8 +46,6 @@ class DetailsFragment : Fragment() {
         glassTextView.text = drink?.glass
         instructionsTextView.text = drink?.instructions
 
-        val button = root.findViewById<Button>(R.id.button_save)
-
         return root
     }
 

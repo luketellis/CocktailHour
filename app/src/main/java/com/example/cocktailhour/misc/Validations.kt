@@ -42,7 +42,7 @@ class Validations {
 
         fun isPotentialIngredientValid(potentialIngredient: IngredientDTO): Boolean {
             if (listOf(potentialIngredient.ingredient1, potentialIngredient.ingredient2,
-                    potentialIngredient.measure1, potentialIngredient.measure2).any { it == null || it == "" }
+                    potentialIngredient.measure1, potentialIngredient.measure2).any { it == "" }
             )
                 return false
 

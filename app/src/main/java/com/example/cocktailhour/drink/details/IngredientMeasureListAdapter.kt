@@ -4,16 +4,18 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailhour.R
+import com.example.cocktailhour.drink.ShoppingListViewModel
 import com.example.cocktailhour.entitiy.IngredientMeasure
+import com.example.cocktailhour.entitiy.ShoppingList
 
 class IngredientMeasureListAdapter(
     private val context: Context,
-    private val data: ArrayList<IngredientMeasure>
+    private val data: ArrayList<IngredientMeasure>,
+    private val shoppingListViewModel: ShoppingListViewModel
 /*  private val listener: (IngredientMeasure) -> Unit,*/
 ) : RecyclerView.Adapter<IngredientMeasureListAdapter.ViewHolder>() {
 
@@ -33,15 +35,18 @@ class IngredientMeasureListAdapter(
 
     inner class ViewHolder(private val v: View) : RecyclerView.ViewHolder(v) {
         private val ingredientTV: TextView = v.findViewById(R.id.ingredientTV)
-        private val measurementTV: TextView = v.findViewById(R.id.measurementTV)
+        private val measureTV: TextView = v.findViewById(R.id.measureTV)
 /*        private val imageView = v.findViewById<ImageView>(R.id.imageView)*/
 
         fun bind(item: IngredientMeasure) {
             ingredientTV.text = item.ingredient
-            measurementTV.text = item.measure
+            measureTV.text = item.measure
 
             v.setOnClickListener {
-                Toast.makeText(v.context, item.toString(), Toast.LENGTH_SHORT).show()
+                if (item.ingredient!! != "") {
+                    Toast.makeText(v.context, item.toString(), Toast.LENGTH_SHORT).show()
+                    shoppingListViewModel.insert(ShoppingList(item.ingredient!!, item.measure!!, null))
+                }
             }
 
             v.setOnLongClickListener {

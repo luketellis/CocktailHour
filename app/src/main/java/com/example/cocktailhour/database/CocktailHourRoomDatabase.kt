@@ -51,12 +51,12 @@ public abstract class CocktailHourRoomDatabase : RoomDatabase() {
 
         fun populateDatabase(drinkDao: DrinkDao) {
             // Delete all content here.
-            //drinkDao.deleteAll()
-                // Add sample drinks.
-                //var drink = Drink("Tequila", "Mexican", "Mug", "instructions", "thumbnail")
-                //drinkDao.insert(drink)
-                //drink = Drink("Coffee", "Morning", "Mug", "instructions", "thumbnail")
-                //drinkDao.insert(drink)
+/*          drinkDao.deleteAll()
+            Add sample drinks.
+            var drink = Drink("Tequila", "Mexican", "Mug", "instructions", "thumbnail")
+            drinkDao.insert(drink)
+            drink = Drink("Coffee", "Morning", "Mug", "instructions", "thumbnail")
+            drinkDao.insert(drink)*/
         }
     }
 

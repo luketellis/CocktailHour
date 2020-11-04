@@ -50,22 +50,19 @@
             android:id="@+id/allAlcoholicRadioBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="radio_button_click"
             android:text="All" />
 
         <RadioButton
             android:id="@+id/alcoholicRadioBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="radio_button_click"
             android:text="@string/alcoholic_label" />
 
         <RadioButton
             android:id="@+id/nonAlcoholicRadioBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="radio_button_click"
-            android:text="Non Alcoholic" />
+            android:text="@string/alcoholic_label" />
     </RadioGroup>
 
     <Spinner

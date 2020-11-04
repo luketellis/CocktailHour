@@ -56,8 +56,6 @@
 
             <ImageView
                 android:id="@+id/one"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
                 android:src="@drawable/tequila_sunrise"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -73,8 +71,6 @@
 
             <ImageView
                 android:id="@+id/three"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
                 android:src="@drawable/dark_stormy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>

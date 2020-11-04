@@ -27,6 +27,8 @@ class ShoppingListAdapter internal constructor(
 
     inner class ShoppingListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val shoppingItemView: TextView = itemView.findViewById(R.id.ingredientTV)
+        val measureView: TextView = itemView.findViewById(R.id.measureTV)
+
 
         fun bind(item: ShoppingList) {
 
@@ -56,7 +58,7 @@ class ShoppingListAdapter internal constructor(
                                     Toast.LENGTH_SHORT
                                 ).show()
 
-                                //shoppingListViewModel.delet(item.id!!)
+                                shoppingListViewModel.deleteByIngredient(item.ingredient)
 
                                 dialog.dismiss()
                             }
@@ -85,6 +87,7 @@ class ShoppingListAdapter internal constructor(
     override fun onBindViewHolder(holder: ShoppingListViewHolder, position: Int) {
         val current = filteredShoppingList[position]
         holder.shoppingItemView.text = current.ingredient
+        holder.measureView.text = current.measure
         holder.bind(current)
     }
 
@@ -105,7 +108,7 @@ class ShoppingListAdapter internal constructor(
                 } else {
                     val resultList = ArrayList<ShoppingList>()
                     for (row in shoppingList) {
-                        if (row.ingredient?.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(Locale.ROOT))) {
+                        if (row.ingredient.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(Locale.ROOT))) {
                             resultList.add(row)
                         }
                     }

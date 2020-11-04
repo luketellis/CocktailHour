@@ -70,8 +70,9 @@
             <TextView
                 android:id="@+id/alcoholicLabel"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="50"
+                android:inputType="text"
                 android:fontFamily="sans-serif-light"
                 android:minHeight="@dimen/min_height"
                 android:text="@string/alcoholic_label"
@@ -84,17 +85,6 @@
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/btn_dropdown"
                 android:spinnerMode="dropdown"/>
-
-<!--            <EditText
-                android:id="@+id/alcoholicEditText"
-                android:inputType="text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="50"
-                android:fontFamily="sans-serif-light"
-                android:hint="@string/alcoholic_hint"
-                android:minHeight="@dimen/min_height"
-                android:textSize="18sp" />-->
 
         </LinearLayout>
     </LinearLayout>
@@ -176,7 +166,7 @@
     <LinearLayout
         android:id="@+id/linearLayoutInstruction"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_margin="@dimen/medium_padding"
         android:layout_weight="50"
         android:orientation="vertical"
@@ -189,7 +179,6 @@
             android:id="@+id/instructionLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="50"
             android:fontFamily="sans-serif-light"
             android:minHeight="@dimen/min_height"
             android:text="@string/instruction_label"
@@ -200,7 +189,7 @@
             android:id="@+id/instructionsEditText"
             android:inputType="textMultiLine"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="50"
             android:fontFamily="sans-serif-light"
             android:hint="@string/drink_instructions"

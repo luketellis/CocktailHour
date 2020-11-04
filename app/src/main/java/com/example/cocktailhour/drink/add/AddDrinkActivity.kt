@@ -74,7 +74,7 @@ class AddDrinkActivity : AppCompatActivity() {
             return
         }
 
-        var drink: Drink = Drink(null, name, null, tags, category, alcoholic, glass,
+        val drink: Drink = Drink(null, name, null, tags, category, alcoholic, glass,
             instructions, null, null, java.util.Calendar.getInstance().toString(), 0)
 
         //drinkViewModel.insert(drink!!)

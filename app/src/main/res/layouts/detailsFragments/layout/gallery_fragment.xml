@@ -25,6 +25,7 @@
         android:fontFamily="sans-serif-light"
         android:minHeight="@dimen/min_height"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/galleryTV"/>
+        app:layout_constraintTop_toBottomOf="@+id/galleryTV"
+        android:contentDescription="@string/drink_image"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
