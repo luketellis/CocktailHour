@@ -1,7 +1,6 @@
 package com.example.cocktailhour.database
 
 import androidx.lifecycle.LiveData
-import com.example.cocktailhour.entitiy.Drink
 import com.example.cocktailhour.entitiy.ShoppingList
 
 
@@ -9,9 +8,9 @@ class ShoppingListRepository(private val shoppingListDao: ShoppingListDao) {
 
     // Room executes all queries on a separate thread.
     // Observed LiveData will notify the observer when the data has changed.
-    val allShoppingListItem: LiveData<List<ShoppingList>> = shoppingListDao.getAllShoppingListItems()
+  val allShoppingListItems: LiveData<List<ShoppingList>> = shoppingListDao.getAllShoppingListItems()
 
-    suspend fun insert(shoppingList: ShoppingList) {
+   suspend fun insert(shoppingList: ShoppingList) {
         shoppingListDao.insertShoppingListItem(shoppingList)
     }
 
@@ -19,11 +18,11 @@ class ShoppingListRepository(private val shoppingListDao: ShoppingListDao) {
         shoppingListDao.updateShoppingListItem(shoppingList)
     }
 
-    suspend fun deleteById(ingredient: String) {
+    suspend fun deleteByIngredient(ingredient: String) {
         shoppingListDao.deleteShoppingListByIngredient(ingredient)
     }
 
-    suspend fun delete() {
+    suspend fun deleteAll() {
         shoppingListDao.deleteAllShoppingList()
     }
 }

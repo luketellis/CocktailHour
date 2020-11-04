@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cocktailhour.R
-import com.example.cocktailhour.entitiy.Drink
+import com.example.cocktailhour.drink.ShoppingListViewModel
 import com.example.cocktailhour.entitiy.ShoppingList
 import java.util.*
 import kotlin.collections.ArrayList
@@ -21,12 +21,12 @@ class ShoppingListAdapter internal constructor(
 ) : RecyclerView.Adapter<ShoppingListAdapter.ShoppingListViewHolder>(), Filterable {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var shoppingList = emptyList<ShoppingList>() // Cached copy of drinks
+    private var shoppingList = emptyList<ShoppingList>() // Cached copy of shoppinglist
     private var filteredShoppingList = emptyList<ShoppingList>()
 
 
     inner class ShoppingListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val shoppingItemView: TextView = itemView.findViewById(R.id.drinkName)
+        val shoppingItemView: TextView = itemView.findViewById(R.id.ingredientTV)
 
         fun bind(item: ShoppingList) {
 
@@ -77,7 +77,7 @@ class ShoppingListAdapter internal constructor(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoppingListViewHolder {
-        val itemView = inflater.inflate(R.layout.drink_row, parent, false)
+        val itemView = inflater.inflate(R.layout.ingredient_measure_row, parent, false)
         return ShoppingListViewHolder(itemView)
     }
 

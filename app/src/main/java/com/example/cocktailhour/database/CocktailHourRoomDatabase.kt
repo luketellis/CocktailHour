@@ -8,17 +8,19 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.cocktailhour.entitiy.Drink
 import com.example.cocktailhour.entitiy.DrinkLocation
 import com.example.cocktailhour.entitiy.Ingredient
+import com.example.cocktailhour.entitiy.ShoppingList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 
 // Annotates class to be a Room Database with a table (entity) of the Drink class
-@Database(entities = arrayOf(Drink::class, Ingredient::class, DrinkLocation::class), version = 1, exportSchema = false)
+@Database(entities = arrayOf(Drink::class, Ingredient::class, DrinkLocation::class, ShoppingList::class), version = 1, exportSchema = false)
 public abstract class CocktailHourRoomDatabase : RoomDatabase() {
 
     abstract fun drinkDao(): DrinkDao
     abstract fun ingredientDao(): IngredientDao
     abstract fun drinkLocationDao(): DrinkLocationDao
+    abstract fun shoppingListDao(): ShoppingListDao
 
 
     private class DrinkDatabaseCallback(
@@ -43,11 +45,11 @@ public abstract class CocktailHourRoomDatabase : RoomDatabase() {
             }
         }
 
-        suspend fun populateDatabaseOnInstall(drinkDao: DrinkDao) {
+        fun populateDatabaseOnInstall(drinkDao: DrinkDao) {
 
         }
 
-        suspend fun populateDatabase(drinkDao: DrinkDao) {
+        fun populateDatabase(drinkDao: DrinkDao) {
             // Delete all content here.
             //drinkDao.deleteAll()
                 // Add sample drinks.

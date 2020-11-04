@@ -30,7 +30,7 @@ class DrinkListAdapter internal constructor(
 
     inner class DrinkViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val drinkItemView: TextView = itemView.findViewById(R.id.drinkName)
-        val imageView = itemView.findViewById<ImageView>(R.id.imageView)
+        private val imageView: ImageView = itemView.findViewById<ImageView>(R.id.imageView)
 
         fun bind(item: Drink) {
             if (item.favourite > 0)

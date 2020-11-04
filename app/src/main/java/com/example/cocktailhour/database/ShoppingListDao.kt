@@ -6,8 +6,12 @@ import com.example.cocktailhour.entitiy.ShoppingList
 
 @Dao
 interface ShoppingListDao {
-    @Query("SELECT * FROM ShoppingList")
+
+    @Query("SELECT * FROM ShoppingList ORDER BY ingredient ASC")
     fun getAllShoppingListItems(): LiveData<List<ShoppingList>>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertShoppingListItem(shoppingList: ShoppingList)
 
     @Update
     fun updateShoppingListItem(shoppingList: ShoppingList)
@@ -15,8 +19,7 @@ interface ShoppingListDao {
     @Query("SELECT count(*) from ShoppingList")
     fun getNumberOfShoppingListItems(): Int
 
-    @Insert
-    suspend fun insertShoppingListItem(shoppingList: ShoppingList)
+
 
     @Query("DELETE FROM ShoppingList WHERE ingredient = :ingredient")
     suspend fun deleteShoppingListByIngredient(ingredient: String)
