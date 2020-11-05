@@ -23,6 +23,7 @@ import com.example.cocktailhour.drink.details.DrinkDetailsActivity
 import com.example.cocktailhour.entitiy.Drink
 import com.example.cocktailhour.entitiy.Ingredient
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.fragment_recipes.*
 
 class RecipesFragment : Fragment() {
 
@@ -91,6 +92,7 @@ class RecipesFragment : Fragment() {
             data?.getParcelableExtra<Drink>("newDrink")?.let {
                 drinkViewModel.insert(it)
                 Toast.makeText(activity, "Drink with name ${it.name} has been created!", Toast.LENGTH_LONG).show()
+                searchView.setQuery("", true)
             }
             data?.getParcelableExtra<Ingredient>("newIngredient")?.let {
                 //ingredientViewModel.insert(it)

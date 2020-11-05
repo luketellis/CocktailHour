@@ -52,8 +52,6 @@ class DrinkListAdapter internal constructor(
         }
 
         private fun onLongClick(v: View?, item: Drink): Boolean {
-            // Return true to indicate the click was handled
-
             val pop = PopupMenu(itemView.context, v)
             pop.inflate(R.menu.contextual_menu)
 

@@ -98,9 +98,6 @@ class EditDrinkActivity : AppCompatActivity() {
         drink?.category = category
         drink?.alcoholic = alcoholic
         drink?.glass = glass
-        drink?.glass = glass
-        drink?.glass = glass
-        drink?.glass = glass
         drink?.dateModified = java.util.Calendar.getInstance().time.toString()
 
         drink?.let { drinkViewModel.update(it) }
