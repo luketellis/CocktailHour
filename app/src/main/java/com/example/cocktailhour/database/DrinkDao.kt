@@ -14,7 +14,7 @@ interface DrinkDao {
     fun getAllDrinksByName(): LiveData<List<Drink>>
 
     @Query("SELECT * FROM Drink WHERE id = :id")
-    fun getDrinkById(id: Int): Drink
+    fun getDrinkById(id: Int): LiveData<Drink>
 
     @Query("SELECT favourite FROM Drink WHERE id = :id")
     fun getFavouriteFromDrink(id: Int): Int

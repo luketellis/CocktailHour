@@ -31,6 +31,11 @@ class DrinkViewModel(application: Application) : AndroidViewModel(application) {
     /**
      * Launching a new coroutine to insert the data in a non-blocking way
      */
+
+    fun getDrinkById(id: Int): LiveData<Drink> {
+        return repository.getDrinkById(id)
+    }
+
     fun insert(drink: Drink) = viewModelScope.launch(Dispatchers.IO) {
         repository.insert(drink)
     }
@@ -39,8 +44,8 @@ class DrinkViewModel(application: Application) : AndroidViewModel(application) {
         repository.update(drink)
     }
 
-    fun delete() = viewModelScope.launch(Dispatchers.IO) {
-        repository.delete()
+    fun deleteAllDrinks() = viewModelScope.launch(Dispatchers.IO) {
+        repository.deleteAllDrinks()
     }
 
     fun deleteById(id: Int) = viewModelScope.launch(Dispatchers.IO) {

@@ -12,6 +12,10 @@ class DrinkRepository(private val drinkDao: DrinkDao) {
 
     val favouriteDrinks: LiveData<List<Drink>> = drinkDao.getFavouritedDrink()
 
+    fun getDrinkById(id: Int): LiveData<Drink> {
+        return drinkDao.getDrinkById(id)
+    }
+
     suspend fun insert(drink: Drink) {
         drinkDao.insertDrink(drink)
     }
@@ -28,7 +32,7 @@ class DrinkRepository(private val drinkDao: DrinkDao) {
         drinkDao.deleteDrinkById(id)
     }
 
-    suspend fun delete() {
+    suspend fun deleteAllDrinks() {
         drinkDao.deleteAllDrinks()
     }
 }
