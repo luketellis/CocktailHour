@@ -6,28 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/medium_padding"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/featuredCocktailsHeading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/medium_padding"
+        android:textStyle="bold"
         android:textAlignment="center"
-        android:textSize="24sp"
-        android:text="Featured Cocktails"
+        android:textSize="26sp"
+        android:text="@string/featured_cocktails"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/featuredCocktails"
         app:layout_constraintEnd_toEndOf="@id/featuredCocktails"
         app:layout_constraintHorizontal_bias="0.0"
@@ -40,7 +29,7 @@
         android:layout_height="250dp"
         android:baselineAligned="false"
         app:layout_constraintBottom_toTopOf="@+id/mapImageView"
-        app:layout_constraintTop_toBottomOf="@+id/nameTV">
+        app:layout_constraintTop_toBottomOf="@+id/featuredCocktailsHeading">
 
         <LinearLayout
             android:id="@+id/categoryLinearLayout"

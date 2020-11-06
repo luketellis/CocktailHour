@@ -48,8 +48,7 @@ class EditDrinkDetailsFragment : Fragment() {
 
         // Create an ArrayAdapter using the alcoholic string array
         val staticAdapter = ArrayAdapter
-            .createFromResource(requireContext(), R.array.alcoholic_options,
-                android.R.layout.simple_spinner_item)
+            .createFromResource(requireContext(), R.array.alcoholic_options, android.R.layout.simple_spinner_item)
 
         staticAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         staticSpinner.adapter = staticAdapter
@@ -57,14 +56,9 @@ class EditDrinkDetailsFragment : Fragment() {
 
         val updateBtn = root.findViewById<Button>(R.id.updateBtn)
         updateBtn.setOnClickListener {
-            validateEmptyFieldsAndUpdateDrink(nameEditText.text.toString(),
-                categoryEditText.text.toString(),
-                tagsEditText.text.toString(),
-                instructionsEditText.text.toString(),
-                staticSpinner.selectedItem.toString(),
-                glassEditText.text.toString(),
-                activity)
-
+            validateEmptyFieldsAndUpdateDrink(nameEditText.text.toString(), categoryEditText.text.toString(),
+                tagsEditText.text.toString(), instructionsEditText.text.toString(),
+                staticSpinner.selectedItem.toString(), glassEditText.text.toString(), activity)
         }
 
         val exitWithoutSavingBtn = root.findViewById<Button>(R.id.exitBtn)
@@ -86,17 +80,9 @@ class EditDrinkDetailsFragment : Fragment() {
         }
     }
 
-    private fun validateEmptyFieldsAndUpdateDrink(
-        name: String,
-        category: String,
-        tags: String,
-        instructions: String,
-        alcoholic: String,
-        glass: String,
-        activity: EditDrinkActivity?
-    ) {
+    private fun validateEmptyFieldsAndUpdateDrink(name: String, category: String, tags: String,
+        instructions: String, alcoholic: String, glass: String, activity: EditDrinkActivity?) {
         if (name == "") {
-            //parentActivity?.displayToastValidation("Name cannot be empty!");
             Toast.makeText(context, "Name cannot be empty!", Toast.LENGTH_SHORT).show()
             return
         }
@@ -111,12 +97,7 @@ class EditDrinkDetailsFragment : Fragment() {
             return
         }
 
-        activity?.updateDrinkAndReturnToMainMenu(name,
-            category,
-            tags,
-            instructions,
-            alcoholic,
-            glass)
+        activity?.updateDrinkAndReturnToMainMenu(name, category, tags, instructions, alcoholic, glass)
     }
 
 

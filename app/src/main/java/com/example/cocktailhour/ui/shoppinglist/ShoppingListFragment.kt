@@ -43,8 +43,6 @@ class ShoppingListFragment : Fragment() {
             shoppinglist?.let { adapter.setShoppingListItems(it) }
         })
 
-
-
         return root
     }
 

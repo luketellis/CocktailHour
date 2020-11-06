@@ -1,13 +1,14 @@
 <resources>
     <string name="app_name">Cocktail Hour</string>
-    <string name="title_map">Drink\'s of the World</string>
+    <string name="featured_cocktails">Featured Cocktails</string>
+    <string name="title_map">Drinks of the World</string>
     <string name="title_add_drink">Add Drink</string>
     <string name="title_edit_drink">Edit Drink Details</string>
     <string name="title_drink_drink">Drink Details</string>
     <string name="title_home">Home</string>
     <string name="title_favourites">Favourites</string>
     <string name="title_recipes">Recipes</string>
-    <string name="title_shopping">Shopping</string>
+    <string name="title_shopping">Shopping List</string>
     <string name="title_create">Create</string>
     <string name="add_drink">Add Drink</string>
     <string name="generic_hint"><i>None</i></string>

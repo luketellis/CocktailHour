@@ -25,7 +25,6 @@ class HomeFragment : Fragment() {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
 
 
         val mapImageView: ImageView = root.findViewById(R.id.mapImageView)
@@ -34,12 +33,7 @@ class HomeFragment : Fragment() {
             val intent = Intent(this.context, MapActivity::class.java)
             startActivity(intent)
         }
-
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-
-
-        })
+        
         return root
     }
 }

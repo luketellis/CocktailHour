@@ -13,7 +13,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 
-// Annotates class to be a Room Database with a table (entity) of the Drink class
+// Annotates class to be a Room Database with a tables (entities) as specified
 @Database(entities = arrayOf(Drink::class, Ingredient::class, DrinkLocation::class, ShoppingList::class), version = 1, exportSchema = false)
 public abstract class CocktailHourRoomDatabase : RoomDatabase() {
 
@@ -29,11 +29,6 @@ public abstract class CocktailHourRoomDatabase : RoomDatabase() {
 
         override fun onOpen(db: SupportSQLiteDatabase) {
             super.onOpen(db)
-            INSTANCE?.let { database ->
-                scope.launch {
-                    populateDatabase(database.drinkDao())
-                }
-            }
         }
 
         override fun onCreate(db: SupportSQLiteDatabase) {
@@ -48,21 +43,10 @@ public abstract class CocktailHourRoomDatabase : RoomDatabase() {
         fun populateDatabaseOnInstall(drinkDao: DrinkDao) {
 
         }
-
-        fun populateDatabase(drinkDao: DrinkDao) {
-            // Delete all content here.
-/*          drinkDao.deleteAll()
-            Add sample drinks.
-            var drink = Drink("Tequila", "Mexican", "Mug", "instructions", "thumbnail")
-            drinkDao.insert(drink)
-            drink = Drink("Coffee", "Morning", "Mug", "instructions", "thumbnail")
-            drinkDao.insert(drink)*/
-        }
     }
 
     companion object {
-        // Singleton prevents multiple instances of database opening at the
-        // same time.
+        // Singleton prevents multiple instances of database opening at the same time.
         @Volatile
         private var INSTANCE: CocktailHourRoomDatabase? = null
 
