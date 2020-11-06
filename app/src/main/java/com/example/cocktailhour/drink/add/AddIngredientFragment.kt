@@ -20,6 +20,7 @@ class AddIngredientFragment: Fragment(), TextWatcher {
     private lateinit var ingredientFourEditText: EditText
     private lateinit var ingredientFiveEditText: EditText
     private lateinit var ingredientSixEditText: EditText
+    private lateinit var ingredientSevenEditText: EditText
 
     private lateinit var measureOneEditText: EditText
     private lateinit var measureTwoEditText: EditText
@@ -27,6 +28,7 @@ class AddIngredientFragment: Fragment(), TextWatcher {
     private lateinit var measureFourEditText: EditText
     private lateinit var measureFiveEditText: EditText
     private lateinit var measureSixEditText: EditText
+    private lateinit var measureSevenEditText: EditText
 
     private var newIngredient : IngredientDTO = IngredientDTO()
 
@@ -58,6 +60,9 @@ class AddIngredientFragment: Fragment(), TextWatcher {
         ingredientSixEditText = root.findViewById(R.id.ingredientSixEditText)
         ingredientSixEditText.addTextChangedListener(this)
 
+        ingredientSevenEditText = root.findViewById(R.id.ingredientSevenEditText)
+        ingredientSevenEditText.addTextChangedListener(this)
+
         measureOneEditText = root.findViewById(R.id.measureOneEditText)
         measureOneEditText.addTextChangedListener(this)
 
@@ -75,6 +80,9 @@ class AddIngredientFragment: Fragment(), TextWatcher {
 
         measureSixEditText = root.findViewById(R.id.measureSixEditText)
         measureSixEditText.addTextChangedListener(this)
+
+        measureSevenEditText = root.findViewById(R.id.measureSevenEditText)
+        measureSevenEditText.addTextChangedListener(this)
 
         return root
     }
@@ -94,6 +102,7 @@ class AddIngredientFragment: Fragment(), TextWatcher {
             ingredientFourEditText.text.hashCode() ->  newIngredient.ingredient4 = s.toString()
             ingredientFiveEditText.text.hashCode() -> newIngredient.ingredient5 = s.toString()
             ingredientSixEditText.text.hashCode() ->  newIngredient.ingredient6 = s.toString()
+            ingredientSevenEditText.text.hashCode() ->  newIngredient.ingredient7 = s.toString()
 
             measureOneEditText.text.hashCode() -> newIngredient.measure1 = s.toString()
             measureTwoEditText.text.hashCode() -> newIngredient.measure2 = s.toString()
@@ -101,6 +110,7 @@ class AddIngredientFragment: Fragment(), TextWatcher {
             measureFourEditText.text.hashCode() -> newIngredient.measure4 = s.toString()
             measureFiveEditText.text.hashCode() -> newIngredient.measure5 = s.toString()
             measureSixEditText.text.hashCode() -> newIngredient.measure6 = s.toString()
+            measureSevenEditText.text.hashCode() -> newIngredient.measure7 = s.toString()
         }
 
         parentActivity?.updateIngredientInActivity(newIngredient)

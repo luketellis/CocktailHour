@@ -91,23 +91,6 @@ class AddDrinkActivity : AppCompatActivity() {
         super.onBackPressed()
     }
 
-/*    button.setOnClickListener {
-        val replyIntent = Intent()
-        if (TextUtils.isEmpty(editDrinkView.text)) {
-            setResult(Activity.RESULT_CANCELED, replyIntent)
-        } else {
-            val drink =
-                Drink(null, editDrinkView.text.toString(), "German Name", "Tags",
-                    "category", "Alcoholic", "Mug", "instructions",
-                    "German Instructions", "thumbnail", "12/05/1991")
-
-            replyIntent.putExtra(EXTRA_REPLY, drink)
-            setResult(Activity.RESULT_OK, replyIntent)
-        }
-        finish()
-    }*/
-
-
     private fun getTabText(position: Int): String {
         var tabText: String = "Details"
 

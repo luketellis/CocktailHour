@@ -41,10 +41,9 @@ class EditDrinkActivity : AppCompatActivity() {
 
         drink = intent.getParcelableExtra<Drink>("drink")
 
-/*        GlobalScope.launch {
+        /*GlobalScope.launch {
             ingredient = ingredientViewModel.getIngredientById(drink.id)
         }*/
-
 
         val db= Room.databaseBuilder(applicationContext,CocktailHourRoomDatabase::class.java,"Cocktails").build()
 
