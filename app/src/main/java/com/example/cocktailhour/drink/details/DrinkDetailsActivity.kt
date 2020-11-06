@@ -101,4 +101,10 @@ class DrinkDetailsActivity : AppCompatActivity() {
     fun getMyIngredients(): ArrayList<IngredientMeasure> {
         return ingredientMeasureList
     }
+
+    fun getExistingIngredientsOnly(): ArrayList<IngredientMeasure> {
+        val filteredList = ingredientMeasureList;
+        filteredList.remove(IngredientMeasure("", ""))
+        return filteredList
+    }
 }

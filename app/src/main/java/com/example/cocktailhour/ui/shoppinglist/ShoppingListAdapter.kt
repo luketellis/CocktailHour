@@ -31,17 +31,13 @@ class ShoppingListAdapter internal constructor(
 
 
         fun bind(item: ShoppingList) {
-
-
             itemView.setOnClickListener { listener(item) }
             itemView.setOnLongClickListener { onLongClick(itemView, item) }
         }
 
         private fun onLongClick(v: View?, item: ShoppingList): Boolean {
-            // Return true to indicate the click was handled
-
             val pop = PopupMenu(itemView.context, v)
-            pop.inflate(R.menu.contextual_menu)
+            pop.inflate(R.menu.shopping_contextual_menu)
 
             pop.setOnMenuItemClickListener { menuItem ->
                 when (menuItem.itemId) {
@@ -59,12 +55,10 @@ class ShoppingListAdapter internal constructor(
                                 ).show()
 
                                 shoppingListViewModel.deleteByIngredient(item.ingredient)
-
                                 dialog.dismiss()
                             }
 
                             alert.setNegativeButton("No") { dialog, _ -> dialog.dismiss() }
-
                             alert.show()
 
                         }
@@ -79,7 +73,7 @@ class ShoppingListAdapter internal constructor(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoppingListViewHolder {
-        val itemView = inflater.inflate(R.layout.ingredient_measure_row, parent, false)
+        val itemView = inflater.inflate(R.layout.shopping_measure_row, parent, false)
         return ShoppingListViewHolder(itemView)
     }
 

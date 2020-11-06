@@ -8,7 +8,8 @@
     <string name="title_home">Home</string>
     <string name="title_favourites">Favourites</string>
     <string name="title_recipes">Recipes</string>
-    <string name="title_shopping">Shopping List</string>
+    <string name="title_shopping">Shopping</string>
+    <string name="title_shopping_list">Shopping List</string>
     <string name="title_create">Create</string>
     <string name="add_drink">Add Drink</string>
     <string name="generic_hint"><i>None</i></string>

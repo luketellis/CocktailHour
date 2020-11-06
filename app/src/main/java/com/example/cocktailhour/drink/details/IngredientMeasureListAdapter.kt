@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -36,23 +37,19 @@ class IngredientMeasureListAdapter(
     inner class ViewHolder(private val v: View) : RecyclerView.ViewHolder(v) {
         private val ingredientTV: TextView = v.findViewById(R.id.ingredientTV)
         private val measureTV: TextView = v.findViewById(R.id.measureTV)
-/*        private val imageView = v.findViewById<ImageView>(R.id.imageView)*/
+        private val shoppingCartImageView = v.findViewById<ImageView>(R.id.shoppingView)
 
         fun bind(item: IngredientMeasure) {
             ingredientTV.text = item.ingredient
             measureTV.text = item.measure
 
-            v.setOnClickListener {
+            shoppingCartImageView.setOnClickListener {
                 if (item.ingredient!! != "") {
-                    Toast.makeText(v.context, item.toString(), Toast.LENGTH_SHORT).show()
                     shoppingListViewModel.insert(ShoppingList(item.ingredient!!, item.measure!!, null))
+                    Toast.makeText(v.context, "${item.ingredient} has been added to the shopping list", Toast.LENGTH_SHORT).show()
                 }
             }
 
-            v.setOnLongClickListener {
-/*                listener(item)*/
-                true
-            }
         }
     }
 }

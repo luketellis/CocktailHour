@@ -35,12 +35,4 @@
             android:textSize="18sp"/>
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/shoppingView"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_vertical"
-        android:contentDescription="@string/ingredient_image"
-        android:src="@drawable/ic_baseline_add_shopping_cart_24"/>
-
 </LinearLayout>

@@ -26,6 +26,6 @@
     <fragment
         android:id="@+id/navigation_shoppingList"
         android:name="com.example.cocktailhour.ui.shoppinglist.ShoppingListFragment"
-        android:label="@string/title_shopping"
+        android:label="@string/title_shopping_list"
         tools:layout="@layout/fragment_timer" />
 </navigation>

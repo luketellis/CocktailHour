@@ -6,18 +6,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
 import com.example.cocktailhour.R
-import com.example.cocktailhour.entitiy.Drink
 import com.example.cocktailhour.drink.DrinkListAdapter
 import com.example.cocktailhour.drink.DrinkViewModel
 import com.example.cocktailhour.drink.IngredientViewModel
 import com.example.cocktailhour.drink.details.DrinkDetailsActivity
+import com.example.cocktailhour.entitiy.Drink
+import kotlinx.android.synthetic.main.fragment_recipes.*
+
 
 class FavouritesFragment : Fragment() {
 
@@ -27,9 +31,9 @@ class FavouritesFragment : Fragment() {
     private lateinit var favouritesViewModel: FavouritesViewModel
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View? {
         favouritesViewModel =
                 ViewModelProviders.of(this).get(FavouritesViewModel::class.java)
@@ -41,7 +45,8 @@ class FavouritesFragment : Fragment() {
         ingredientViewModel = ViewModelProvider(this).get(IngredientViewModel::class.java)
 
         val recyclerView = root.findViewById<RecyclerView>(R.id.recyclerview)
-        val adapter = DrinkListAdapter(root.context, drinkViewModel, ingredientViewModel) { showDetail(it)}
+        val adapter = DrinkListAdapter(root.context, drinkViewModel, ingredientViewModel) { showDetail(
+            it)}
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(root.context)
 
@@ -60,6 +65,15 @@ class FavouritesFragment : Fragment() {
 
             override fun onQueryTextSubmit(query: String): Boolean {
                 return false
+            }
+        })
+
+        adapter.registerAdapterDataObserver(object : AdapterDataObserver() {
+            override fun onChanged() {
+                super.onChanged()
+                if (adapter.itemCount == 0) {
+                    Toast.makeText(context, "Favourite drinks by clicking the heart icons in the recipe screen", Toast.LENGTH_SHORT).show()
+                }
             }
         })
 

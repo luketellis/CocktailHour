@@ -37,16 +37,24 @@ class ShoppingListFragment : Fragment() {
         val adapter = ShoppingListAdapter(root.context, shoppingListViewModel) { showDetail(it)}
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(root.context)
-
         shoppingListViewModel.allShoppingListItems.observe(viewLifecycleOwner, Observer { shoppinglist ->
             // Update the cached copy of the shopping list items in the adapter.
             shoppinglist?.let { adapter.setShoppingListItems(it) }
+        })
+
+        adapter.registerAdapterDataObserver(object : RecyclerView.AdapterDataObserver() {
+            override fun onChanged() {
+                super.onChanged()
+                if (adapter.itemCount == 0) {
+                    Toast.makeText(context, "You can add items from the view drink details screen", Toast.LENGTH_SHORT).show()
+                }
+            }
         })
 
         return root
     }
 
     private fun showDetail(item: ShoppingList) {
-        Toast.makeText(context, item.toString(), Toast.LENGTH_SHORT).show()
+        //Toast.makeText(context, item.toString(), Toast.LENGTH_SHORT).show()
     }
 }
